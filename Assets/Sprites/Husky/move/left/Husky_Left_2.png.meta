@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 08017e743e1cca9488ab3daab335dfe5
+guid: bf05ae134a8c70b4690d2527adb5128b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4821486207198945839
-    second: Grafika_bez_nazwy-1_0
+      213: -5193304800074102180
+    second: Grafika_bez_nazwy-3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 550
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Grafika_bez_nazwy-1_0
+      name: Husky_Left_2_0
       rect:
         serializedVersion: 2
-        x: 381
-        y: 107
-        width: 1286
-        height: 1778
+        x: 488
+        y: 153
+        width: 910
+        height: 1702
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f22e98df82c59e240800000000000000
-      internalID: 4821486207198945839
+      spriteID: c5a8045bcccade7b0800000000000000
+      internalID: -5193304800074102180
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d7a93ce316b0b3f4fb7978e72fc7c30b
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Grafika_bez_nazwy-1_0: 4821486207198945839
+      Husky_Left_2_0: -5193304800074102180
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,22 +1,18 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Transform))]
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerMovement))]
 public class PlayerInfo : MonoBehaviour
 {
     public Transform playerTransform;
-    public Rigidbody2D playerRigidbody;
+    public PlayerMovement playerMovement;
+    public PlayerBody playerBody;
 
     private void OnValidate()
     {
         if (playerTransform == null)
         {
             playerTransform = transform;
-        }
-
-        if (playerRigidbody == null)
-        {
-            playerRigidbody = GetComponent<Rigidbody2D>();
         }
     }
 }

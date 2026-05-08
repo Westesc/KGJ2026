@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public PlayerInfo playerInfo;
     public float moveSpeed = 5.0f;
 
+    public Vector2 RawMoveInput { get; private set; } = Vector2.zero;
+
     private Vector3 moveInput = Vector3.zero;
 
     private void OnValidate()
@@ -29,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext ctx)
     {
-        Vector2 input = ctx.ReadValue<Vector2>();
-        moveInput = new Vector3(input.x, 0.0f, input.y);
+        RawMoveInput = ctx.ReadValue<Vector2>();
+        moveInput = new Vector3(RawMoveInput.x, 0.0f, RawMoveInput.y);
     }
 }
