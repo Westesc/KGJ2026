@@ -35,7 +35,7 @@ public class EnemyMovements : MonoBehaviour
 
     void EnemyMove()
     {
-        PlayerPosition = GameObject.Find("Player").transform.position;
+        PlayerPosition = GameObject.FindWithTag("Player").transform.position;
         Vector3 direction = PlayerPosition - this.gameObject.transform.transform.localPosition;
         if (Vector3.Distance(PlayerPosition, this.gameObject.transform.position) > MeleeDistance && enemyType == EnemyType.MeleeDealer)
         {
