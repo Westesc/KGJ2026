@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13966, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: SimpleScene
+  m_EditorClassIdentifier: UnityEditor.dll::UnityEditor.SceneTemplate.SceneTemplateAsset
+  templateScene: {fileID: 102900000, guid: 262563de6a9502242a0bf8c98e816249, type: 3}
+  templateName: Simple Scene With Player And Camera
+  description: 
+  preview: {fileID: 0}
+  dependencies:
+  - dependency: {fileID: 2800000, guid: 9d4bc5a466758054fa661e490a8bf5b7, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 2800000, guid: 32f3ef07bd2320b4dbe90938bde0f24e, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    instantiationMode: 0
+  - dependency: {fileID: 926429278342818913, guid: 72060f62e69b0eb41b4a3f43f2c38885, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 2800000, guid: 08017e743e1cca9488ab3daab335dfe5, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: -944628639613478452, guid: e33c6b3a4061a0f45bdede8206ea3637, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 2800000, guid: 57da91ef0c2a5489891995dc81537253, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 2800000, guid: 40265a896a0f341bb956e90c59025a29, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 4078274186938617421, guid: 2eb71e648331026499de9f29b8019283, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 2800000, guid: 8731fb45ad7c0334a8dff17a52fbf34e, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 2800000, guid: 26663a5ec9987421996161615506b6c5, type: 3}
+    instantiationMode: 1
+  templatePipeline: {fileID: 0}
+  badge: {fileID: 0}
+  addToDefaults: 0
