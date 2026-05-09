@@ -9,15 +9,16 @@ using UnityEngine.UI;
 public class MapGenerator : MonoBehaviour
 {
     // STATIC
-    private static readonly Vector2Int MAP_SIZE = new(6, 6);
+    private static readonly Vector2Int MAP_SIZE = new(6, 4);
     private static readonly int ALL_ROOM_NUM = MAP_SIZE.x * MAP_SIZE.y;
     private static readonly Vector2Int TEXTURE_PIXELS = new(3, 3);
     private static readonly int ALL_TEXTURE_PIXELS = TEXTURE_PIXELS.x * TEXTURE_PIXELS.y;
-    private static readonly Color32[] DEFAULT_TEXTURE_COLOR = { Color.darkGray, Color.darkGray, Color.darkGray, Color.darkGray, Color.darkGray, Color.darkGray, Color.darkGray, Color.darkGray, Color.darkGray };
+    private static readonly Color32 DEFAULT_COLOR_VALUE = new(41, 41, 41, 0);
+    private static readonly Color32[] DEFAULT_TEXTURE_COLOR = { DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE };
 
     // ROOMS
     // y * size.x + x
-    private Room[] m_Map;
+    private RoomData[] m_Map;
 
     // DRAW
     private Texture2D[] m_Textures;
@@ -75,7 +76,7 @@ public class MapGenerator : MonoBehaviour
         {
             return;
         }
-        Room r = m_Map[index];
+        RoomData r = m_Map[index];
         for (int z = 0; z < ALL_TEXTURE_PIXELS; ++z)
         {
             int x = z % TEXTURE_PIXELS.x;
@@ -250,7 +251,7 @@ public class MapGenerator : MonoBehaviour
         {
             if (m_Map[i] == null)
             {
-                m_Map[i] = Room.CreateEmpty();
+                m_Map[i] = RoomData.CreateEmpty();
                 m_Map[i].SetPos(new Vector2Int(i % MAP_SIZE.x, i / MAP_SIZE.x));
             }
             else
@@ -266,9 +267,11 @@ public class MapGenerator : MonoBehaviour
             {
                 m_Textures[i] = new(TEXTURE_PIXELS.x, TEXTURE_PIXELS.y);
                 m_Textures[i].filterMode = FilterMode.Point;
+                m_Textures[i].alphaIsTransparency = true;
             }
 
             m_Textures[i].SetPixels32(DEFAULT_TEXTURE_COLOR);
+            m_Textures[i].Apply();
         }
 
         m_RoomQueue.Clear();
@@ -288,8 +291,10 @@ public class MapGenerator : MonoBehaviour
         {
             m_Textures[i] = new(TEXTURE_PIXELS.x, TEXTURE_PIXELS.y);
             m_Textures[i].filterMode = FilterMode.Point;
+            m_Textures[i].alphaIsTransparency = true;
 
             m_Textures[i].SetPixels32(DEFAULT_TEXTURE_COLOR);
+            m_Textures[i].Apply();
         }
 
         m_Images = new RawImage[ALL_ROOM_NUM];
@@ -298,15 +303,15 @@ public class MapGenerator : MonoBehaviour
             GameObject obj = new($"Image_{i % MAP_SIZE.x}_{i / MAP_SIZE.x}");
             obj.transform.parent = parentObject.transform;
             m_Images[i] = obj.AddComponent<RawImage>();
-            m_Images[i].rectTransform.sizeDelta = RoomSize;
+            m_Images[i].rectTransform.sizeDelta = new Vector2(RoomSize.x * parentObject.transform.lossyScale.x, RoomSize.y * parentObject.transform.lossyScale.y);
             m_Images[i].rectTransform.SetLocalPositionAndRotation(GetWorldPositionFromMapIndex(i), Quaternion.identity);
             m_Images[i].texture = m_Textures[i];
         }
 
-        m_Map = new Room[ALL_ROOM_NUM];
+        m_Map = new RoomData[ALL_ROOM_NUM];
         for (int i = 0; i < ALL_ROOM_NUM; ++i)
         {
-            m_Map[i] = Room.CreateEmpty();
+            m_Map[i] = RoomData.CreateEmpty();
             m_Map[i].SetPos(new Vector2Int(i % MAP_SIZE.x, i / MAP_SIZE.x));
         }
 
