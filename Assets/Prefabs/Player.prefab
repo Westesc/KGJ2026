@@ -406,9 +406,15 @@ MonoBehaviour:
     - {fileID: 3762931617253330252, guid: 52d8b9e6635f4c14b8656fbe692b7a7d, type: 3}
     - {fileID: 7368654395371832364, guid: a8d9f58bcea9a5141b1df7d7f27fb66f, type: 3}
     - {fileID: -2384908201296892499, guid: 5a902193b0b6a1548b54930cdf6d8f30, type: 3}
+    - {fileID: -2384908201296892499, guid: 5a902193b0b6a1548b54930cdf6d8f30, type: 3}
+    - {fileID: -2384908201296892499, guid: 5a902193b0b6a1548b54930cdf6d8f30, type: 3}
+    - {fileID: -2384908201296892499, guid: 5a902193b0b6a1548b54930cdf6d8f30, type: 3}
+    - {fileID: -2384908201296892499, guid: 5a902193b0b6a1548b54930cdf6d8f30, type: 3}
+    - {fileID: 7368654395371832364, guid: a8d9f58bcea9a5141b1df7d7f27fb66f, type: 3}
     - {fileID: 7368654395371832364, guid: a8d9f58bcea9a5141b1df7d7f27fb66f, type: 3}
     - {fileID: 3762931617253330252, guid: 52d8b9e6635f4c14b8656fbe692b7a7d, type: 3}
     - {fileID: -7621740272398284685, guid: 6890e20f64029c9418af9076af835ca4, type: 3}
     - {fileID: -8581017441995073328, guid: 80249310804eb7342a520a4b07172771, type: 3}
     timeForSprite: 0.1
   isAttacking: 0
+  isMoving: 1
