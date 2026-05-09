@@ -1,15 +1,14 @@
-using SaintsField;
 using UnityEngine;
 
-public enum DoorType { Top, Bottom, Right, Left }
+public enum DoorType { Left = 0, Top = 1, Right = 2, Bottom = 3 }
 
 public class RoomInfo : MonoBehaviour
 {
     public int index;
-    public RoomDoors topDoors;
-    public RoomDoors bottomDoors;
-    public RoomDoors leftDoors;
-    public RoomDoors rightDoors;
+    public RoomDoor topDoors;
+    public RoomDoor bottomDoors;
+    public RoomDoor leftDoors;
+    public RoomDoor rightDoors;
 
     public void Rotate(uint cycles)
     {
@@ -23,9 +22,29 @@ public class RoomInfo : MonoBehaviour
     public void RotateOne()
     {
         (topDoors, rightDoors, bottomDoors, leftDoors) = (leftDoors, topDoors, rightDoors, bottomDoors);
+
+        if (topDoors != null)
+        {
+            topDoors.SetDoorType(DoorType.Top);
+        }
+
+        if (rightDoors != null)
+        {
+            rightDoors.SetDoorType(DoorType.Right);
+        }
+
+        if (bottomDoors != null)
+        {
+            bottomDoors.SetDoorType(DoorType.Bottom);
+        }
+
+        if (leftDoors != null)
+        {
+            leftDoors.SetDoorType(DoorType.Left);
+        }
     }
 
-    public void Exit(RoomDoors door)
+    public void Exit(RoomDoor door)
     {
         if (door == null)
         {
