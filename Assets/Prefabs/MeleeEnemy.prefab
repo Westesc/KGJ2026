@@ -175,9 +175,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovements
   enemyType: 0
   PlayerPosition: {x: 0, y: 0, z: 0}
-  RangerDistance: 10
+  RangerDistance: 5
   MeleeDistance: 1
-  Speed: 10
+  Speed: 5
   MeleeAttackDistance: 2
   TimeToAttack: 2
   AttackPrefab: {fileID: 3866896898257680999, guid: 21f0c3944a7657d4ba1ac65eec7d5d25, type: 3}
