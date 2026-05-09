@@ -19,6 +19,7 @@ public class EnemyMovements : MonoBehaviour
     public float TimeToAttack;
     private float TimeFromLastAttack;
     public Transform AttackPrefab;
+    public bool IsMove = true;
 
     private void Start()
     {
@@ -28,7 +29,8 @@ public class EnemyMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EnemyMove();
+        if (IsMove)
+            EnemyMove();
         EnemyAttack();
 
     }
@@ -55,7 +57,8 @@ public class EnemyMovements : MonoBehaviour
             TimeFromLastAttack = 0.0f;
             if (enemyType == EnemyType.MeleeDealer && Vector3.Distance(PlayerPosition, this.gameObject.transform.position) < MeleeAttackDistance)
             {
-
+                var go = Instantiate(AttackPrefab, PlayerPosition, this.gameObject.transform.rotation,this.gameObject.transform);
+                
             }
             else if (enemyType == EnemyType.RangeDealer)
             {
