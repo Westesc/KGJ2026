@@ -7,6 +7,7 @@ public enum PlayerMoveState
     Idle, MoveUp, MoveDown, MoveLeft, MoveRight
 }
 
+[DisallowMultipleComponent]
 public class PlayerBody : MonoBehaviour
 {
     [System.Serializable]

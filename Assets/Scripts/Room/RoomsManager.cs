@@ -2,13 +2,13 @@ using DG.Tweening;
 using SaintsField;
 using System.Collections.Generic;
 using UnityEngine;
-using static SaintsField.Editor.Drawers.LayerDrawer.LayerUtils;
 
 public enum RoomConnectionType
 {
     TopToBottom, BottomToTop, LeftToRight, RightToLeft
 }
 
+[DisallowMultipleComponent]
 public class RoomsManager : MonoBehaviour
 {
     public static RoomsManager Instance { get; private set; }

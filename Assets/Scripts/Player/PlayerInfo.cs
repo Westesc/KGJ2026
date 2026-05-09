@@ -2,6 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Transform))]
 [RequireComponent(typeof(PlayerMovement))]
+[DisallowMultipleComponent]
 public class PlayerInfo : MonoBehaviour
 {
     public Transform playerTransform;

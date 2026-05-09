@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInfo))]
+[DisallowMultipleComponent]
 public class PlayerMovement : MonoBehaviour
 {
     public PlayerInfo playerInfo;
