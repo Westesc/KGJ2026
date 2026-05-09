@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ec9b97d5320cf544e917870a52d9810f
+guid: f71e6f1f246ee264eb902b9308e3889f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 720970189226141905
-    second: Kot_szczela-1_0
+      213: -6647360405437301637
+    second: "Kot_niebi\u0119ski-1_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 550
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kot_szczela-1_0
+      name: "Kot_niebi\u0119ski-1_0"
       rect:
         serializedVersion: 2
         x: 238
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1d868763196610a00800000000000000
-      internalID: 720970189226141905
+      spriteID: b7cb9e33ee4dfb3a0800000000000000
+      internalID: -6647360405437301637
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Kot_szczela-1_0: 720970189226141905
+      "Kot_niebi\u0119ski-1_0": -6647360405437301637
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
