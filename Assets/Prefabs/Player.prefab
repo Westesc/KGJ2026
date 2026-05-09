@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   playerInfo: {fileID: 3224037705438062377}
-  moveSpeed: 5
+  moveSpeed: 10
 --- !u!136 &7152937829629253483
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -337,18 +337,18 @@ MonoBehaviour:
     - {fileID: 7326099678423028631, guid: 940de550f1d903c4193349d3898c718d, type: 3}
     - {fileID: -5193304800074102180, guid: 971dc0a458cdea94c8565d235ababf0a, type: 3}
     - {fileID: -4420361669602785922, guid: 59605fad924363c45b99b1f1bf43364a, type: 3}
-    timeForSprite: 0.2
+    timeForSprite: 0.1
   moveDownAnim:
     sprites:
     - {fileID: 4821486207198945839, guid: 9d4bc5a466758054fa661e490a8bf5b7, type: 3}
     - {fileID: 7326099678423028631, guid: 99996c4067108584abf44fd9e30b6e23, type: 3}
     - {fileID: -5193304800074102180, guid: 1e0ff16387f32fb4db6af361e97d739b, type: 3}
     - {fileID: -4420361669602785922, guid: 3c808f00585a3934ebe8a09ff3b541d5, type: 3}
-    timeForSprite: 0.2
+    timeForSprite: 0.1
   moveLeftAnim:
     sprites:
     - {fileID: 4821486207198945839, guid: 8731fb45ad7c0334a8dff17a52fbf34e, type: 3}
     - {fileID: 7326099678423028631, guid: e19b6282a4e45804ea3fe61c15feab0e, type: 3}
     - {fileID: -5193304800074102180, guid: bf05ae134a8c70b4690d2527adb5128b, type: 3}
     - {fileID: -4420361669602785922, guid: 9038604526b82b34998144186ae995f7, type: 3}
-    timeForSprite: 0.2
+    timeForSprite: 0.1
