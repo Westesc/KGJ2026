@@ -155,11 +155,41 @@ public class RoomsManager : MonoBehaviour
 
             if (connection.enterRoom == room)
             {
+                switch (connection.type)
+                {
+                    case RoomConnectionType.TopToBottom:
+                        if (type != DoorType.Top) continue;
+                        break;
+                    case RoomConnectionType.BottomToTop:
+                        if (type != DoorType.Bottom) continue;
+                        break;
+                    case RoomConnectionType.LeftToRight:
+                        if (type != DoorType.Left) continue;
+                        break;
+                    case RoomConnectionType.RightToLeft:
+                        if (type != DoorType.Right) continue;
+                        break;
+                }
                 MakeTransitionAnimation(room, connection.exitRoom, type);
                 return;
             }
 
             // room == exitRoom
+            switch (connection.type)
+            {
+                case RoomConnectionType.TopToBottom:
+                    if (type != DoorType.Bottom) continue;
+                    break;
+                case RoomConnectionType.BottomToTop:
+                    if (type != DoorType.Top) continue;
+                    break;
+                case RoomConnectionType.LeftToRight:
+                    if (type != DoorType.Right) continue;
+                    break;
+                case RoomConnectionType.RightToLeft:
+                    if (type != DoorType.Left) continue;
+                    break;
+            }
             MakeTransitionAnimation(room, connection.enterRoom, type);
         }
     }
