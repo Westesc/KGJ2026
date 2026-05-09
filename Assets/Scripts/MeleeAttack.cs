@@ -4,6 +4,7 @@ public class MeleeAttack : MonoBehaviour
 {
     public float timeToLandAttack = 5;
     public bool isAttacked = false;
+    public float AttackRadius = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,17 +22,20 @@ public class MeleeAttack : MonoBehaviour
         if (timeToLandAttack < 0)
         {
             this.gameObject.AddComponent<SphereCollider>().isTrigger = true;
-            this.gameObject.transform.parent.GetComponent<EnemyMovements>().IsMove = true;
+            if (AttackRadius != 0)
+                this.gameObject.GetComponent<SphereCollider>().radius = AttackRadius;
+            if (this.gameObject.transform.parent.tag =="Enemy")
+                this.gameObject.transform.parent.GetComponent<EnemyMovements>().IsMove = true;
             if (isAttacked && this.gameObject.transform.tag != "Player")
                 Destroy( this.gameObject );
             isAttacked = true;
-            timeToLandAttack = 2.5f;
+            timeToLandAttack = 0.5f;
         }
     }
 
     private void OnTriggerEnter(Collider collision)
     {
-            if(collision.gameObject.GetComponent<HealthBar>() != null && collision.gameObject.tag != this.gameObject.tag)
+            if(collision.gameObject.GetComponent<HealthBar>() != null && collision.gameObject.tag != this.gameObject.transform.parent.tag)
                 collision.gameObject.GetComponent<HealthBar>().health--;
         Destroy(this.gameObject);
     }
