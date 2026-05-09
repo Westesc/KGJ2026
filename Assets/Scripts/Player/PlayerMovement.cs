@@ -27,7 +27,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        playerInfo.transform.localPosition += moveSpeed * Time.deltaTime * moveInput;
+        if (this.transform.GetComponentInChildren<PlayerBody>().isMoving)
+        {
+            playerInfo.transform.localPosition += moveSpeed * Time.deltaTime * moveInput;
+        }
     }
 
     public void OnMove(InputAction.CallbackContext ctx)

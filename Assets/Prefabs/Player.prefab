@@ -236,7 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   AttackDirection: {x: 1, y: 1, z: 0}
   AttackObj: {fileID: 3866896898257680999, guid: 21f0c3944a7657d4ba1ac65eec7d5d25, type: 3}
-  restAttcTime: 3
+  restAttcTime: 2
   LastAttcTime: 0
   attackRange: 1
   attackDistance: 2
@@ -395,3 +395,20 @@ MonoBehaviour:
     - {fileID: -5193304800074102180, guid: bf05ae134a8c70b4690d2527adb5128b, type: 3}
     - {fileID: -4420361669602785922, guid: 9038604526b82b34998144186ae995f7, type: 3}
     timeForSprite: 0.1
+  attackLeftAnim:
+    sprites:
+    - {fileID: 4821486207198945839, guid: a9f075b3463009c4f83341186c2f61f0, type: 3}
+    - {fileID: 7326099678423028631, guid: 31d2a90d6ce86324f98fcc09296d7cda, type: 3}
+    - {fileID: 8637899412183051512, guid: 8255acfb658a0a943a1d0fa7b18a0fa0, type: 3}
+    - {fileID: -4420361669602785922, guid: 9551202bdf25c6c40b1dfb8a3f12bd45, type: 3}
+    - {fileID: -8581017441995073328, guid: 80249310804eb7342a520a4b07172771, type: 3}
+    - {fileID: -7621740272398284685, guid: 6890e20f64029c9418af9076af835ca4, type: 3}
+    - {fileID: 3762931617253330252, guid: 52d8b9e6635f4c14b8656fbe692b7a7d, type: 3}
+    - {fileID: 7368654395371832364, guid: a8d9f58bcea9a5141b1df7d7f27fb66f, type: 3}
+    - {fileID: -2384908201296892499, guid: 5a902193b0b6a1548b54930cdf6d8f30, type: 3}
+    - {fileID: 7368654395371832364, guid: a8d9f58bcea9a5141b1df7d7f27fb66f, type: 3}
+    - {fileID: 3762931617253330252, guid: 52d8b9e6635f4c14b8656fbe692b7a7d, type: 3}
+    - {fileID: -7621740272398284685, guid: 6890e20f64029c9418af9076af835ca4, type: 3}
+    - {fileID: -8581017441995073328, guid: 80249310804eb7342a520a4b07172771, type: 3}
+    timeForSprite: 0.1
+  isAttacking: 0

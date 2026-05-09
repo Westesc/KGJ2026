@@ -1,10 +1,37 @@
 fileFormatVersion: 2
-guid: a9f075b3463009c4f83341186c2f61f0
+guid: 8255acfb658a0a943a1d0fa7b18a0fa0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4821486207198945839
-    second: Grafika_bez_nazwy-1_0
+      213: -5193304800074102180
+    second: Grafika_bez_nazwy-3_0
+  - first:
+      213: -3426257125780315958
+    second: Grafika_bez_nazwy-3_1
+  - first:
+      213: 5590823274105580126
+    second: Grafika_bez_nazwy-3_2
+  - first:
+      213: 8637899412183051512
+    second: Grafika_bez_nazwy-3_3
+  - first:
+      213: 3348443362448609257
+    second: Grafika_bez_nazwy-3_4
+  - first:
+      213: -30636628349873616
+    second: Grafika_bez_nazwy-3_5
+  - first:
+      213: -8275907762626581510
+    second: Grafika_bez_nazwy-3_6
+  - first:
+      213: 1752289979713120434
+    second: Grafika_bez_nazwy-3_7
+  - first:
+      213: -1539262164625197948
+    second: Grafika_bez_nazwy-3_8
+  - first:
+      213: 9073081843722846861
+    second: Grafika_bez_nazwy-3_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +78,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 550
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,23 +127,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Grafika_bez_nazwy-1_0
+      name: Grafika_bez_nazwy-3_3
       rect:
         serializedVersion: 2
-        x: 1512
-        y: 153
-        width: 910
-        height: 1702
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 769
+        y: 156
+        width: 1704
+        height: 1876
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f22e98df82c59e240800000000000000
-      internalID: 4821486207198945839
+      spriteID: 8fce9b4ffbbffd770800000000000000
+      internalID: 8637899412183051512
       vertices: []
       indices: 
       edges: []
@@ -125,7 +152,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f7b1aef5a3facfe489b7db00b99aeddf
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +162,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Grafika_bez_nazwy-1_0: 4821486207198945839
+      Grafika_bez_nazwy-3_0: -5193304800074102180
+      Grafika_bez_nazwy-3_1: -3426257125780315958
+      Grafika_bez_nazwy-3_2: 5590823274105580126
+      Grafika_bez_nazwy-3_3: 8637899412183051512
+      Grafika_bez_nazwy-3_4: 3348443362448609257
+      Grafika_bez_nazwy-3_5: -30636628349873616
+      Grafika_bez_nazwy-3_6: -8275907762626581510
+      Grafika_bez_nazwy-3_7: 1752289979713120434
+      Grafika_bez_nazwy-3_8: -1539262164625197948
+      Grafika_bez_nazwy-3_9: 9073081843722846861
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

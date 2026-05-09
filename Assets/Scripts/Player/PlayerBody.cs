@@ -4,7 +4,7 @@ using DG.Tweening;
 
 public enum PlayerMoveState
 {
-    Idle, MoveUp, MoveDown, MoveLeft, MoveRight
+    Idle, MoveUp, MoveDown, MoveLeft, MoveRight, AttackLeft, AttackRight
 }
 
 [DisallowMultipleComponent]
@@ -27,6 +27,9 @@ public class PlayerBody : MonoBehaviour
     public Animation moveUpAnim;
     public Animation moveDownAnim;
     public Animation moveLeftAnim;
+    public Animation attackLeftAnim;
+    public bool isAttacking = false;
+    public bool isMoving = true;
 
     private Sequence currentAnimSequence = null;
 
@@ -72,6 +75,13 @@ public class PlayerBody : MonoBehaviour
                 case PlayerMoveState.MoveDown:
                     PlayAnimation(moveDownAnim);
                     break;
+                case PlayerMoveState.AttackLeft:
+                    PlayAnimation(attackLeftAnim, false, () => { isAttacking = false; isMoving = true; });
+                    break;
+                case PlayerMoveState.AttackRight:
+                    spriteRenderer.flipX = true;
+                    PlayAnimation(attackLeftAnim, false, () => { isAttacking = false; isMoving = true; });
+                    break;
             }
             currentState = value;
         }
@@ -82,7 +92,7 @@ public class PlayerBody : MonoBehaviour
         playerMovement = playerInfo.playerMovement;    
     }
 
-    void PlayAnimation(Animation anim)
+    void PlayAnimation(Animation anim, bool hasLoops = true, TweenCallback onCycleEnd = null)
     {
         currentAnimSequence?.Kill();
 
@@ -91,7 +101,14 @@ public class PlayerBody : MonoBehaviour
         {
             currentAnimSequence.AppendCallback(() => { spriteRenderer.sprite = sprite; }).AppendInterval(anim.timeForSprite);
         }
-        currentAnimSequence.SetLoops(-1);
+        if (onCycleEnd != null)
+        {
+            currentAnimSequence.AppendCallback(onCycleEnd);
+        }
+        if (hasLoops)
+        {
+            currentAnimSequence.SetLoops(-1);
+        }
         currentAnimSequence.Play();
     }
 
@@ -126,8 +143,29 @@ public class PlayerBody : MonoBehaviour
         CurrentState = PlayerMoveState.MoveLeft;
     }
 
-    void UpdateBody()
+    public void PlayAttackLeftAnim()
     {
+        CurrentState = PlayerMoveState.AttackLeft;
+    }
+    public void PlayAttackRightAnim()
+    {
+        CurrentState = PlayerMoveState.AttackRight;
+    }
+
+    void UpdateBody()
+    {   if(isAttacking)
+        {
+            if(this.transform.parent.GetComponentInChildren<PlayerAttack>().AttackDirection.x > 0 )
+            {
+                PlayAttackRightAnim();
+            }
+            else
+            {
+                PlayAttackLeftAnim();
+            }
+            isMoving = false;
+            return;
+        }
         if (playerMovement.RawMoveInput == Vector2.zero)
         {
             PlayIdleAnim();
@@ -160,6 +198,7 @@ public class PlayerBody : MonoBehaviour
 
     void Update()
     {
+        if(isMoving)
         UpdateBody();
     }
 }
