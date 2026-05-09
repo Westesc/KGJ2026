@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ConnectionsData : MonoBehaviour
+public class ConnectionsData
 {
     public int indexA;
     public int indexB;
