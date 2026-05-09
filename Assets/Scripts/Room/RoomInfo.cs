@@ -1,4 +1,3 @@
-using SaintsField;
 using UnityEngine;
 
 public enum DoorType { Left = 0, Top = 1, Right = 2, Bottom = 3 }
@@ -24,10 +23,25 @@ public class RoomInfo : MonoBehaviour
     {
         (topDoors, rightDoors, bottomDoors, leftDoors) = (leftDoors, topDoors, rightDoors, bottomDoors);
 
-        topDoors.SetDoorType(DoorType.Top);
-        rightDoors.SetDoorType(DoorType.Right);
-        bottomDoors.SetDoorType(DoorType.Bottom);
-        leftDoors.SetDoorType(DoorType.Left);
+        if (topDoors != null)
+        {
+            topDoors.SetDoorType(DoorType.Top);
+        }
+
+        if (rightDoors != null)
+        {
+            rightDoors.SetDoorType(DoorType.Right);
+        }
+
+        if (bottomDoors != null)
+        {
+            bottomDoors.SetDoorType(DoorType.Bottom);
+        }
+
+        if (leftDoors != null)
+        {
+            leftDoors.SetDoorType(DoorType.Left);
+        }
     }
 
     public void Exit(RoomDoor door)
