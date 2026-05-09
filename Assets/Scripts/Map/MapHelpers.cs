@@ -38,4 +38,37 @@ public class MapHelpers : MonoBehaviour
         float addY = -imageSizeWPaddingY;
         return new Vector3(startX + pos.x * addX, startY + pos.y * addY, 0f);
     }
+
+    public static int CalculateNumOfConnections(RoomData data)
+    {
+        if (data.Empty)
+        {
+            return 0;
+        }
+
+        int count = 0;
+        if (data.Up)
+        {
+            ++count;
+        }
+        if (data.Down)
+        {
+            ++count;
+        }
+        if (data.Left)
+        {
+            ++count;
+        }
+        if (data.Right)
+        {
+            ++count;
+        }
+
+        return count;
+    }
+
+    public static float Distance2(int a, int b)
+    {
+        return a > b ? a * a - b * b : b * b - a * a;
+    }
 }

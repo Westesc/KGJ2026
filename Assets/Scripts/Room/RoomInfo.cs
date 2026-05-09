@@ -5,10 +5,25 @@ public enum DoorType { Top, Bottom, Right, Left }
 
 public class RoomInfo : MonoBehaviour
 {
+    public int index;
     public RoomDoors topDoors;
     public RoomDoors bottomDoors;
     public RoomDoors leftDoors;
     public RoomDoors rightDoors;
+
+    public void Rotate(uint cycles)
+    {
+        cycles %= 4;
+        for (uint i = 0; i < cycles; ++i)
+        {
+            RotateOne();
+        }
+    }
+
+    public void RotateOne()
+    {
+        (topDoors, rightDoors, bottomDoors, leftDoors) = (leftDoors, topDoors, rightDoors, bottomDoors);
+    }
 
     public void Exit(RoomDoors door)
     {
