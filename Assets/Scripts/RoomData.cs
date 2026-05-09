@@ -6,18 +6,18 @@ using UnityEngine;
 /// - 4 bits for doors
 /// - 1 bit is empty
 /// </summary>
-public class Room
+public class RoomData
 {
     // |fre|||dr||y||x|
     // 0000000000000000
     private short data;
 
-    public Room()
+    public RoomData()
     {
         this.data = 1 << 10;
     }
 
-    public Room(short data)
+    public RoomData(short data)
     {
         this.data = data;
     }
@@ -164,5 +164,5 @@ public class Room
         this.data |= (short)(value.y << 3);
     }
 
-    public static Room CreateEmpty() => new();
+    public static RoomData CreateEmpty() => new();
 }
