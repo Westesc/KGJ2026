@@ -25,12 +25,13 @@ public class PlayerAttack : MonoBehaviour
     }
     public void OnAttack(InputAction.CallbackContext ctx)
     {
-        if (LastAttcTime > restAttcTime)
+        if (LastAttcTime > restAttcTime && ctx.canceled)
         {
             Vector3 AttackPosition = this.transform.localPosition + AttackDirection;
             Transform go = Instantiate<Transform>(AttackObj, AttackPosition, this.gameObject.transform.localRotation, this.gameObject.transform);
             go.GetComponent<MeleeAttack>().timeToLandAttack = 1;
             go.GetComponent<MeleeAttack>().AttackRadius = attackRange;
+            this.transform.GetComponentInChildren<PlayerBody>().isAttacking = true;
             LastAttcTime = 0;
         }
     }

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 68e2a854e0c11be419a9fe23c241493e
+guid: e4f6238b70211694ebb65923fc0f79ae
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7326099678423028631
-    second: Grafika_bez_nazwy-2_0
+      213: -3262668053689596316
+    second: Kot_szczela-2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Grafika_bez_nazwy-2_0
+      name: Kot_szczela-2_0
       rect:
         serializedVersion: 2
         x: 238
-        y: 92
+        y: 140
         width: 1572
-        height: 1887
+        height: 1817
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 793128997d88ba560800000000000000
-      internalID: 7326099678423028631
+      spriteID: 46601d701bca8b2d0800000000000000
+      internalID: -3262668053689596316
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Grafika_bez_nazwy-2_0: 7326099678423028631
+      Kot_szczela-2_0: -3262668053689596316
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

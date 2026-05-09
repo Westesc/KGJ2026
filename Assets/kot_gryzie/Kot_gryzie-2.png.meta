@@ -1,37 +1,25 @@
 fileFormatVersion: 2
-guid: 8255acfb658a0a943a1d0fa7b18a0fa0
+guid: e3b4df6a126b6db4e8f69814b3b10145
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5193304800074102180
-    second: Grafika_bez_nazwy-3_0
+      213: -3559822190234220579
+    second: Kot_gryzie-2_0
   - first:
-      213: -3426257125780315958
-    second: Grafika_bez_nazwy-3_1
+      213: 9039459669576713141
+    second: Kot_gryzie-2_1
   - first:
-      213: 5590823274105580126
-    second: Grafika_bez_nazwy-3_2
+      213: -8786364690371288484
+    second: Kot_gryzie-2_2
   - first:
-      213: 8637899412183051512
-    second: Grafika_bez_nazwy-3_3
+      213: 6782110381865914286
+    second: Kot_gryzie-2_3
   - first:
-      213: 3348443362448609257
-    second: Grafika_bez_nazwy-3_4
+      213: 422487143687486820
+    second: Kot_gryzie-2_4
   - first:
-      213: -30636628349873616
-    second: Grafika_bez_nazwy-3_5
-  - first:
-      213: -8275907762626581510
-    second: Grafika_bez_nazwy-3_6
-  - first:
-      213: 1752289979713120434
-    second: Grafika_bez_nazwy-3_7
-  - first:
-      213: -1539262164625197948
-    second: Grafika_bez_nazwy-3_8
-  - first:
-      213: 9073081843722846861
-    second: Grafika_bez_nazwy-3_9
+      213: -4724425344306279159
+    second: Kot_gryzie-2_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -127,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Grafika_bez_nazwy-3_0
+      name: Kot_gryzie-2_0
       rect:
         serializedVersion: 2
-        x: 1542
-        y: 856
-        width: 15
-        height: 6
+        x: 170
+        y: 1614
+        width: 222
+        height: 157
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c5a8045bcccade7b0800000000000000
-      internalID: -5193304800074102180
+      spriteID: dd749872498f89ec0800000000000000
+      internalID: -3559822190234220579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Grafika_bez_nazwy-3_1
+      name: Kot_gryzie-2_1
       rect:
         serializedVersion: 2
-        x: 1556
-        y: 856
-        width: 8
-        height: 6
+        x: 238
+        y: 139
+        width: 1572
+        height: 1846
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ac0a6b41c4d7370d0800000000000000
-      internalID: -3426257125780315958
+      spriteID: 5b307962dac927d70800000000000000
+      internalID: 9039459669576713141
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Grafika_bez_nazwy-3_2
+      name: Kot_gryzie-2_2
       rect:
         serializedVersion: 2
-        x: 1563
-        y: 857
-        width: 13
-        height: 6
+        x: 1604
+        y: 1307
+        width: 303
+        height: 438
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e5aac077528969d40800000000000000
-      internalID: 5590823274105580126
+      spriteID: c526263cddf801680800000000000000
+      internalID: -8786364690371288484
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Grafika_bez_nazwy-3_3
+      name: Kot_gryzie-2_3
       rect:
         serializedVersion: 2
-        x: 1570
-        y: 156
-        width: 903
-        height: 1757
+        x: 74
+        y: 649
+        width: 111
+        height: 747
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +196,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8fce9b4ffbbffd770800000000000000
-      internalID: 8637899412183051512
+      spriteID: eaf4b9a8575ee1e50800000000000000
+      internalID: 6782110381865914286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Grafika_bez_nazwy-3_4
+      name: Kot_gryzie-2_4
       rect:
         serializedVersion: 2
-        x: 1364
-        y: 789
-        width: 187
-        height: 43
+        x: 210
+        y: 1025
+        width: 257
+        height: 520
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,20 +218,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9ef83415f7f087e20800000000000000
-      internalID: 3348443362448609257
+      spriteID: 46d79a991d9fcd500800000000000000
+      internalID: 422487143687486820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Grafika_bez_nazwy-3_5
+      name: Kot_gryzie-2_5
       rect:
         serializedVersion: 2
-        x: 1328
-        y: 587
-        width: 429
-        height: 185
+        x: 1631
+        y: 771
+        width: 312
+        height: 776
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,96 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 032171a1628239ff0800000000000000
-      internalID: -30636628349873616
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grafika_bez_nazwy-3_6
-      rect:
-        serializedVersion: 2
-        x: 1297
-        y: 553
-        width: 46
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: afbaebeccb1162d80800000000000000
-      internalID: -8275907762626581510
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grafika_bez_nazwy-3_7
-      rect:
-        serializedVersion: 2
-        x: 1326
-        y: 425
-        width: 88
-        height: 78
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2b8e648d372615810800000000000000
-      internalID: 1752289979713120434
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grafika_bez_nazwy-3_8
-      rect:
-        serializedVersion: 2
-        x: 1474
-        y: 481
-        width: 156
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 484f055773173aae0800000000000000
-      internalID: -1539262164625197948
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grafika_bez_nazwy-3_9
-      rect:
-        serializedVersion: 2
-        x: 1528
-        y: 397
-        width: 57
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d8285299ddf0aed70800000000000000
-      internalID: 9073081843722846861
+      spriteID: 90d85c03e287f6eb0800000000000000
+      internalID: -4724425344306279159
       vertices: []
       indices: 
       edges: []
@@ -360,16 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Grafika_bez_nazwy-3_0: -5193304800074102180
-      Grafika_bez_nazwy-3_1: -3426257125780315958
-      Grafika_bez_nazwy-3_2: 5590823274105580126
-      Grafika_bez_nazwy-3_3: 8637899412183051512
-      Grafika_bez_nazwy-3_4: 3348443362448609257
-      Grafika_bez_nazwy-3_5: -30636628349873616
-      Grafika_bez_nazwy-3_6: -8275907762626581510
-      Grafika_bez_nazwy-3_7: 1752289979713120434
-      Grafika_bez_nazwy-3_8: -1539262164625197948
-      Grafika_bez_nazwy-3_9: 9073081843722846861
+      Kot_gryzie-2_0: -3559822190234220579
+      Kot_gryzie-2_1: 9039459669576713141
+      Kot_gryzie-2_2: -8786364690371288484
+      Kot_gryzie-2_3: 6782110381865914286
+      Kot_gryzie-2_4: 422487143687486820
+      Kot_gryzie-2_5: -4724425344306279159
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
