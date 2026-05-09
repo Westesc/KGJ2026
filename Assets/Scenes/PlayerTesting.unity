@@ -232,7 +232,7 @@ Canvas:
   m_GameObject: {fileID: 31473228}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -259,7 +259,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 374087067}
+  - {fileID: 327680244}
   - {fileID: 1404456415}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7615,10 +7615,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 256f5890cca4d6a4c804463cac0c063e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  index: 0
   topDoors: {fileID: 936793348}
   bottomDoors: {fileID: 0}
   leftDoors: {fileID: 805545884}
   rightDoors: {fileID: 541538266}
+--- !u!1 &327680243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 327680244}
+  m_Layer: 5
+  m_Name: Map
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &327680244
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327680243}
+  m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.59999996, y: 0.59999996, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 31473232}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -126.31018, y: -86}
+  m_SizeDelta: {x: 417.7534, y: 286.8088}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &371515028
 GameObject:
   m_ObjectHideFlags: 0
@@ -7664,41 +7700,6 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 1
---- !u!1 &374087066
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 374087067}
-  m_Layer: 5
-  m_Name: Map
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &374087067
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 374087066}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 31473232}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -106.363525, y: -71.69971}
-  m_SizeDelta: {x: 425.4542, y: 286.8088}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &530263145
 GameObject:
   m_ObjectHideFlags: 0
@@ -8381,6 +8382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 256f5890cca4d6a4c804463cac0c063e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  index: 0
   topDoors: {fileID: 0}
   bottomDoors: {fileID: 699894891}
   leftDoors: {fileID: 0}
@@ -13841,6 +13843,9 @@ MonoBehaviour:
   - type: 2
     enterRoom: {fileID: 206724747}
     exitRoom: {fileID: 1433656751}
+  OnRoomChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1027262686
 Transform:
   m_ObjectHideFlags: 0
@@ -13888,6 +13893,36 @@ MonoBehaviour:
   RoomSize: {x: 50, y: 50}
   RoomOffset: {x: 10, y: 10}
   parentObject: {fileID: 374087066}
+  parentObject: {fileID: 327680243}
+  OneWayRoom: []
+  TwoWayRoomMirror: []
+  TwoWayRoomL: []
+  ThreeWayRoom: []
+  FourWayRoom: []
+--- !u!1 &1043018830 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8709491619857837712, guid: 72060f62e69b0eb41b4a3f43f2c38885, type: 3}
+  m_PrefabInstance: {fileID: 1990444720326829704}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1043018831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043018830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f13e257ba02bc344955c89e687ca08d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: KGJ2026::Paralax
+  playerCamera: {fileID: 1990444720326829705}
+  parallaxEffect: 0.7
+--- !u!4 &1043018832 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6441645577761269997, guid: 72060f62e69b0eb41b4a3f43f2c38885, type: 3}
+  m_PrefabInstance: {fileID: 1990444720326829704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1086526891
 GameObject:
   m_ObjectHideFlags: 0
@@ -23458,6 +23493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 256f5890cca4d6a4c804463cac0c063e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  index: 0
   topDoors: {fileID: 0}
   bottomDoors: {fileID: 0}
   leftDoors: {fileID: 0}
@@ -23508,6 +23544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 256f5890cca4d6a4c804463cac0c063e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  index: 0
   topDoors: {fileID: 0}
   bottomDoors: {fileID: 0}
   leftDoors: {fileID: 1960449941}

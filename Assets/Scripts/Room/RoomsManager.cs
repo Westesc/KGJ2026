@@ -2,6 +2,7 @@ using DG.Tweening;
 using SaintsField;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum RoomConnectionType
 {
@@ -29,6 +30,8 @@ public class RoomsManager : MonoBehaviour
     public List<RoomConnection> roomConections = new();
 
     private Sequence currentSequence = null;
+
+    public UnityEvent<int> OnRoomChanged;
 
     void Awake()
     {
@@ -90,6 +93,7 @@ public class RoomsManager : MonoBehaviour
         seq.AppendCallback(() => {
             exitRoom.gameObject.SetActive(false);
             enterRoom.gameObject.SetActive(true);
+            OnRoomChanged.Invoke(enterRoom.index);
         });
 
         // ENTER
