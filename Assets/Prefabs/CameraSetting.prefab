@@ -62,11 +62,11 @@ Transform:
   m_GameObject: {fileID: 1938923043529395939}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3826915, y: 0.000000022027692, z: -0.000000009124392, w: 0.9238762}
-  m_LocalPosition: {x: -0.4465205, y: 7.9781075, z: 0.46265316}
+  m_LocalPosition: {x: -0.4465205, y: 8.448108, z: 0.46265316}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6441645577761269997}
+  - {fileID: 1912286971601737246}
   m_Father: {fileID: 5588249408382949797}
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!20 &6643645326035153354
@@ -204,6 +204,55 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!1 &4177570819561844180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1912286971601737246}
+  - component: {fileID: 2996490990222150444}
+  m_Layer: 0
+  m_Name: Paralax
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1912286971601737246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4177570819561844180}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6441645577761269997}
+  m_Father: {fileID: 3078393429118554405}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2996490990222150444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4177570819561844180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f13e257ba02bc344955c89e687ca08d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Paralax
+  playerCamera: {fileID: 1938923043529395939}
+  layers:
+  - layer: {fileID: 367844876227632234}
+    paralaxEffect: 0.3
 --- !u!1 &8091522124785168588
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +280,7 @@ Transform:
   m_GameObject: {fileID: 8091522124785168588}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3826915, y: 0.000000022027692, z: -0.000000009124392, w: 0.9238762}
-  m_LocalPosition: {x: -0.4465205, y: 7.9781075, z: 0.46265316}
+  m_LocalPosition: {x: -0.4465205, y: 8.448108, z: 0.46265316}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -322,7 +371,7 @@ GameObject:
   - component: {fileID: 6441645577761269997}
   - component: {fileID: 367844876227632234}
   m_Layer: 0
-  m_Name: "t\u0142o_paralaksa_0"
+  m_Name: bg_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -336,12 +385,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8709491619857837712}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00000873208, y: -0.000000016859177, z: 0.000000016859468, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 24.015497}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_LocalRotation: {x: -0.00000873208, y: -0.000000016859175, z: 0.000000016859465, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 24}
+  m_LocalScale: {x: 2.5, y: 2.5000002, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3078393429118554405}
+  m_Father: {fileID: 1912286971601737246}
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!212 &367844876227632234
 SpriteRenderer:
