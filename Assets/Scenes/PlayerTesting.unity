@@ -14058,11 +14058,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7ce2b052e65c640b37c460ee2eed1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGenerator
+  MaxRooms: 10
+  MinRooms: 5
+  OnGenerated:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1027262688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027262684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5463a9e770d0e3e4cb2e51b346269ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: KGJ2026.Map::MapManager
   RoomSize: {x: 50, y: 50}
   RoomOffset: {x: 10, y: 10}
   parentObject: {fileID: 374087066}
-  MaxRooms: 10
-  MinRooms: 5
 --- !u!1 &1043018830 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8709491619857837712, guid: 72060f62e69b0eb41b4a3f43f2c38885, type: 3}
