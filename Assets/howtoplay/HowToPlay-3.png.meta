@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 80249310804eb7342a520a4b07172771
+guid: 78fcb99764b03794ab8c098c85c8fd54
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8581017441995073328
-    second: Grafika_bez_nazwy-5_0
+      213: -497431518445764980
+    second: HowToPlay-3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Grafika_bez_nazwy-5_0
+      name: HowToPlay-3_0
       rect:
         serializedVersion: 2
-        x: 1031
-        y: 187
-        width: 1447
-        height: 1716
+        x: 1208
+        y: 102
+        width: 474
+        height: 325
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d8d376c91a1ae880800000000000000
-      internalID: -8581017441995073328
+      spriteID: c8ef4f26ba4c819f0800000000000000
+      internalID: -497431518445764980
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Grafika_bez_nazwy-5_0: -8581017441995073328
+      HowToPlay-3_0: -497431518445764980
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
