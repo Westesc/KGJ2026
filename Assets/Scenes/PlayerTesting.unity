@@ -13999,6 +13999,7 @@ GameObject:
   - component: {fileID: 1027262686}
   - component: {fileID: 1027262685}
   - component: {fileID: 1027262687}
+  - component: {fileID: 1027262688}
   m_Layer: 0
   m_Name: RoomsManager
   m_TagString: Untagged
@@ -14056,7 +14057,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e7ce2b052e65c640b37c460ee2eed1d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: KGJ2026::MapGenerator
+  m_EditorClassIdentifier: Assembly-CSharp::MapGenerator
   RoomSize: {x: 50, y: 50}
   RoomOffset: {x: 10, y: 10}
   parentObject: {fileID: 374087066}

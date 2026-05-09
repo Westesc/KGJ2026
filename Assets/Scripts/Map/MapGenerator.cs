@@ -11,10 +11,21 @@ public class MapGenerator : MonoBehaviour
     // STATIC
     private static readonly Vector2Int MAP_SIZE = new(6, 4);
     private static readonly int ALL_ROOM_NUM = MAP_SIZE.x * MAP_SIZE.y;
-    private static readonly Vector2Int TEXTURE_PIXELS = new(3, 3);
+    private static readonly Vector2Int TEXTURE_PIXELS = new(9, 9);
     private static readonly int ALL_TEXTURE_PIXELS = TEXTURE_PIXELS.x * TEXTURE_PIXELS.y;
     private static readonly Color32 DEFAULT_COLOR_VALUE = new(41, 41, 41, 0);
-    private static readonly Color32[] DEFAULT_TEXTURE_COLOR = { DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE };
+    private static readonly Color32[] DEFAULT_TEXTURE_COLOR = 
+    { 
+        DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE,
+        DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE,
+        DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE,
+        DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE,
+        DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE,
+        DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE,
+        DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE,
+        DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE,
+        DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE, DEFAULT_COLOR_VALUE
+    };
 
     // ROOMS
     // y * size.x + x
@@ -81,13 +92,20 @@ public class MapGenerator : MonoBehaviour
         {
             int x = z % TEXTURE_PIXELS.x;
             int y = z / TEXTURE_PIXELS.x;
-            if ((r.Up && z == 1) || (r.Right && z == 5) || (r.Down && z == 7) || (r.Left && z == 3) || (z == 4 && !r.Empty))
+            if ((r.Up && (z == 3 || z == 4 || z == 5)) || 
+                (r.Right && (z == 35 || z == 44 || z == 53)) ||
+                (r.Down && (z == 75 || z == 76 || z == 77)) || 
+                (r.Left && (z == 27 || z == 36 || z == 45)))
             {
-                m_Textures[index].SetPixel(x, y, Color.darkSlateGray);
+                m_Textures[index].SetPixel(x, y, Color.gray2);
             }
-            else if (!r.Empty && z != 4)
+            else if (!r.Empty && (x - 1 < 0 || x + 1 == TEXTURE_PIXELS.x || y - 1 < 0 || y + 1 == TEXTURE_PIXELS.y))
             {
                 m_Textures[index].SetPixel(x, y, Color.cadetBlue);
+            }
+            else
+            {
+                m_Textures[index].SetPixel(x, y, Color.gray2);
             }
         }
 
@@ -282,7 +300,7 @@ public class MapGenerator : MonoBehaviour
         StartRoomGenerationFromRoom(pos);
     }
 
-    public void Start()
+    private void Init()
     {
         m_RoomQueue = new();
 
@@ -314,40 +332,48 @@ public class MapGenerator : MonoBehaviour
             m_Map[i] = RoomData.CreateEmpty();
             m_Map[i].SetPos(new Vector2Int(i % MAP_SIZE.x, i / MAP_SIZE.x));
         }
-
-        Vector2Int pos = GetInitialPos();
-        StartRoomGenerationFromRoom(pos);
     }
 
-    public void Update()
+    public void Generate()
     {
-        if (m_RoomQueue.Count > 0 && m_RoomsCount < MaxRooms && !m_GenerationComplete)
+        RegenerateRooms();
+
+        while (!m_GenerationComplete)
         {
-            Vector2Int roomPos = m_RoomQueue.Dequeue();
-            if (roomPos.x > 0)
+            if (m_RoomQueue.Count > 0 && m_RoomsCount < MaxRooms && !m_GenerationComplete)
             {
-                TryGenerateRoom(new Vector2Int(roomPos.x - 1, roomPos.y));
+                Vector2Int roomPos = m_RoomQueue.Dequeue();
+                if (roomPos.x > 0)
+                {
+                    TryGenerateRoom(new Vector2Int(roomPos.x - 1, roomPos.y));
+                }
+                if (roomPos.x < MAP_SIZE.x - 1)
+                {
+                    TryGenerateRoom(new Vector2Int(roomPos.x + 1, roomPos.y));
+                }
+                if (roomPos.y > 0)
+                {
+                    TryGenerateRoom(new Vector2Int(roomPos.x, roomPos.y - 1));
+                }
+                if (roomPos.y < MAP_SIZE.y - 1)
+                {
+                    TryGenerateRoom(new Vector2Int(roomPos.x, roomPos.y + 1));
+                }
             }
-            if (roomPos.x < MAP_SIZE.x - 1)
+            else if (m_RoomsCount < MinRooms)
             {
-                TryGenerateRoom(new Vector2Int(roomPos.x + 1, roomPos.y));
+                RegenerateRooms();
             }
-            if (roomPos.y > 0)
+            else if (!m_GenerationComplete)
             {
-                TryGenerateRoom(new Vector2Int(roomPos.x, roomPos.y - 1));
+                m_GenerationComplete = true;
             }
-            if (roomPos.y < MAP_SIZE.y - 1)
-            {
-                TryGenerateRoom(new Vector2Int(roomPos.x, roomPos.y + 1));
-            }            
         }
-        else if(m_RoomsCount < MinRooms)
-        {
-            RegenerateRooms();
-        }
-        else if (!m_GenerationComplete)
-        {
-            m_GenerationComplete = true;
-        }
+    }
+
+    public void Start()
+    {
+        Init();
+        Generate();
     }
 }
