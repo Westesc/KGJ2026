@@ -20,8 +20,10 @@ public class HealthManagement : MonoBehaviour
         if (Health != GameObject.FindWithTag("Player").GetComponent<HealthBar>().health || MaxHealth != this.gameObject.transform.childCount)
         {
             Health = GameObject.FindWithTag("Player").GetComponent<HealthBar>().health;
-            while (this.gameObject.transform.GetChild(0) != null)
-                Destroy(this.gameObject.transform.GetChild(0));
+            for (int i = 0; i < this.gameObject.transform.childCount; i++)
+            {
+                Destroy(this.transform.GetChild(i).gameObject);
+            }
             for (int i = 0; i < MaxHealth; i++)
             {
                 GameObject go = new GameObject("Heart" + i);
@@ -35,6 +37,10 @@ public class HealthManagement : MonoBehaviour
                 {
                     go.transform.localPosition = this.gameObject.transform.GetChild(i - 1).transform.localPosition;
                     go.transform.localPosition += new Vector3(this.gameObject.transform.GetChild(i - 1).GetComponent<RectTransform>().rect.width,0, 0);
+                }
+                else
+                {
+                    go.transform.localPosition = new Vector3(0,0,0);
                 }
             }
         }
