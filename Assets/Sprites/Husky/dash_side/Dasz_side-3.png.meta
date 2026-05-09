@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: e65f5d59ce2f6e846a08a24eb4913b0c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2191722389115626140
+    second: Dasz_side-3_0
+  - first:
+      213: -6552996605339025416
+    second: Dasz_side-3_1
+  - first:
+      213: 4337903928217736833
+    second: Dasz_side-3_2
+  - first:
+      213: -4338507340977561571
+    second: Dasz_side-3_3
+  - first:
+      213: -4269581614365443761
+    second: Dasz_side-3_4
+  - first:
+      213: 2760251541159052313
+    second: Dasz_side-3_5
+  - first:
+      213: -5633550897178041624
+    second: Dasz_side-3_6
+  - first:
+      213: -2358159921161042726
+    second: Dasz_side-3_7
+  - first:
+      213: 6486244443552059356
+    second: Dasz_side-3_8
+  - first:
+      213: 8826386651008200610
+    second: Dasz_side-3_9
+  - first:
+      213: -358305554313604531
+    second: Dasz_side-3_10
+  - first:
+      213: -537389359940115478
+    second: Dasz_side-3_11
+  - first:
+      213: -854226109550458547
+    second: Dasz_side-3_12
+  - first:
+      213: 940704099852748655
+    second: Dasz_side-3_13
+  - first:
+      213: 7438806002338532431
+    second: Dasz_side-3_14
+  - first:
+      213: 4964520914661227663
+    second: Dasz_side-3_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dasz_side-3_0
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 1506
+        width: 512
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46d1e7e69107591e0800000000000000
+      internalID: -2191722389115626140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dasz_side-3_1
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 1424
+        width: 33
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ff3d648e441f05a0800000000000000
+      internalID: -6552996605339025416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dasz_side-3_2
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 1349
+        width: 807
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1869037b3a4533c30800000000000000
+      internalID: 4337903928217736833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dasz_side-3_3
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 1303
+        width: 47
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d10ab9d4f868ac3c0800000000000000
+      internalID: -4338507340977561571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dasz_side-3_4
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 1274
+        width: 428
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f49753894266fb4c0800000000000000
+      internalID: -4269581614365443761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dasz_side-3_5
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 1282
+        width: 251
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9148289f6226e4620800000000000000
+      internalID: 2760251541159052313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dasz_side-3_6
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 1167
+        width: 581
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e2ae9d8e4b91d1b0800000000000000
+      internalID: -5633550897178041624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dasz_side-3_7
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 1128
+        width: 174
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad402a7bb02264fd0800000000000000
+      internalID: -2358159921161042726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dasz_side-3_8
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 901
+        width: 700
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdf8540b4f4c30a50800000000000000
+      internalID: 6486244443552059356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dasz_side-3_9
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 1009
+        width: 456
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2afe79715ef9d7a70800000000000000
+      internalID: 8826386651008200610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dasz_side-3_10
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 725
+        width: 1186
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d42961a2ffa070bf0800000000000000
+      internalID: -358305554313604531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dasz_side-3_11
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 781
+        width: 169
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae3e1be693fca88f0800000000000000
+      internalID: -537389359940115478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dasz_side-3_12
+      rect:
+        serializedVersion: 2
+        x: 1387
+        y: 633
+        width: 235
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d49816611ed2524f0800000000000000
+      internalID: -854226109550458547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dasz_side-3_13
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 307
+        width: 441
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f670a7e056d0e0d00800000000000000
+      internalID: 940704099852748655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dasz_side-3_14
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 401
+        width: 698
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4c8e6a85a2fb3760800000000000000
+      internalID: 7438806002338532431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dasz_side-3_15
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 490
+        width: 117
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8c316ef77585e440800000000000000
+      internalID: 4964520914661227663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Dasz_side-3_0: -2191722389115626140
+      Dasz_side-3_1: -6552996605339025416
+      Dasz_side-3_10: -358305554313604531
+      Dasz_side-3_11: -537389359940115478
+      Dasz_side-3_12: -854226109550458547
+      Dasz_side-3_13: 940704099852748655
+      Dasz_side-3_14: 7438806002338532431
+      Dasz_side-3_15: 4964520914661227663
+      Dasz_side-3_2: 4337903928217736833
+      Dasz_side-3_3: -4338507340977561571
+      Dasz_side-3_4: -4269581614365443761
+      Dasz_side-3_5: 2760251541159052313
+      Dasz_side-3_6: -5633550897178041624
+      Dasz_side-3_7: -2358159921161042726
+      Dasz_side-3_8: 6486244443552059356
+      Dasz_side-3_9: 8826386651008200610
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

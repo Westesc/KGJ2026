@@ -9,6 +9,7 @@ public class MapGenerator : MonoBehaviour
     // ROOMS
     // y * size.x + x
     private RoomData[] m_Map;
+    private List<ConnectionsData> m_Connections;
 
     // GENERATE
     [SerializeField] private int MaxRooms = 15;
@@ -46,6 +47,7 @@ public class MapGenerator : MonoBehaviour
             {
                 m_Map[index].SetDoor(Vector2Int.left);
                 m_Map[nextIndex].SetDoor(Vector2Int.right);
+                m_Connections.Add(new(index, nextIndex, true));
             }
         }
 
@@ -57,6 +59,7 @@ public class MapGenerator : MonoBehaviour
             {
                 m_Map[index].SetDoor(Vector2Int.right);
                 m_Map[nextIndex].SetDoor(Vector2Int.left);
+                m_Connections.Add(new(nextIndex, index, true));
             }
         }
 
@@ -68,6 +71,7 @@ public class MapGenerator : MonoBehaviour
             {
                 m_Map[index].SetDoor(Vector2Int.down);
                 m_Map[nextIndex].SetDoor(Vector2Int.up);
+                m_Connections.Add(new(nextIndex, index, false));
             }
         }
 
@@ -79,6 +83,7 @@ public class MapGenerator : MonoBehaviour
             {
                 m_Map[index].SetDoor(Vector2Int.up);
                 m_Map[nextIndex].SetDoor(Vector2Int.down);
+                m_Connections.Add(new(index, nextIndex, false));
             }
         }
     }
@@ -179,6 +184,7 @@ public class MapGenerator : MonoBehaviour
         }
 
         m_RoomQueue.Clear();
+        m_Connections.Clear();
         m_RoomsCount = 0;
         m_GenerationComplete = false;
 
@@ -189,6 +195,7 @@ public class MapGenerator : MonoBehaviour
     private void Init()
     {
         m_RoomQueue = new();
+        m_Connections = new();
 
         m_Map = new RoomData[MapHelpers.ALL_ROOM_NUM];
         for (int i = 0; i < MapHelpers.ALL_ROOM_NUM; ++i)
@@ -246,6 +253,51 @@ public class MapGenerator : MonoBehaviour
     public RoomData[] GetMap()
     {
         return m_Map;
+    }
+
+    public int GetNonEmptyRoomsNum()
+    {
+        return m_RoomsCount;
+    }
+
+    public Vector2Int GetStartAndEndRoomIndex()
+    {
+        List<int> OneWayRooms = new();
+        System.Random rand = new();
+
+        for(int i = 0; i < MapHelpers.ALL_ROOM_NUM; ++i)
+        {
+            if (MapHelpers.CalculateNumOfConnections(m_Map[i]) == 1)
+            {
+                OneWayRooms.Add(i);
+            }
+        }
+
+        int start = OneWayRooms[rand.Next(0, OneWayRooms.Count - 1)];
+        OneWayRooms.Remove(start);
+
+        Vector2Int startPos = MapHelpers.GetRoomPositionFromMapIndex(start);
+
+        int end = OneWayRooms[0];
+        Vector2Int endPos = MapHelpers.GetRoomPositionFromMapIndex(end);
+        float bestDist = Vector2Int.Distance(startPos, endPos);
+        for (int i = 1; i < OneWayRooms.Count; ++i)
+        {
+            endPos = MapHelpers.GetRoomPositionFromMapIndex(OneWayRooms[i]);
+            float dist = Vector2Int.Distance(startPos, endPos);
+            if (dist > bestDist)
+            {
+                end = OneWayRooms[i];
+                bestDist = dist;
+            }
+        }
+
+        return new Vector2Int(start, end);
+    }
+
+    public ConnectionsData[] GetConnections()
+    {
+        return m_Connections.ToArray();
     }
 
     private void Awake()
