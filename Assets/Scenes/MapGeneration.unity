@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 647517365}
   - component: {fileID: 647517366}
+  - component: {fileID: 647517367}
   m_Layer: 0
   m_Name: MapGenerator
   m_TagString: Untagged
@@ -163,11 +164,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7ce2b052e65c640b37c460ee2eed1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  MaxRooms: 10
+  MinRooms: 5
+  OnGenerated:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &647517367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647517364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5463a9e770d0e3e4cb2e51b346269ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: KGJ2026.Map::MapManager
   RoomSize: {x: 50, y: 50}
   RoomOffset: {x: 10, y: 10}
   parentObject: {fileID: 1710937613}
-  MaxRooms: 10
-  MinRooms: 5
 --- !u!1 &882786995
 GameObject:
   m_ObjectHideFlags: 0
