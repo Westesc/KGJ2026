@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: 50}
+  m_AnchoredPosition: {x: 100, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2211527100207432344
@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e377db28252ba544a01dc9d6fe827dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthManagement
-  FullHeart: {fileID: 7482667652216324306, guid: 241e9b12eb98d6541879c408c2de522f, type: 3}
-  EmptyHeart: {fileID: 8957324059118975939, guid: 32f3ef07bd2320b4dbe90938bde0f24e, type: 3}
+  FullHeart: {fileID: 2491921318768825063, guid: c626702970c201d4ba2f98bfa7c9b474, type: 3}
+  EmptyHeart: {fileID: 4028586872841503968, guid: 6ec470bb3b76a7d4d919e41e13c15b64, type: 3}
   MaxHealth: 0
   Health: 0
 --- !u!1 &5834801259656962636
