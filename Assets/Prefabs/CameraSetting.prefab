@@ -251,7 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Paralax
   playerCamera: {fileID: 1938923043529395939}
   layers:
-  - layer: {fileID: 367844876227632234}
+  - baseLayer: {fileID: 367844876227632234}
     paralaxEffect: 0.3
 --- !u!1 &8091522124785168588
 GameObject:
@@ -441,7 +441,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -4913345296306748612, guid: b23db75af2fb75c49bca96ca87c6f9c5, type: 3}
+  m_Sprite: {fileID: 2403070404755984699, guid: c46c80e09e32e844f9fd41f2a1b10b8f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -332,7 +332,7 @@ TextureImporter:
       name: swastyka z cierni_10
       rect:
         serializedVersion: 2
-        x: 768
+        x: 512
         y: 256
         width: 256
         height: 256
@@ -355,7 +355,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 0
+        y: 256
         width: 256
         height: 256
       alignment: 0
@@ -368,6 +368,72 @@ TextureImporter:
       bones: []
       spriteID: 641a7e6d97fc82c48b44980999da4bef
       internalID: 647919374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: swastyka z cierni_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c195a87221233044894a97256e92d5e
+      internalID: -649241564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: swastyka z cierni_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c3a828ddcc42f64888e1a8d5e5228e8
+      internalID: 1203915760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: swastyka z cierni_14
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b929581b665f36748a781637a9713e3b
+      internalID: 776887923
       vertices: []
       indices: 
       edges: []
@@ -392,6 +458,9 @@ TextureImporter:
       swastyka z cierni_1: -1311423820304618528
       swastyka z cierni_10: 1621792010
       swastyka z cierni_11: 647919374
+      swastyka z cierni_12: -649241564
+      swastyka z cierni_13: 1203915760
+      swastyka z cierni_14: 776887923
       swastyka z cierni_2: 1565305299285625361
       swastyka z cierni_3: 395263172297188305
       swastyka z cierni_4: 1123225994
