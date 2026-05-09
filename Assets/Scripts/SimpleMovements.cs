@@ -19,9 +19,12 @@ public class SimpleMovements : MonoBehaviour
         if(Vector3.Distance(this.gameObject.transform.localPosition, GameObject.FindWithTag("Player").transform.position)> distanceToDelete)
             Destroy(this.gameObject);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.transform.tag == "Player")
+        {
             collision.gameObject.GetComponent<HealthBar>().health--;
+        }
+        Destroy(this.gameObject);
     }
 }

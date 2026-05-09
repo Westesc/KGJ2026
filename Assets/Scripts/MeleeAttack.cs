@@ -20,21 +20,19 @@ public class MeleeAttack : MonoBehaviour
         timeToLandAttack -= Time.deltaTime;
         if (timeToLandAttack < 0)
         {
-            this.gameObject.AddComponent<SphereCollider>();
+            this.gameObject.AddComponent<SphereCollider>().isTrigger = true;
             this.gameObject.transform.parent.GetComponent<EnemyMovements>().IsMove = true;
             if (isAttacked && this.gameObject.transform.tag != "Player")
                 Destroy( this.gameObject );
             isAttacked = true;
-            timeToLandAttack = 0.5f;
+            timeToLandAttack = 2.5f;
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Enemy")
-        {
-            collision.gameObject.GetComponent<HealthBar>().health--;
-            Destroy(this.gameObject);
-        }
+            if(collision.gameObject.GetComponent<HealthBar>() != null && collision.gameObject.tag != this.gameObject.tag)
+                collision.gameObject.GetComponent<HealthBar>().health--;
+        Destroy(this.gameObject);
     }
 }
