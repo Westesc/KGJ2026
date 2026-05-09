@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Paralax : MonoBehaviour
 {
@@ -20,7 +19,9 @@ public class Paralax : MonoBehaviour
         public float paralaxEffect;
 
         internal float length;
-        internal float height;
+        internal float depth;
+        internal float errorX = 0;
+        internal float errorZ = 0;
         internal LayerLine topLine;
         internal LayerLine centerLine;
         internal LayerLine bottomLine;
@@ -46,13 +47,11 @@ public class Paralax : MonoBehaviour
     void InitLayer(Layer layer)
     { 
         layer.length = layer.baseLayer.bounds.size.x;
-
-        layer.height = layer.baseLayer.bounds.size.y;
-        float dist = layer.height / Mathf.Sqrt(2.0f);
+        layer.depth = layer.baseLayer.size.y * layer.baseLayer.transform.lossyScale.y / Mathf.Sqrt(2);
 
         // TOP
         SpriteRenderer topCenterLayer = Instantiate(layer.baseLayer, transform, false);
-        topCenterLayer.transform.position = new Vector3(layer.baseLayer.transform.position.x, layer.baseLayer.transform.position.y + dist, layer.baseLayer.transform.position.z + dist);
+        topCenterLayer.transform.position = new Vector3(layer.baseLayer.transform.position.x, layer.baseLayer.transform.position.y + layer.depth, layer.baseLayer.transform.position.z + layer.depth);
         InitLayerLine(ref layer.bottomLine, topCenterLayer, layer.length);
 
         // CENTER
@@ -60,7 +59,7 @@ public class Paralax : MonoBehaviour
 
         // BOTTOM
         SpriteRenderer bottomCenterLayer = Instantiate(layer.baseLayer, transform, false);
-        bottomCenterLayer.transform.position = new Vector3(layer.baseLayer.transform.position.x, layer.baseLayer.transform.position.y - dist, layer.baseLayer.transform.position.z - dist);
+        bottomCenterLayer.transform.position = new Vector3(layer.baseLayer.transform.position.x, layer.baseLayer.transform.position.y - layer.depth, layer.baseLayer.transform.position.z - layer.depth);
         InitLayerLine(ref layer.topLine, bottomCenterLayer, layer.length);
     }
 
@@ -86,6 +85,32 @@ public class Paralax : MonoBehaviour
     {
         float distX = camDiff.x * layer.paralaxEffect;
         float distZ = camDiff.z * layer.paralaxEffect;
+
+        layer.errorX += distX;
+
+        if (layer.errorX > layer.length)
+        {
+            distX -= layer.length;
+            layer.errorX -= layer.length;
+        }
+        else if (layer.errorX < -layer.length)
+        {
+            distX += layer.length;
+            layer.errorX += layer.length;
+        }
+
+        layer.errorZ += distZ;
+
+        if (layer.errorZ > layer.depth)
+        {
+            distZ -= layer.depth;
+            layer.errorZ -= layer.depth;
+        }
+        else if (layer.errorZ < -layer.depth)
+        {
+            distZ += layer.depth;
+            layer.errorZ += layer.depth;
+        }
 
         UpdateLine(layer.centerLine, distX, distZ);
 
