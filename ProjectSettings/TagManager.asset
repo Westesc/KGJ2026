@@ -47,4 +47,5 @@ TagManager:
     locked: 0
   m_RenderingLayers:
   - Default
+  - Branches
   m_MigratedRenderPipelines: []
