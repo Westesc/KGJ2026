@@ -2,13 +2,13 @@ using UnityEngine;
 using System.Collections.Generic;
 using DG.Tweening;
 
+public enum PlayerMoveState
+{
+    Idle, MoveUp, MoveDown, MoveLeft, MoveRight
+}
+
 public class PlayerBody : MonoBehaviour
 {
-    enum State
-    {
-        Idle, MoveUp, MoveDown, MoveLeft, MoveRight
-    }
-
     [System.Serializable]
     public struct Animation
     {
@@ -29,8 +29,8 @@ public class PlayerBody : MonoBehaviour
 
     private Sequence currentAnimSequence = null;
 
-    private State currentState = State.Idle;
-    private State CurrentState
+    private PlayerMoveState currentState = PlayerMoveState.Idle;
+    private PlayerMoveState CurrentState
     {
         get => currentState;
         set
@@ -40,7 +40,7 @@ public class PlayerBody : MonoBehaviour
                 return;
             }
 
-            if (value == State.Idle)
+            if (value == PlayerMoveState.Idle)
             {
                 StopAnimation();
                 spriteRenderer.sprite = idlePose;
@@ -48,7 +48,7 @@ public class PlayerBody : MonoBehaviour
                 return;
             }
 
-            if ((value == State.MoveLeft && currentState == State.MoveRight) || (value == State.MoveRight && currentState == State.MoveLeft))
+            if ((value == PlayerMoveState.MoveLeft && currentState == PlayerMoveState.MoveRight) || (value == PlayerMoveState.MoveRight && currentState == PlayerMoveState.MoveLeft))
             {
                 spriteRenderer.flipX = !spriteRenderer.flipX;
                 currentState = value;
@@ -58,17 +58,17 @@ public class PlayerBody : MonoBehaviour
             spriteRenderer.flipX = false;
             switch (value)
             {
-                case State.MoveLeft:
+                case PlayerMoveState.MoveLeft:
                     PlayAnimation(moveLeftAnim);
                     break;
-                case State.MoveRight:
+                case PlayerMoveState.MoveRight:
                     spriteRenderer.flipX = true;
                     PlayAnimation(moveLeftAnim);
                     break;
-                case State.MoveUp:
+                case PlayerMoveState.MoveUp:
                     PlayAnimation(moveUpAnim);
                     break;
-                case State.MoveDown:
+                case PlayerMoveState.MoveDown:
                     PlayAnimation(moveDownAnim);
                     break;
             }
@@ -100,35 +100,60 @@ public class PlayerBody : MonoBehaviour
         currentAnimSequence = null;
     }
 
+    public void PlayIdleAnim()
+    {
+        CurrentState = PlayerMoveState.Idle;
+    }
+
+    public void PlayMoveUpAnim()
+    {
+        CurrentState = PlayerMoveState.MoveUp;
+    }
+
+    public void PlayMoveDownAnim()
+    {
+        CurrentState = PlayerMoveState.MoveDown;
+    }
+
+    public void PlayMoveRightAnim()
+    {
+        CurrentState = PlayerMoveState.MoveRight;
+    }
+
+    public void PlayMoveLeftAnim()
+    {
+        CurrentState = PlayerMoveState.MoveLeft;
+    }
+
     void UpdateBody()
     {
         if (playerMovement.RawMoveInput == Vector2.zero)
         {
-            CurrentState = State.Idle;
+            PlayIdleAnim();
             return;
         }
 
         if (playerMovement.RawMoveInput.y > 0.0f)
         {
-            CurrentState = State.MoveUp;
+            PlayMoveUpAnim();
             return;
         }
 
         if (playerMovement.RawMoveInput.y < 0.0f)
         {
-            CurrentState = State.MoveDown;
+            PlayMoveDownAnim();
             return;
         }
 
         if (playerMovement.RawMoveInput.x > 0.0f)
         {
-            CurrentState = State.MoveRight;
+            PlayMoveRightAnim();
             return;
         }
 
         if (playerMovement.RawMoveInput.x < 0.0f)
         {
-            CurrentState = State.MoveLeft;
+            PlayMoveLeftAnim();
         }
     }
 
