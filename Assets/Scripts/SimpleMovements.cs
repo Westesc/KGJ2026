@@ -8,7 +8,7 @@ public class SimpleMovements : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        direction = GameObject.Find("Player").transform.position - this.gameObject.transform.localPosition;
+        direction = GameObject.FindWithTag("Player").transform.position - this.gameObject.transform.localPosition;
         direction = direction.normalized;
     }
 
@@ -16,7 +16,12 @@ public class SimpleMovements : MonoBehaviour
     void Update()
     {
         this.transform.localPosition += direction * speed * Time.deltaTime;
-        if(Vector3.Distance(this.gameObject.transform.localPosition, GameObject.Find("Player").transform.position)> distanceToDelete)
+        if(Vector3.Distance(this.gameObject.transform.localPosition, GameObject.FindWithTag("Player").transform.position)> distanceToDelete)
             Destroy(this.gameObject);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "Player")
+            collision.gameObject.GetComponent<HealthBar>().health--;
     }
 }
