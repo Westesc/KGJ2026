@@ -55,7 +55,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7422302332011154140}
   - component: {fileID: 7370579915484764172}
-  - component: {fileID: 4499376071519064394}
   m_Layer: 0
   m_Name: RoomThree2
   m_TagString: Untagged
@@ -82,7 +81,6 @@ Transform:
   - {fileID: 3513027630737072098}
   - {fileID: 5047008284528361426}
   - {fileID: 7087407218814309780}
-  - {fileID: 6188744022118400624}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7370579915484764172
@@ -103,81 +101,7 @@ MonoBehaviour:
   bottomDoors: {fileID: 0}
   leftDoors: {fileID: 787966120047109442}
   rightDoors: {fileID: 3368269317043916548}
-  enemySpawner: {fileID: 4499376071519064394}
---- !u!114 &4499376071519064394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3914021912481869530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6b1440f3c09a5e43b7c721202670313, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  spawnEnemies: 1
-  enemyVariants:
-  - {fileID: 4155829362758611056, guid: 1834f7bbf2f22154cb7712a14b16c17a, type: 3}
-  - {fileID: 4155829362758611056, guid: 2ea885836f6b866458b65d1d55c4b162, type: 3}
-  spawnArea: {fileID: 8660515870178650849}
-  enemysNum: 4
-  OnEnemiesDefeated:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!1 &7917364994158009423
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6188744022118400624}
-  - component: {fileID: 8660515870178650849}
-  m_Layer: 0
-  m_Name: EnemySpawnArea
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6188744022118400624
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7917364994158009423}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7422302332011154140}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8660515870178650849
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7917364994158009423}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 31.645586, y: 1, z: 15.304291}
-  m_Center: {x: 1.1543016, y: 0, z: -0.22633362}
+  enemySpawner: {fileID: 1839984202383071838}
 --- !u!1 &8057498379561943195
 GameObject:
   m_ObjectHideFlags: 0
@@ -11729,6 +11653,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1be2c3a4af0d5d4aa668f1447f57eb5, type: 3}
+--- !u!114 &1839984202383071838 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8918848613644568127, guid: b1be2c3a4af0d5d4aa668f1447f57eb5, type: 3}
+  m_PrefabInstance: {fileID: 7083865815922678881}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b1440f3c09a5e43b7c721202670313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
 --- !u!4 &2128578773496189049 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9206705023746559000, guid: b1be2c3a4af0d5d4aa668f1447f57eb5, type: 3}
