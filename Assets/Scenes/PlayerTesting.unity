@@ -8316,6 +8316,7 @@ GameObject:
   m_Component:
   - component: {fileID: 991872250}
   - component: {fileID: 991872249}
+  - component: {fileID: 991872251}
   m_Layer: 0
   m_Name: TestRoomTop
   m_TagString: Untagged
@@ -8341,7 +8342,7 @@ MonoBehaviour:
   bottomDoors: {fileID: 1411192711}
   leftDoors: {fileID: 0}
   rightDoors: {fileID: 0}
-  enemySpawner: {fileID: 0}
+  enemySpawner: {fileID: 991872251}
 --- !u!4 &991872250
 Transform:
   m_ObjectHideFlags: 0
@@ -8359,6 +8360,27 @@ Transform:
   - {fileID: 1411192710}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &991872251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991872248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b1440f3c09a5e43b7c721202670313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  spawnEnemies: 0
+  enemyVariants:
+  - {fileID: 4155829362758611056, guid: 1834f7bbf2f22154cb7712a14b16c17a, type: 3}
+  - {fileID: 4155829362758611056, guid: 2ea885836f6b866458b65d1d55c4b162, type: 3}
+  spawnArea: {fileID: 0}
+  enemysNum: 4
+  OnEnemiesDefeated:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &997059340
 GameObject:
   m_ObjectHideFlags: 0
@@ -23955,6 +23977,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1433656752}
   - component: {fileID: 1433656751}
+  - component: {fileID: 1433656753}
   m_Layer: 0
   m_Name: TestRoomLeft
   m_TagString: Untagged
@@ -23998,6 +24021,27 @@ Transform:
   - {fileID: 2016208676}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1433656753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433656750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b1440f3c09a5e43b7c721202670313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  spawnEnemies: 0
+  enemyVariants:
+  - {fileID: 4155829362758611056, guid: 1834f7bbf2f22154cb7712a14b16c17a, type: 3}
+  - {fileID: 4155829362758611056, guid: 2ea885836f6b866458b65d1d55c4b162, type: 3}
+  spawnArea: {fileID: 0}
+  enemysNum: 4
+  OnEnemiesDefeated:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1490106069 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2193190702012904467, guid: 6fdaba68b4de21342b95f434511ae0b9, type: 3}
@@ -24040,6 +24084,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1705373926}
   - component: {fileID: 1705373925}
+  - component: {fileID: 1705373927}
   m_Layer: 0
   m_Name: TestRoomRight
   m_TagString: Untagged
@@ -24083,6 +24128,27 @@ Transform:
   - {fileID: 2049397315}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1705373927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705373924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b1440f3c09a5e43b7c721202670313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  spawnEnemies: 0
+  enemyVariants:
+  - {fileID: 4155829362758611056, guid: 1834f7bbf2f22154cb7712a14b16c17a, type: 3}
+  - {fileID: 4155829362758611056, guid: 2ea885836f6b866458b65d1d55c4b162, type: 3}
+  spawnArea: {fileID: 0}
+  enemysNum: 4
+  OnEnemiesDefeated:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1897173373 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8420753939524168571, guid: 2eb71e648331026499de9f29b8019283, type: 3}
@@ -31412,7 +31478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1203066532956080744, guid: b9090b1d2b4f4ec4a8d33af13f40c202, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1203066532956080744, guid: b9090b1d2b4f4ec4a8d33af13f40c202, type: 3}
       propertyPath: m_LocalRotation.w
@@ -31442,6 +31508,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6626569802489663969, guid: b9090b1d2b4f4ec4a8d33af13f40c202, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626569802489663969, guid: b9090b1d2b4f4ec4a8d33af13f40c202, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6654032074216132856, guid: b9090b1d2b4f4ec4a8d33af13f40c202, type: 3}
       propertyPath: room
       value: 
@@ -31459,18 +31533,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2006713255749814785, guid: 2eb71e648331026499de9f29b8019283, type: 3}
-      propertyPath: m_Constraints
-      value: 116
-      objectReference: {fileID: 0}
-    - target: {fileID: 3426358363687090073, guid: 2eb71e648331026499de9f29b8019283, type: 3}
-      propertyPath: attackRange
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3426358363687090073, guid: 2eb71e648331026499de9f29b8019283, type: 3}
-      propertyPath: restAttcTime
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 3868244742630984071, guid: 2eb71e648331026499de9f29b8019283, type: 3}
       propertyPath: m_Camera
       value: 
@@ -31478,10 +31540,6 @@ PrefabInstance:
     - target: {fileID: 4078274186938617421, guid: 2eb71e648331026499de9f29b8019283, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5775609957570936027, guid: 2eb71e648331026499de9f29b8019283, type: 3}
-      propertyPath: attackLeftAnim.timeForSprite
-      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 8420753939524168571, guid: 2eb71e648331026499de9f29b8019283, type: 3}
       propertyPath: m_LocalPosition.x

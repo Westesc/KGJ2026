@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: -3127105976243603352}
   - component: {fileID: 3426358363687090073}
   - component: {fileID: 2006713255749814785}
-  - component: {fileID: 4888597099157043604}
   - component: {fileID: 4082538035984514559}
   m_Layer: 0
   m_Name: Player
@@ -241,6 +240,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthBar
   health: 5
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3426358363687090073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,9 +257,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   AttackDirection: {x: 1, y: 1, z: 0}
   AttackObj: {fileID: 3866896898257680999, guid: 21f0c3944a7657d4ba1ac65eec7d5d25, type: 3}
-  restAttcTime: 2
+  restAttcTime: 0.5
   LastAttcTime: 0
-  attackRange: 1
+  attackRange: 2
   attackDistance: 2
   cursorIdle: {fileID: 2800000, guid: 8ca6225b2a0989b45b6b4dc230213ca7, type: 3}
   cursorAttack: {fileID: 2800000, guid: df29a727f0edbdb4bac10a5abb5f322b, type: 3}
@@ -287,16 +289,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
---- !u!81 &4888597099157043604
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4078274186938617421}
-  m_Enabled: 1
 --- !u!82 &4082538035984514559
 AudioSource:
   m_ObjectHideFlags: 0
@@ -542,7 +536,7 @@ MonoBehaviour:
     - {fileID: 3762931617253330252, guid: 52d8b9e6635f4c14b8656fbe692b7a7d, type: 3}
     - {fileID: -7621740272398284685, guid: 6890e20f64029c9418af9076af835ca4, type: 3}
     - {fileID: -8581017441995073328, guid: 80249310804eb7342a520a4b07172771, type: 3}
-    timeForSprite: 0.1
+    timeForSprite: 0.07
   dashUpAnim:
     sprites:
     - {fileID: 4672168096322687863, guid: d5bc9c8613b9481468fac1f797668b9f, type: 3}

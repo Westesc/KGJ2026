@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5688337386209742923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3057907065975743010}
+  - component: {fileID: 2438174561706207201}
+  - component: {fileID: 6822114598697470416}
+  - component: {fileID: 616615886035099006}
+  m_Layer: 0
+  m_Name: RoomsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3057907065975743010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5688337386209742923}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.47511, y: 0, z: 11.5399}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2438174561706207201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5688337386209742923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72371362fcbed384b9060ca32c8a9856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  playerTag: Player
+  transitionTime: 0.75
+  roomConections: []
+  OnRoomExited:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6822114598697470416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5688337386209742923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e7ce2b052e65c640b37c460ee2eed1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapGenerator
+  MaxRooms: 8
+  MinRooms: 5
+  OnGenerated:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &616615886035099006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5688337386209742923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5463a9e770d0e3e4cb2e51b346269ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: KGJ2026.Map::MapManager
+  DefaultRoomColor: {r: 0, g: 0, b: 0, a: 0}
+  DefaultBGColor: {r: 0.41960785, g: 0.27450982, b: 0.27450982, a: 1}
+  RoomOutlineColor: {r: 0.64705884, g: 0.5411765, b: 0.54509807, a: 1}
+  StarColorBase: {r: 0.8980392, g: 0.7176471, b: 0.1490196, a: 1}
+  StarColorAddition: {r: 0.8980392, g: 0.34117648, b: 0.14901961, a: 1}
+  SpawnColorBase: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  InvisibleColor: {r: 1, g: 1, b: 1, a: 0}
+  BarelyVisibleColor: {r: 1, g: 1, b: 1, a: 0.2509804}
+  VisibleColor: {r: 1, g: 1, b: 1, a: 1}
+  ActiveColor: {r: 1, g: 0, b: 0, a: 1}
+  RoomSize: {x: 50, y: 50}
+  RoomOffset: {x: 10, y: 10}
+  ParentObject: {fileID: 0}
+  StartRoom: {fileID: 404520766656297105, guid: f0af7f693939cbb4db868443135ded44, type: 3}
+  EndRoom: {fileID: 404520766656297105, guid: 5898c5cd1e1bf884883b9c5f01cf2a85, type: 3}
+  OneWayRoom:
+  - {fileID: 404520766656297105, guid: 887b51c15fd4e3d4e9326f3771eb86b9, type: 3}
+  - {fileID: 404520766656297105, guid: 6ac945b2470a39846998af8efe40c997, type: 3}
+  TwoWayRoomMirror:
+  - {fileID: 1412378763285875009, guid: cc49743be5a540449b1da7bbd082ea30, type: 3}
+  TwoWayRoomL:
+  - {fileID: 1412378763285875009, guid: 5c965f57c2f25ad4d96592b391eae25a, type: 3}
+  ThreeWayRoom:
+  - {fileID: 4892131930336482943, guid: 5420ee553fe6cf441a9e08007a4cdc64, type: 3}
+  - {fileID: 3914021912481869530, guid: a9c98ff01a2669c4fb75a59e728ae934, type: 3}
+  FourWayRoom:
+  - {fileID: 4892131930336482943, guid: 17426147ad4f27c47a14715e9aa2734f, type: 3}
+  - {fileID: 4892131930336482943, guid: d00e2eca71b11634ba901a13274212ab, type: 3}
