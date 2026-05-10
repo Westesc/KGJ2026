@@ -1,51 +1,64 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
-using static RoomsManager;
 
 [RequireComponent(typeof(MapGenerator))]
 public class MapManager : MonoBehaviour
 {
+    struct RoomToConnection
+    {
+        public int roomIdx;
+        public int connIdx;
+
+        public RoomToConnection(int roomIndex, int connIndex)
+        {
+            this.roomIdx = roomIndex;
+            this.connIdx = connIndex;
+        }
+    };
+
+    enum VisibilityState
+    {
+        Visible,
+        Hidden,
+        Visited
+    }
+
     // STATIC
     private static readonly Vector2Int TEXTURE_PIXELS = new(9, 9);
     private static readonly int ALL_TEXTURE_PIXELS = TEXTURE_PIXELS.x * TEXTURE_PIXELS.y;
-    private static readonly Color32 DEFAULT_ROOM_COLOR_VALUE = new(41, 41, 41, 0);
-    private static readonly Color32 DEFAULT_BG_COLOR_VALUE = Color.gray2;
-    private static readonly Color32[] DEFAULT_ROOM_TEXTURE_COLOR =
-    {
-        DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE,
-        DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE,
-        DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE,
-        DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE,
-        DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE,
-        DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE,
-        DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE,
-        DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE,
-        DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE
-    };
 
-    private static readonly Color32[] DEFAULT_CONNECTION_TEXTURE_COLOR =
-    {
-        DEFAULT_BG_COLOR_VALUE
-    };
+    // Colors
+    [SerializeField] private Color DefaultRoomColor = new(0, 0, 0, 0);
+    [SerializeField] private Color DefaultBGColor = Color.gray2;
+    [SerializeField] private Color RoomOutlineColor = Color.plum;
+    [SerializeField] private Color StarColorBase = Color.blue;
+    [SerializeField] private Color StarColorAddition = Color.rebeccaPurple;
+    [SerializeField] private Color SpawnColorBase = Color.gray7;
+    [SerializeField] private Color InvisibleColor = new(255, 255, 255, 0);
+    [SerializeField] private Color BarelyVisibleColor = new(255, 255, 255, 126);
+    [SerializeField] private Color VisibleColor = Color.white;
+    [SerializeField] private Color ActiveColor = Color.red;
 
     // DRAW
     private Texture2D[] m_RoomTextures;
     private RawImage[] m_RoomImages;
+    private List<VisibilityState> m_RoomsVisible;
 
     private List<Texture2D> m_ConnectionTextures;
     private List<RawImage> m_ConnectionImages;
+    private List<RoomToConnection> m_RoomToConnection;
 
     [SerializeField] private Vector2 RoomSize = new(50, 50);
     [SerializeField] private Vector2 RoomOffset = new(10, 10);
-    [SerializeField] private GameObject parentObject;
+    [SerializeField] private GameObject ParentObject;
 
     // ROOMS
     private List<GameObject> m_Rooms;
     private Dictionary<int, int> m_RoomIndexToObjectIndex;
-    private List<bool> m_RoomsVisible;
-    private List<bool> m_RoomsVisited;
+
+    [SerializeField] private GameObject StartRoom;
+    [SerializeField] private GameObject EndRoom;
 
     [SerializeField] private GameObject[] OneWayRoom;
 
@@ -60,8 +73,52 @@ public class MapManager : MonoBehaviour
     private MapGenerator m_Generator;
 
     // ACTIVE
-    private int activeIndex = 0;
-    private int endIndex = 0;
+    private int m_ActiveIndex = 0;
+    private int m_EndIndex = 0;
+
+    private void DrawEnd(int index)
+    {
+        for (int z = 0; z < ALL_TEXTURE_PIXELS; ++z)
+        {
+            int x = z % TEXTURE_PIXELS.x;
+            int y = z / TEXTURE_PIXELS.x;
+
+            if (((y == 3 || y == 5) && (x == 3 || x == 5)) || (x == 4 && y == 4))
+            {
+                m_RoomTextures[index].SetPixel(x, y, StarColorAddition);
+            }
+            else if ((x == 4 && (y >= 2 && y <= 6)) || (y == 4 && (x >= 2 && x <= 6)))
+            {
+                m_RoomTextures[index].SetPixel(x, y, StarColorBase);
+            }
+            else if ((x - 1 < 0 || x + 1 == TEXTURE_PIXELS.x || y - 1 < 0 || y + 1 == TEXTURE_PIXELS.y))
+            {
+                m_RoomTextures[index].SetPixel(x, y, StarColorBase);
+            }
+        }
+
+        m_RoomTextures[index].Apply();
+    }
+
+    private void DrawStart(int index)
+    {
+        for (int z = 0; z < ALL_TEXTURE_PIXELS; ++z)
+        {
+            int x = z % TEXTURE_PIXELS.x;
+            int y = z / TEXTURE_PIXELS.x;
+
+            if ((y == 6 && x >= 2 && x <= 6) || (y == 5 && x >= 3 && x <= 5) || (x == 4 && y >= 3 && y <= 4))
+            {
+                m_RoomTextures[index].SetPixel(x, y, SpawnColorBase);
+            }
+            else if ((x - 1 < 0 || x + 1 == TEXTURE_PIXELS.x || y - 1 < 0 || y + 1 == TEXTURE_PIXELS.y))
+            {
+                m_RoomTextures[index].SetPixel(x, y, SpawnColorBase);
+            }
+        }
+
+        m_RoomTextures[index].Apply();
+    }
 
     private void DrawRoom(RoomData data, int index)
     {
@@ -79,15 +136,15 @@ public class MapManager : MonoBehaviour
                 (data.Down && (z == 75 || z == 76 || z == 77)) ||
                 (data.Left && (z == 27 || z == 36 || z == 45)))
             {
-                m_RoomTextures[index].SetPixel(x, y, DEFAULT_BG_COLOR_VALUE);
+                m_RoomTextures[index].SetPixel(x, y, DefaultBGColor);
             }
             else if (!data.Empty && (x - 1 < 0 || x + 1 == TEXTURE_PIXELS.x || y - 1 < 0 || y + 1 == TEXTURE_PIXELS.y))
             {
-                m_RoomTextures[index].SetPixel(x, y, Color.blue);
+                m_RoomTextures[index].SetPixel(x, y, RoomOutlineColor);
             }
             else
             {
-                m_RoomTextures[index].SetPixel(x, y, DEFAULT_BG_COLOR_VALUE);
+                m_RoomTextures[index].SetPixel(x, y, DefaultBGColor);
             }
         }
 
@@ -102,18 +159,22 @@ public class MapManager : MonoBehaviour
         if (data.isHorizontal)
         {
             pos.x -= (RoomOffset.x + RoomSize.x) * 0.5f;
-            size.x = RoomOffset.x * parentObject.transform.lossyScale.x;
-            size.y = (3f / (float)TEXTURE_PIXELS.y) * RoomSize.y * parentObject.transform.lossyScale.y;
+            size.x = RoomOffset.x * ParentObject.transform.lossyScale.x;
+            size.y = (3f / (float)TEXTURE_PIXELS.y) * RoomSize.y * ParentObject.transform.lossyScale.y;
         }
         else
         {
             pos.y -= (RoomOffset.x + RoomSize.x) * 0.5f;
-            size.x = (3f / (float)TEXTURE_PIXELS.x) * RoomSize.x * parentObject.transform.lossyScale.x;
-            size.y = RoomOffset.y * parentObject.transform.lossyScale.y;
+            size.x = (3f / (float)TEXTURE_PIXELS.x) * RoomSize.x * ParentObject.transform.lossyScale.x;
+            size.y = RoomOffset.y * ParentObject.transform.lossyScale.y;
         }
 
+        pos.x *= ParentObject.transform.lossyScale.x;
+        pos.y *= ParentObject.transform.lossyScale.y;
+        pos.z *= ParentObject.transform.lossyScale.z;
+
         GameObject obj = new($"Con_{data.indexA}_{data.indexB}");
-        obj.transform.parent = parentObject.transform;
+        obj.transform.SetParent(ParentObject.transform, false);
         int connIndex = m_ConnectionImages.Count;
         m_ConnectionImages.Add(obj.AddComponent<RawImage>());
         m_ConnectionImages[connIndex].rectTransform.sizeDelta = size;
@@ -121,9 +182,12 @@ public class MapManager : MonoBehaviour
         m_ConnectionTextures.Add(new Texture2D(1, 1));
         m_ConnectionTextures[connIndex].filterMode = FilterMode.Point;
         m_ConnectionTextures[connIndex].alphaIsTransparency = true;
-        m_ConnectionTextures[connIndex].SetPixels32(DEFAULT_CONNECTION_TEXTURE_COLOR);
+        m_ConnectionTextures[connIndex].SetPixel(0, 0, DefaultBGColor);
         m_ConnectionTextures[connIndex].Apply();
         m_ConnectionImages[connIndex].texture = m_ConnectionTextures[connIndex];
+        m_ConnectionImages[connIndex].color = InvisibleColor;
+        m_RoomToConnection.Add(new RoomToConnection(data.indexA, connIndex));
+        m_RoomToConnection.Add(new RoomToConnection(data.indexB, connIndex));
     }
 
     private void ClearTextures()
@@ -139,8 +203,7 @@ public class MapManager : MonoBehaviour
                 };
             }
 
-            m_RoomTextures[i].SetPixels32(DEFAULT_ROOM_TEXTURE_COLOR);
-            m_RoomTextures[i].Apply();
+            MapHelpers.ClearColor(ref m_RoomTextures[i], DefaultRoomColor);
         }
     }
 
@@ -167,18 +230,24 @@ public class MapManager : MonoBehaviour
         for (int i = 0; i < MapHelpers.ALL_ROOM_NUM; ++i)
         {
             GameObject obj = new($"Room_{i % MapHelpers.MAP_SIZE.x}_{i / MapHelpers.MAP_SIZE.x}");
-            obj.transform.parent = parentObject.transform;
+            obj.transform.SetParent(ParentObject.transform, false);
             m_RoomImages[i] = obj.AddComponent<RawImage>();
-            m_RoomImages[i].rectTransform.sizeDelta = new Vector2(RoomSize.x * parentObject.transform.lossyScale.x, RoomSize.y * parentObject.transform.lossyScale.y);
-            m_RoomImages[i].rectTransform.SetLocalPositionAndRotation(MapHelpers.GetWorldPositionFromMapIndex(i, RoomSize, RoomOffset), Quaternion.identity);
+            m_RoomImages[i].rectTransform.sizeDelta = new Vector2(RoomSize.x * ParentObject.transform.lossyScale.x, RoomSize.y * ParentObject.transform.lossyScale.y);
+            Vector3 pos = MapHelpers.GetWorldPositionFromMapIndex(i, RoomSize, RoomOffset);
+            pos.x *= ParentObject.transform.lossyScale.x;
+            pos.y *= ParentObject.transform.lossyScale.y;
+            pos.z *= ParentObject.transform.lossyScale.z;
+            m_RoomImages[i].rectTransform.SetLocalPositionAndRotation(pos, Quaternion.identity);
             m_RoomImages[i].texture = m_RoomTextures[i];
         }
 
         m_Rooms = new();
         m_RoomIndexToObjectIndex = new();
+        m_RoomsVisible = new();
 
         m_ConnectionImages = new();
         m_ConnectionTextures = new();
+        m_RoomToConnection = new();
     }
 
     private void SpawnRoom(RoomData data, int index)
@@ -289,9 +358,12 @@ public class MapManager : MonoBehaviour
         {
             DrawConnection(connection);
 
-            RoomsManager.RoomConnection con = new();
-            con.enterRoom = m_Rooms[m_RoomIndexToObjectIndex[connection.indexA]].GetComponent<RoomInfo>();
-            con.exitRoom = m_Rooms[m_RoomIndexToObjectIndex[connection.indexB]].GetComponent<RoomInfo>();
+            RoomsManager.RoomConnection con = new()
+            {
+                enterRoom = m_Rooms[m_RoomIndexToObjectIndex[connection.indexA]].GetComponent<RoomInfo>(),
+                exitRoom = m_Rooms[m_RoomIndexToObjectIndex[connection.indexB]].GetComponent<RoomInfo>()
+            };
+
             if (connection.isHorizontal)
             {
                 con.type = RoomConnectionType.LeftToRight;
@@ -304,29 +376,131 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    private void SetVisibile(int index)
+    private void ReplaceStartAndEnd(int start, int end)
     {
+        int startObj = m_RoomIndexToObjectIndex[start];
+        uint rot = m_Rooms[startObj].GetComponent<RoomInfo>().rotation;
+        int index = m_Rooms[startObj].GetComponent<RoomInfo>().index;
+        Destroy(m_Rooms[startObj]);
+        m_Rooms[startObj] = Instantiate(StartRoom, Vector3.zero, Quaternion.Euler(0.0f, rot * 90.0f, 0.0f));
+        m_Rooms[startObj].SetActive(false);
+        m_Rooms[startObj].GetComponent<RoomInfo>().Rotate(rot);
+        m_Rooms[startObj].GetComponent<RoomInfo>().index = index;
 
+        int endObj = m_RoomIndexToObjectIndex[end];
+        rot = m_Rooms[endObj].GetComponent<RoomInfo>().rotation;
+        index = m_Rooms[endObj].GetComponent<RoomInfo>().index;
+        Destroy(m_Rooms[endObj]);
+        m_Rooms[endObj] = Instantiate(EndRoom, Vector3.zero, Quaternion.Euler(0.0f, rot * 90.0f, 0.0f));
+        m_Rooms[endObj].SetActive(false);
+        m_Rooms[endObj].GetComponent<RoomInfo>().Rotate(rot);
+        m_Rooms[endObj].GetComponent<RoomInfo>().index = index;
     }
 
-    private void SetVisited(int index)
+    private List<int> GetAllConnectionsForRoom(int index)
     {
+        List<int> ret = new();
 
+        for (int i = 0; i < m_RoomToConnection.Count; ++i)
+        {
+            if (m_RoomToConnection[i].roomIdx == index)
+            {
+                ret.Add(m_RoomToConnection[i].connIdx);
+            }
+        }
+
+        return ret;
+    }
+
+    private void SetVisibility(int index, VisibilityState state)
+    {
+        m_RoomsVisible[index] = state;
+
+        List<int> allConnections = GetAllConnectionsForRoom(index);
+
+        switch (state)
+        {
+            case VisibilityState.Visible:
+                {
+                    m_RoomImages[index].color = BarelyVisibleColor;
+                    for (int i = 0; i < allConnections.Count; ++i)
+                    {
+                        m_ConnectionImages[allConnections[i]].color = BarelyVisibleColor;
+                    }
+                    break;
+                }
+            case VisibilityState.Hidden:
+                {
+                    m_RoomImages[index].color = InvisibleColor;
+                    for (int i = 0; i < allConnections.Count; ++i)
+                    {
+                        m_ConnectionImages[allConnections[i]].color = InvisibleColor;
+                    }
+                    break;
+                }
+            case VisibilityState.Visited:
+                {
+                    m_RoomImages[index].color = index == m_ActiveIndex ? ActiveColor : VisibleColor;
+                    for (int i = 0; i < allConnections.Count; ++i)
+                    {
+                        m_ConnectionImages[allConnections[i]].color = VisibleColor;
+                    }
+                    break;
+                }
+        }
+    }
+
+    private Color GetVisibilityColorForRoom(int index)
+    {
+        switch(m_RoomsVisible[index])
+        {
+            case VisibilityState.Visible:
+                {
+                    return BarelyVisibleColor;
+                }
+            case VisibilityState.Hidden:
+                {
+                    return InvisibleColor;
+                }
+            case VisibilityState.Visited:
+                { 
+                    return index == m_ActiveIndex ? ActiveColor : VisibleColor;
+                }
+        }
+
+        return InvisibleColor;
+    }
+
+    private void UpdateVisibilityOfNeighbourRooms(int index)
+    {
+        var neighbours = MapHelpers.GetNonEmptyNeighbours(index, m_Generator.GetMap());
+
+        for(int i = 0; i < neighbours.Count; ++i)
+        {
+            if (m_RoomsVisible[neighbours[i]] == VisibilityState.Hidden)
+            {
+                SetVisibility(neighbours[i], VisibilityState.Visible);
+            }
+        }
     }
 
     private void UpdateActive(int index)
     {
-        m_RoomImages[activeIndex].color = Color.white;
-        UpdateEnd(endIndex);
-        m_RoomImages[index].color = Color.red;
-        activeIndex = index;
+        int oldIndex = m_ActiveIndex;
+        UpdateEnd(m_EndIndex);
+        m_RoomImages[index].color = ActiveColor;
+        m_ActiveIndex = index;
+        m_RoomImages[oldIndex].color = GetVisibilityColorForRoom(oldIndex);
+
+        SetVisibility(m_ActiveIndex, VisibilityState.Visited);
+        UpdateVisibilityOfNeighbourRooms(m_ActiveIndex);
     }
 
     private void UpdateEnd(int index)
     {
-        m_RoomImages[endIndex].color = Color.white;
-        m_RoomImages[index].color = Color.yellow;
-        endIndex = index;
+        m_RoomImages[m_EndIndex].color = GetVisibilityColorForRoom(m_EndIndex);
+        DrawEnd(index);
+        m_EndIndex = index;
     }
 
     private void OnGenerated()
@@ -342,18 +516,22 @@ public class MapManager : MonoBehaviour
         }
         m_Rooms.Clear();
         m_RoomsVisible.Clear();
-        m_RoomsVisited.Clear();
+        m_RoomToConnection.Clear();
 
         for (int i = 0; i < map.Length; ++i)
         {
             DrawRoom(map[i], i);
             SpawnRoom(map[i], i);
+            m_RoomsVisible.Add(VisibilityState.Hidden);
+            m_RoomImages[i].color = GetVisibilityColorForRoom(i);
         }
+        Vector2Int startEnd = m_Generator.GetStartAndEndRoomIndex();
+        ReplaceStartAndEnd(startEnd.x, startEnd.y);
 
         ConnectRooms();
 
-        Vector2Int startEnd = m_Generator.GetStartAndEndRoomIndex();
         m_Rooms[m_RoomIndexToObjectIndex[startEnd.x]].SetActive(true);
+        DrawStart(startEnd.x);
         UpdateActive(startEnd.x);
         UpdateEnd(startEnd.y);
     }
