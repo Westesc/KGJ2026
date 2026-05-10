@@ -22,21 +22,19 @@ public class HealthManagement : MonoBehaviour
             Health = GameObject.FindWithTag("Player").GetComponent<HealthBar>().health;
             for (int i = 0; i < this.gameObject.transform.childCount; i++)
             {
-                Destroy(this.transform.GetChild(i).gameObject);
+                DestroyImmediate(this.transform.GetChild(i).gameObject);
             }
             for (int i = 0; i < MaxHealth; i++)
             {
                 GameObject go = new GameObject("Heart" + i);
-                go.transform.parent = this.gameObject.transform;
-                go.AddComponent<Image>();
-                if (i<Health)
-                    go.GetComponent<Image>().sprite = FullHeart;
-                else
-                    go.GetComponent<Image>().sprite = EmptyHeart;
+                go.transform.SetParent(this.gameObject.transform, false);
+                Image im = go.AddComponent<Image>();
+                im.sprite = i < Health ? FullHeart : EmptyHeart;
+
                 if (i != 0)
                 {
                     go.transform.localPosition = this.gameObject.transform.GetChild(i - 1).transform.localPosition;
-                    go.transform.localPosition += new Vector3(this.gameObject.transform.GetChild(i - 1).GetComponent<RectTransform>().rect.width,0, 0);
+                    go.transform.localPosition += new Vector3(this.gameObject.transform.GetChild(i - 1).GetComponent<RectTransform>().rect.width * 1.2f,0, 0);
                 }
                 else
                 {

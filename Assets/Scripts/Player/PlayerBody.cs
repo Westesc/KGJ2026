@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine.Events;
 
-public enum PlayerMoveState
+public enum PlayerState
 {
-    Idle, MoveUp, MoveDown, MoveLeft, MoveRight, AttackLeft, AttackRight
+    Idle, Move, Attack, Dash
+}
+
+public enum PlayerDirection
+{
+    Up, Down, Left, Right
 }
 
 [DisallowMultipleComponent]
@@ -29,15 +34,19 @@ public class PlayerBody : MonoBehaviour
     public Animation moveDownAnim;
     public Animation moveLeftAnim;
     public Animation attackLeftAnim;
+    public Animation dashUpAnim;
+    public Animation dashDownAnim;
+    public Animation dashLeftAnim;
     public bool isAttacking = false;
     public bool isMoving = true;
+    public bool isDashing = false;
 
     public UnityEvent OnAttackEnd;
 
     private Sequence currentAnimSequence = null;
 
-    private PlayerMoveState currentState = PlayerMoveState.Idle;
-    private PlayerMoveState CurrentState
+    private PlayerState currentState = PlayerState.Idle;
+    private PlayerState CurrentState
     {
         get => currentState;
         set
@@ -47,46 +56,146 @@ public class PlayerBody : MonoBehaviour
                 return;
             }
 
-            if (value == PlayerMoveState.Idle)
-            {
-                StopAnimation();
-                spriteRenderer.sprite = idlePose;
-                currentState = value;
-                return;
-            }
-
-            if ((value == PlayerMoveState.MoveLeft && currentState == PlayerMoveState.MoveRight) || (value == PlayerMoveState.MoveRight && currentState == PlayerMoveState.MoveLeft))
-            {
-                spriteRenderer.flipX = !spriteRenderer.flipX;
-                currentState = value;
-                return;
-            }
-
-            spriteRenderer.flipX = false;
-            switch (value)
-            {
-                case PlayerMoveState.MoveLeft:
-                    PlayAnimation(moveLeftAnim);
-                    break;
-                case PlayerMoveState.MoveRight:
-                    spriteRenderer.flipX = true;
-                    PlayAnimation(moveLeftAnim);
-                    break;
-                case PlayerMoveState.MoveUp:
-                    PlayAnimation(moveUpAnim);
-                    break;
-                case PlayerMoveState.MoveDown:
-                    PlayAnimation(moveDownAnim);
-                    break;
-                case PlayerMoveState.AttackLeft:
-                    PlayAnimation(attackLeftAnim, false, () => { isAttacking = false; isMoving = true; OnAttackEnd?.Invoke(); });
-                    break;
-                case PlayerMoveState.AttackRight:
-                    spriteRenderer.flipX = true;
-                    PlayAnimation(attackLeftAnim, false, () => { isAttacking = false; isMoving = true; OnAttackEnd?.Invoke(); });
-                    break;
-            }
+            var lastState = currentState;
             currentState = value;
+            UpdateState(lastState, currentDirection);
+        }
+    }
+
+    private PlayerDirection currentDirection = PlayerDirection.Down;
+    private PlayerDirection CurrentDirection
+    {
+        get => currentDirection;
+        set
+        {
+            if (value == currentDirection)
+            {
+                return;
+            }
+
+            var lastDirection = currentDirection;
+            currentDirection = value;
+            UpdateState(currentState, lastDirection);
+        }
+    }
+
+    void ChangeStateAndDirection(PlayerState state, PlayerDirection direction)
+    {
+        if (currentState == state && currentDirection == direction)
+        {
+            return;
+        }
+
+        var lastState = currentState;
+        var lastDirection = currentDirection;
+
+        currentState = state;
+        currentDirection = direction;
+
+        UpdateState(lastState, lastDirection);
+    }
+
+    void UpdateAttackState()
+    {
+        spriteRenderer.flipX = false;
+        switch (currentDirection)
+        {
+            case PlayerDirection.Left:
+                PlayAnimation(attackLeftAnim, false, () => { isAttacking = false; isMoving = true; OnAttackEnd?.Invoke(); });
+                break;
+            case PlayerDirection.Right:
+                spriteRenderer.flipX = true;
+                PlayAnimation(attackLeftAnim, false, () => { isAttacking = false; isMoving = true; OnAttackEnd?.Invoke(); });
+                break;
+        }
+    }
+
+    void UpdateMoveState(PlayerDirection lastDirection)
+    {
+        if ((currentDirection == PlayerDirection.Left && lastDirection == PlayerDirection.Right) || (currentDirection == PlayerDirection.Right && lastDirection == PlayerDirection.Left))
+        {
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+            return;
+        }
+
+        spriteRenderer.flipX = false;
+        switch (currentDirection)
+        {
+            case PlayerDirection.Left:
+                PlayAnimation(moveLeftAnim);
+                break;
+            case PlayerDirection.Right:
+                spriteRenderer.flipX = true;
+                PlayAnimation(moveLeftAnim);
+                break;
+            case PlayerDirection.Up:
+                PlayAnimation(moveUpAnim);
+                break;
+            case PlayerDirection.Down:
+                PlayAnimation(moveDownAnim);
+                break;
+        }
+    }
+
+    void UpdateDashState(PlayerDirection lastDirection)
+    {
+        if (isDashing)
+        {
+            return;
+        }
+
+        isDashing = true;
+
+        if ((currentDirection == PlayerDirection.Left && lastDirection == PlayerDirection.Right) || (currentDirection == PlayerDirection.Right && lastDirection == PlayerDirection.Left))
+        {
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+            return;
+        }
+
+        spriteRenderer.flipX = false;
+        switch (currentDirection)
+        {
+            case PlayerDirection.Left:
+                PlayAnimation(dashLeftAnim, false, () => { isDashing = false; });
+                break;
+            case PlayerDirection.Right:
+                spriteRenderer.flipX = true;
+                PlayAnimation(dashLeftAnim, false, () => { isDashing = false; });
+                break;
+            case PlayerDirection.Up:
+                PlayAnimation(dashUpAnim, false, () => { isDashing = false; });
+                break;
+            case PlayerDirection.Down:
+                PlayAnimation(dashDownAnim, false, () => { isDashing = false; });
+                break;
+        }
+    }
+
+    void UpdateState(PlayerState lastState, PlayerDirection lastDirection)
+    {
+        if (currentState == PlayerState.Idle)
+        {
+            StopAnimation();
+            spriteRenderer.sprite = idlePose;
+            return;
+        }
+
+        if (currentState == PlayerState.Dash)
+        {
+            UpdateDashState(lastDirection);
+            return;
+        }
+
+        if (currentState == PlayerState.Move)
+        {
+            UpdateMoveState(lastDirection);
+            return;
+        }
+
+        if (currentState == PlayerState.Attack)
+        {
+            UpdateAttackState();
+            return;
         }
     }
 
@@ -95,18 +204,18 @@ public class PlayerBody : MonoBehaviour
         playerMovement = playerInfo.playerMovement;    
     }
 
-    void PlayAnimation(Animation anim, bool hasLoops = true, TweenCallback onCycleEnd = null)
+    void PlayAnimation(Animation anim, bool hasLoops = true, TweenCallback onComplete = null)
     {
-        currentAnimSequence?.Kill();
+        currentAnimSequence?.Kill(true);
 
         currentAnimSequence = DOTween.Sequence();
         foreach (var sprite in anim.sprites)
         {
             currentAnimSequence.AppendCallback(() => { spriteRenderer.sprite = sprite; }).AppendInterval(anim.timeForSprite);
         }
-        if (onCycleEnd != null)
+        if (onComplete != null)
         {
-            currentAnimSequence.AppendCallback(onCycleEnd);
+            currentAnimSequence.OnComplete(onComplete);
         }
         if (hasLoops)
         {
@@ -123,40 +232,62 @@ public class PlayerBody : MonoBehaviour
 
     public void PlayIdleAnim()
     {
-        CurrentState = PlayerMoveState.Idle;
-    }
-
-    public void PlayMoveUpAnim()
-    {
-        CurrentState = PlayerMoveState.MoveUp;
-    }
-
-    public void PlayMoveDownAnim()
-    {
-        CurrentState = PlayerMoveState.MoveDown;
-    }
-
-    public void PlayMoveRightAnim()
-    {
-        CurrentState = PlayerMoveState.MoveRight;
-    }
-
-    public void PlayMoveLeftAnim()
-    {
-        CurrentState = PlayerMoveState.MoveLeft;
+        ChangeStateAndDirection(PlayerState.Idle, PlayerDirection.Down);
     }
 
     public void PlayAttackLeftAnim()
     {
-        CurrentState = PlayerMoveState.AttackLeft;
+        ChangeStateAndDirection(PlayerState.Attack, PlayerDirection.Left);
     }
+
     public void PlayAttackRightAnim()
     {
-        CurrentState = PlayerMoveState.AttackRight;
+        ChangeStateAndDirection(PlayerState.Attack, PlayerDirection.Right);
+    }
+
+    public void PlayDashUpAnim()
+    {
+        ChangeStateAndDirection(PlayerState.Dash, PlayerDirection.Up);
+    }
+
+    public void PlayDashDownAnim()
+    {
+        ChangeStateAndDirection(PlayerState.Dash, PlayerDirection.Down);
+    }
+
+    public void PlayDashRightAnim()
+    {
+        ChangeStateAndDirection(PlayerState.Dash, PlayerDirection.Right);
+    }
+
+    public void PlayDashLeftAnim()
+    {
+        ChangeStateAndDirection(PlayerState.Dash, PlayerDirection.Left);
+    }
+
+    public void PlayMoveUpAnim()
+    {
+        ChangeStateAndDirection(PlayerState.Move, PlayerDirection.Up);
+    }
+
+    public void PlayMoveDownAnim()
+    {
+        ChangeStateAndDirection(PlayerState.Move, PlayerDirection.Down);
+    }
+
+    public void PlayMoveRightAnim()
+    {
+        ChangeStateAndDirection(PlayerState.Move, PlayerDirection.Right);
+    }
+
+    public void PlayMoveLeftAnim()
+    {
+        ChangeStateAndDirection(PlayerState.Move, PlayerDirection.Left);
     }
 
     void UpdateBody()
-    {   if(isAttacking)
+    {   
+        if (isAttacking)
         {
             if(this.transform.parent.GetComponentInChildren<PlayerAttack>().AttackDirection.x > 0 )
             {
@@ -169,39 +300,69 @@ public class PlayerBody : MonoBehaviour
             isMoving = false;
             return;
         }
+
         if (playerMovement.RawMoveInput == Vector2.zero)
         {
+            if (playerMovement.Dash)
+            {
+                PlayDashDownAnim();
+                return;
+            }
             PlayIdleAnim();
             return;
         }
 
         if (playerMovement.RawMoveInput.y > 0.0f)
         {
+            if (playerMovement.Dash)
+            {
+                PlayDashUpAnim();
+                return;
+            }
             PlayMoveUpAnim();
             return;
         }
 
         if (playerMovement.RawMoveInput.y < 0.0f)
         {
+            if (playerMovement.Dash)
+            {
+                PlayDashDownAnim();
+                return;
+            }
             PlayMoveDownAnim();
             return;
         }
 
         if (playerMovement.RawMoveInput.x > 0.0f)
         {
+            if (playerMovement.Dash)
+            {
+                PlayDashRightAnim();
+                return;
+            }
             PlayMoveRightAnim();
             return;
         }
 
         if (playerMovement.RawMoveInput.x < 0.0f)
         {
+            if (playerMovement.Dash)
+            {
+                PlayDashLeftAnim();
+                return;
+            }
             PlayMoveLeftAnim();
         }
     }
 
     void Update()
     {
-        if(isMoving)
-        UpdateBody();
+        if (isDashing)
+        {
+            return;
+        }
+
+        if (isMoving) UpdateBody();
     }
 }
