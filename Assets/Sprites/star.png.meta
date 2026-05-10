@@ -78,7 +78,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -109,34 +109,12 @@ TextureImporter:
       name: star_0
       rect:
         serializedVersion: 2
-        x: 275
-        y: 506
-        width: 32
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a582a4ae6f104d240800000000000000
-      internalID: 4815476061570213978
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: star_1
-      rect:
-        serializedVersion: 2
-        x: 336
+        x: 266
         y: 236
-        width: 352
+        width: 490
         height: 551
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -150,23 +128,67 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: star_2
+      name: star_3
       rect:
         serializedVersion: 2
-        x: 717
-        y: 505
-        width: 32
-        height: 14
+        x: 267
+        y: 542
+        width: 489
+        height: 245
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f7fff69b81df47fc0800000000000000
+      spriteID: a0bcf95dddc2da447ac82c81ef404daa
+      internalID: 4815476061570213978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: star_2
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 236
+        width: 247
+        height: 307
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 074318d58bd6491458dfec366cb863cf
       internalID: -3497892727927865473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: star_1
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 237
+        width: 245
+        height: 305
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7f0c8b6448eaaf43a7cf4ceb90dfc55
+      internalID: 628957022
       vertices: []
       indices: 
       edges: []
@@ -175,7 +197,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9b5ab38ba939ca746be3b295e2df8675
     internalID: 0
     vertices: []
     indices: 
@@ -185,9 +207,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      star_0: 4815476061570213978
-      star_1: 3999761062471549324
+      star_0: 3999761062471549324
+      star_1: 628957022
       star_2: -3497892727927865473
+      star_3: 4815476061570213978
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
