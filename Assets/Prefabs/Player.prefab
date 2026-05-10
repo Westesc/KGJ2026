@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4902354422075266202}
   - component: {fileID: 551811522967348800}
   - component: {fileID: 1201536840569625000}
+  - component: {fileID: 1993289031616677179}
   m_Layer: 0
   m_Name: GOD
   m_TagString: Untagged
@@ -138,6 +139,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7353d311-e779-40f2-a94e-c5e6079bbd3d
     m_ActionName: 'GOD/STAR_TAKER (8)[/Keyboard/8]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1993289031616677179}
+        m_TargetAssemblyTypeName: EscapeGOD, Assembly-CSharp
+        m_MethodName: OnEscapeLikeAFool
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1e8e227b-9006-43b8-8a7b-dd00335c464c
+    m_ActionName: 'GOD/ESCAPE_LIKE_A_FOOL (ESC)[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: GOD
@@ -156,6 +173,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   inventory: {fileID: 2124207116508737659}
+--- !u!114 &1993289031616677179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3888313958771536535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12dc89e3e2a9b445b28c4fa22c048b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  menuScene: MainMenu
 --- !u!1 &4078274186938617421
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,6 +381,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7353d311-e779-40f2-a94e-c5e6079bbd3d
     m_ActionName: 'GOD/STAR_RAIN (8)[/Keyboard/8]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1e8e227b-9006-43b8-8a7b-dd00335c464c
+    m_ActionName: 'GOD/ESCAPE_LIKE_A_FOOL (ESC)[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

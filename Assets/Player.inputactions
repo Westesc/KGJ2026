@@ -878,6 +878,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ESCAPE_LIKE_A_FOOL (ESC)",
+                    "type": "Button",
+                    "id": "1e8e227b-9006-43b8-8a7b-dd00335c464c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -900,6 +909,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "STAR_TAKER (8)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e3eb1116-d193-40e6-b6ae-3be28004b969",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ESCAPE_LIKE_A_FOOL (ESC)",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
