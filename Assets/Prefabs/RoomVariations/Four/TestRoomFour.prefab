@@ -95,10 +95,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   index: 0
+  rotation: 0
   topDoors: {fileID: 7864565136228496139}
   bottomDoors: {fileID: 2326633750055801938}
   leftDoors: {fileID: 3106146144799416030}
   rightDoors: {fileID: 1252217672054300043}
+  enemySpawner: {fileID: 0}
 --- !u!1 &5206916102194862259
 GameObject:
   m_ObjectHideFlags: 0
@@ -9231,7 +9233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8691204221821185483, guid: 96c6ba3ae2f8a2648acf576cf8c65237, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.92
+      value: -13.84
       objectReference: {fileID: 0}
     - target: {fileID: 8691204221821185483, guid: 96c6ba3ae2f8a2648acf576cf8c65237, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9304,7 +9306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193190702012904467, guid: 6fdaba68b4de21342b95f434511ae0b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.84
+      value: 12.04
       objectReference: {fileID: 0}
     - target: {fileID: 2193190702012904467, guid: 6fdaba68b4de21342b95f434511ae0b9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9373,7 +9375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1203066532956080744, guid: b9090b1d2b4f4ec4a8d33af13f40c202, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.95
+      value: 20.45
       objectReference: {fileID: 0}
     - target: {fileID: 1203066532956080744, guid: b9090b1d2b4f4ec4a8d33af13f40c202, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9446,7 +9448,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 213358035797467205, guid: 9c6db9fc931ac3a4d80e2f7fa3ad0983, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.24
+      value: -19.64
       objectReference: {fileID: 0}
     - target: {fileID: 213358035797467205, guid: 9c6db9fc931ac3a4d80e2f7fa3ad0983, type: 3}
       propertyPath: m_LocalPosition.y

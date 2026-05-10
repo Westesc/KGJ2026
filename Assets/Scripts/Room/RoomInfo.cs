@@ -96,6 +96,11 @@ public class RoomInfo : MonoBehaviour
 
     public void SpawnEnemies()
     {
+        if (enemySpawner == null)
+        {
+            return;
+        }
+
         if (!enemySpawner.Spawn())
         {
             return;
