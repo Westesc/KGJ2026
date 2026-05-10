@@ -83,12 +83,12 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3426358363687090073}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+        m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -152,6 +152,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: ccb5acab-1e41-4dfc-8f5b-9aabd9c2df4b
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6689084455425415731}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e2da7df0-2ae6-4089-9ee5-759e80ed5ab0
+    m_ActionName: 'Player/Dash[/Keyboard/space,/Mouse/rightButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -186,6 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   playerInfo: {fileID: 3224037705438062377}
   moveSpeed: 10
+  dashSpeed: 20
 --- !u!136 &7152937829629253483
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -205,10 +222,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2.3
+  m_Radius: 0.5366039
+  m_Height: 2.3775642
   m_Direction: 1
-  m_Center: {x: 0, y: 0.014196157, z: 0}
+  m_Center: {x: 0.01046145, y: 0.013601661, z: -1.0613109}
 --- !u!114 &-3127105976243603352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   AttackDirection: {x: 1, y: 1, z: 0}
   AttackObj: {fileID: 3866896898257680999, guid: 21f0c3944a7657d4ba1ac65eec7d5d25, type: 3}
-  restAttcTime: 2
+  restAttcTime: 3
   LastAttcTime: 0
   attackRange: 1
   attackDistance: 2
@@ -263,7 +280,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -416,5 +433,27 @@ MonoBehaviour:
     - {fileID: -7621740272398284685, guid: 6890e20f64029c9418af9076af835ca4, type: 3}
     - {fileID: -8581017441995073328, guid: 80249310804eb7342a520a4b07172771, type: 3}
     timeForSprite: 0.1
+  dashUpAnim:
+    sprites:
+    - {fileID: 4672168096322687863, guid: d5bc9c8613b9481468fac1f797668b9f, type: 3}
+    - {fileID: 5871430259989803113, guid: 0bc91738d8de20c4f9edc1d1e99f1f59, type: 3}
+    - {fileID: 5378054040781894948, guid: 0adb3a8abd4ad5d40b3c19e7d072b3bd, type: 3}
+    - {fileID: -8683795170416704423, guid: fb5b862c4cedff44cbf65e9fac510132, type: 3}
+    timeForSprite: 0.07
+  dashDownAnim:
+    sprites:
+    - {fileID: 7482170217424003891, guid: 981f27c75d3622b49b2a670a81c2a18b, type: 3}
+    - {fileID: 4222122644822394007, guid: 7aba982d8e0bc28429cbf54caccd0ff5, type: 3}
+    - {fileID: 819299315679930313, guid: 9d657c9e87a21eb48a17e908b335a812, type: 3}
+    - {fileID: -6497446649646631988, guid: e1bb29d6bcf7f344fa0d49998ebad113, type: 3}
+    timeForSprite: 0.07
+  dashLeftAnim:
+    sprites:
+    - {fileID: -270632196493829290, guid: 5cd43c3f751fdd24c82711e2602aeb0e, type: 3}
+    - {fileID: 4034003753591258212, guid: edae90951ade7fc459a97fb16feda0a8, type: 3}
+    - {fileID: -2191722389115626140, guid: e65f5d59ce2f6e846a08a24eb4913b0c, type: 3}
+    - {fileID: 6101151660945660037, guid: 2a71e98184c49b7489d0b0ba8db38f2a, type: 3}
+    timeForSprite: 0.07
   isAttacking: 0
   isMoving: 1
+  isDashing: 0

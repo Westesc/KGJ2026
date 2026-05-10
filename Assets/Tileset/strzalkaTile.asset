@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: strzalkaTile
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.Tilemaps.Tile
   m_Sprite: {fileID: 2332374914932636753, guid: 93c5b1c96c4975b4c90fd1d23a10e75b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.33333334}
   m_Transform:
     e00: 1
     e01: 0

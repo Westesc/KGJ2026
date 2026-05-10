@@ -1,10 +1,43 @@
 fileFormatVersion: 2
-guid: edae90951ade7fc459a97fb16feda0a8
+guid: 0adb3a8abd4ad5d40b3c19e7d072b3bd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4034003753591258212
-    second: Dasz_side-2_0
+      213: 5378054040781894948
+    second: Dash_up-3_0
+  - first:
+      213: -8830879867552336829
+    second: Dash_up-3_1
+  - first:
+      213: -7018644087689124201
+    second: Dash_up-3_2
+  - first:
+      213: 330959386535247301
+    second: Dash_up-3_3
+  - first:
+      213: 3252652446188082416
+    second: Dash_up-3_4
+  - first:
+      213: 499557137386343233
+    second: Dash_up-3_5
+  - first:
+      213: 3976389230744105344
+    second: Dash_up-3_6
+  - first:
+      213: -2576523542019334424
+    second: Dash_up-3_7
+  - first:
+      213: 818573910989268451
+    second: Dash_up-3_8
+  - first:
+      213: 5691222737115973264
+    second: Dash_up-3_9
+  - first:
+      213: -5753234711179708161
+    second: Dash_up-3_10
+  - first:
+      213: 908840964131768880
+    second: Dash_up-3_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 550
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +105,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,13 +133,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dasz_side-2_0
+      name: Dash_up-3_0
       rect:
         serializedVersion: 2
-        x: 424
-        y: 163
-        width: 986
-        height: 1442
+        x: 352
+        y: 144
+        width: 1286
+        height: 1778
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +148,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 46c36637a09abf730800000000000000
-      internalID: 4034003753591258212
+      spriteID: 425b8abe7afa2aa40800000000000000
+      internalID: 5378054040781894948
       vertices: []
       indices: 
       edges: []
@@ -125,7 +158,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a9ac34c271a098e459877ca9d8828216
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +168,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Dasz_side-2_0: 4034003753591258212
+      Dash_up-3_0: 5378054040781894948
+      Dash_up-3_1: -8830879867552336829
+      Dash_up-3_10: -5753234711179708161
+      Dash_up-3_11: 908840964131768880
+      Dash_up-3_2: -7018644087689124201
+      Dash_up-3_3: 330959386535247301
+      Dash_up-3_4: 3252652446188082416
+      Dash_up-3_5: 499557137386343233
+      Dash_up-3_6: 3976389230744105344
+      Dash_up-3_7: -2576523542019334424
+      Dash_up-3_8: 818573910989268451
+      Dash_up-3_9: 5691222737115973264
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
