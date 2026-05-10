@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12dc89e3e2a9b445b28c4fa22c048b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  menuScene: MainMenu
+  menuScene: PanelScene1
 --- !u!114 &8538861364995036789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,11 +687,7 @@ MonoBehaviour:
     - {fileID: -2384908201296892499, guid: 5a902193b0b6a1548b54930cdf6d8f30, type: 3}
     - {fileID: -2384908201296892499, guid: 5a902193b0b6a1548b54930cdf6d8f30, type: 3}
     - {fileID: 7368654395371832364, guid: a8d9f58bcea9a5141b1df7d7f27fb66f, type: 3}
-    - {fileID: 7368654395371832364, guid: a8d9f58bcea9a5141b1df7d7f27fb66f, type: 3}
-    - {fileID: 3762931617253330252, guid: 52d8b9e6635f4c14b8656fbe692b7a7d, type: 3}
-    - {fileID: -7621740272398284685, guid: 6890e20f64029c9418af9076af835ca4, type: 3}
-    - {fileID: -8581017441995073328, guid: 80249310804eb7342a520a4b07172771, type: 3}
-    timeForSprite: 0.07
+    timeForSprite: 0.05
   dashUpAnim:
     sprites:
     - {fileID: 4672168096322687863, guid: d5bc9c8613b9481468fac1f797668b9f, type: 3}
