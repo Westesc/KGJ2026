@@ -16,9 +16,4 @@ public class EnemyKillerGOD : MonoBehaviour
 
         Debug.Log("KILL");
     }
-
-    private void OnDestroy()
-    {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>().actions["KILL_ALL (K)"].performed -= OnKillAll;
-    }
 }

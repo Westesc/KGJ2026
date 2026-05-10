@@ -100,7 +100,7 @@ MonoBehaviour:
   bottomDoors: {fileID: 0}
   leftDoors: {fileID: 0}
   rightDoors: {fileID: 3240954723510052164}
-  enemySpawner: {fileID: 0}
+  enemySpawner: {fileID: 7243618844425543890}
 --- !u!1 &3614202292530674704
 GameObject:
   m_ObjectHideFlags: 0
@@ -11139,6 +11139,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9206705023746559000, guid: b1be2c3a4af0d5d4aa668f1447f57eb5, type: 3}
   m_PrefabInstance: {fileID: 2251972964009010925}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7243618844425543890 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8918848613644568127, guid: b1be2c3a4af0d5d4aa668f1447f57eb5, type: 3}
+  m_PrefabInstance: {fileID: 2251972964009010925}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b1440f3c09a5e43b7c721202670313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
 --- !u!1001 &8119411565591377340
 PrefabInstance:
   m_ObjectHideFlags: 0
