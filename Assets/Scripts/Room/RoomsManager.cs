@@ -106,7 +106,7 @@ public class RoomsManager : MonoBehaviour
                     playerInfo.playerTransform.position = enterRoom.bottomDoors.transform.position;
                 });
                 seq.Append(playerInfo.playerTransform.DOMoveZ(
-                    enterRoom.bottomDoors.transform.position.z + (enterRoom.bottomDoors.GetCurrentTrigger().size.z + 1), transitionTime / 2f));
+                    enterRoom.bottomDoors.transform.position.z + (enterRoom.bottomDoors.GetCurrentTrigger().size.z), transitionTime / 2f));
                 seq.AppendCallback(() => { enterRoom.bottomDoors.enabled = true; });
                 break;
             case DoorType.Bottom:
@@ -116,7 +116,7 @@ public class RoomsManager : MonoBehaviour
                     playerInfo.playerTransform.position = enterRoom.topDoors.transform.position;
                 });
                 seq.Append(playerInfo.playerTransform.DOMoveZ(
-                    enterRoom.topDoors.transform.position.z - (enterRoom.topDoors.GetCurrentTrigger().size.z + 1), transitionTime / 2f));
+                    enterRoom.topDoors.transform.position.z - (enterRoom.topDoors.GetCurrentTrigger().size.z), transitionTime / 2f));
                 seq.AppendCallback(() => { enterRoom.topDoors.enabled = true; });
                 break;
             case DoorType.Left:
@@ -126,7 +126,7 @@ public class RoomsManager : MonoBehaviour
                     playerInfo.playerTransform.position = enterRoom.rightDoors.transform.position;
                 });
                 seq.Append(playerInfo.playerTransform.DOMoveX(
-                    enterRoom.rightDoors.transform.position.x - (enterRoom.rightDoors.GetCurrentTrigger().size.x + 1), transitionTime / 2f));
+                    enterRoom.rightDoors.transform.position.x - (enterRoom.rightDoors.GetCurrentTrigger().size.x), transitionTime / 2f));
                 seq.AppendCallback(() => { enterRoom.rightDoors.enabled = true; });
                 break;
             case DoorType.Right:
@@ -136,7 +136,7 @@ public class RoomsManager : MonoBehaviour
                     playerInfo.playerTransform.position = enterRoom.leftDoors.transform.position;
                 });
                 seq.Append(playerInfo.playerTransform.DOMoveX(
-                    enterRoom.leftDoors.transform.position.x + (enterRoom.leftDoors.GetCurrentTrigger().size.x + 1), transitionTime / 2f));
+                    enterRoom.leftDoors.transform.position.x + (enterRoom.leftDoors.GetCurrentTrigger().size.x), transitionTime / 2f));
                 seq.AppendCallback(() => { enterRoom.leftDoors.enabled = true; });
                 break;
         }
