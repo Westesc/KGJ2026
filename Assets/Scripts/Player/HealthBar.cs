@@ -7,10 +7,10 @@ public class HealthBar : MonoBehaviour
     public bool immortal = false;
 
     public int health;
+    public int maxHealth;
     private int LastHealth;
     private float timeColor;
     private bool dead = false;
-    private int maxHealth;
 
     public UnityEvent OnDeath;
 

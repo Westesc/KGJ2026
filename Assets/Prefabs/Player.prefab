@@ -246,6 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthBar
   immortal: 0
   health: 5
+  maxHealth: 0
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -263,7 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   AttackDirection: {x: 1, y: 1, z: 0}
   AttackObj: {fileID: 3866896898257680999, guid: 21f0c3944a7657d4ba1ac65eec7d5d25, type: 3}
-  restAttcTime: 0.5
+  restAttcTime: 1.5
   LastAttcTime: 0
   attackRange: 2
   attackDistance: 2
