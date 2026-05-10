@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HealthBar : MonoBehaviour
 {
     public int health;
     private int LastHealth;
     private float timeColor;
+
+    public UnityEvent OnDeath;
+
     private void Start()
     {
         LastHealth = health;
@@ -27,8 +31,9 @@ public class HealthBar : MonoBehaviour
             this.transform.GetComponentInChildren<SpriteRenderer>().color = Color.red;
 
         }
-        if (health == 0 && this.transform.tag != "Player")
-            Destroy(gameObject);
-
+        if (health == 0)
+        {
+            OnDeath.Invoke();
+        }
     }
 }

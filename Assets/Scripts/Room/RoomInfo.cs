@@ -11,6 +11,8 @@ public class RoomInfo : MonoBehaviour
     public RoomDoor leftDoors;
     public RoomDoor rightDoors;
 
+    public EnemySpawner enemySpawner;
+
     public void Rotate(uint cycles)
     {
         cycles %= 4;
@@ -44,6 +46,67 @@ public class RoomInfo : MonoBehaviour
         {
             leftDoors.SetDoorType(DoorType.Left);
         }
+    }
+
+    public void LockDoors()
+    {
+        if (topDoors != null)
+        {
+            topDoors.Lock();
+        }
+
+        if (rightDoors != null)
+        {
+            rightDoors.Lock();
+        }
+
+        if (bottomDoors != null)
+        {
+            bottomDoors.Lock();
+        }
+
+        if (leftDoors != null)
+        {
+            leftDoors.Lock();
+        }
+    }
+
+    public void UnlockDoors()
+    {
+        if (topDoors != null)
+        {
+            topDoors.Unlock();
+        }
+
+        if (rightDoors != null)
+        {
+            rightDoors.Unlock();
+        }
+
+        if (bottomDoors != null)
+        {
+            bottomDoors.Unlock();
+        }
+
+        if (leftDoors != null)
+        {
+            leftDoors.Unlock();
+        }
+    }
+
+    public void SpawnEnemies()
+    {
+        if (!enemySpawner.Spawn())
+        {
+            return;
+        }
+
+        enemySpawner.OnEnemiesDefeated.AddListener(() =>
+        {
+            UnlockDoors();
+        });
+
+        LockDoors();
     }
 
     public void Exit(RoomDoor door)
