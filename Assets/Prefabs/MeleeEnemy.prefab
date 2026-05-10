@@ -367,6 +367,7 @@ MonoBehaviour:
   TimeOfStupid: 0
   MaxTimeStupid: 0
   DeathParticleSystem: {fileID: 3869516348077596710, guid: 853a19614c9b9a44795d6b670914c97c, type: 3}
+  deathClip: {fileID: 8300000, guid: 13959f59889e94c49906674b400c6055, type: 3}
 --- !u!114 &-7599262467770781618
 MonoBehaviour:
   m_ObjectHideFlags: 0

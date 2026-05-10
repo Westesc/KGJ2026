@@ -24,12 +24,13 @@ public class EnemyMovements : MonoBehaviour
     public float TimeOfStupid;
     public float MaxTimeStupid;
     public Transform DeathParticleSystem;
+    public AudioClip deathClip;
 
     private void Start()
     {
         PlayerPosition = new Vector3(0, 0, 0);
 
-        GetComponent<HealthBar>().OnDeath.AddListener(() => { Instantiate(DeathParticleSystem,this.transform.localPosition, this.transform.localRotation, this.transform.parent); Destroy(gameObject); });
+        GetComponent<HealthBar>().OnDeath.AddListener(() => { Instantiate(DeathParticleSystem,this.transform.localPosition, this.transform.localRotation, this.transform.parent); GetComponent<AudioSource>().clip = deathClip; GetComponent<AudioSource>().Play(); Destroy(gameObject, 0.1f); });
     }
 
     // Update is called once per frame
