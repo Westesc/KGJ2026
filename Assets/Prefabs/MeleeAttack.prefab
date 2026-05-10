@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MeleeAttack
   timeToLandAttack: 1
   isAttacked: 0
-  AttackRadius: 1
+  AttackRadius: 5
 --- !u!1 &8713479364041809068
 GameObject:
   m_ObjectHideFlags: 0
