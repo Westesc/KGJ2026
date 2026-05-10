@@ -366,4 +366,9 @@ public class PlayerBody : MonoBehaviour
 
         if (isMoving) UpdateBody();
     }
+
+    private void OnDestroy()
+    {
+        currentAnimSequence?.Kill(true);
+    }
 }
