@@ -304,6 +304,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeleeEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4155829362758611056, guid: 1834f7bbf2f22154cb7712a14b16c17a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7604261099306529565, guid: 1834f7bbf2f22154cb7712a14b16c17a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.09689
@@ -347,7 +351,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4155829362758611056, guid: 1834f7bbf2f22154cb7712a14b16c17a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1043496204}
   m_SourcePrefab: {fileID: 100100000, guid: 1834f7bbf2f22154cb7712a14b16c17a, type: 3}
 --- !u!114 &415183605 stripped
 MonoBehaviour:
@@ -1634,6 +1641,38 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9090b1d2b4f4ec4a8d33af13f40c202, type: 3}
+--- !u!1 &1043496199 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4155829362758611056, guid: 1834f7bbf2f22154cb7712a14b16c17a, type: 3}
+  m_PrefabInstance: {fileID: 269067642}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1043496204
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043496199}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!114 &1063316724 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5947635644428480131, guid: 6fdaba68b4de21342b95f434511ae0b9, type: 3}
@@ -2015,13 +2054,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: RangedEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4155829362758611056, guid: 2ea885836f6b866458b65d1d55c4b162, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7604261099306529565, guid: 2ea885836f6b866458b65d1d55c4b162, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.95
       objectReference: {fileID: 0}
     - target: {fileID: 7604261099306529565, guid: 2ea885836f6b866458b65d1d55c4b162, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7604261099306529565, guid: 2ea885836f6b866458b65d1d55c4b162, type: 3}
       propertyPath: m_LocalPosition.z
