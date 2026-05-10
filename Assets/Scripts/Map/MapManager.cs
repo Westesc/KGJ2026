@@ -191,9 +191,8 @@ public class MapManager : MonoBehaviour
         m_ConnectionImages.Add(obj.AddComponent<RawImage>());
         m_ConnectionImages[connIndex].rectTransform.sizeDelta = size;
         m_ConnectionImages[connIndex].rectTransform.SetLocalPositionAndRotation(pos, Quaternion.identity);
-        m_ConnectionTextures.Add(new Texture2D(1, 1));
+        m_ConnectionTextures.Add(new Texture2D(1, 1, TextureFormat.RGBA32, false));
         m_ConnectionTextures[connIndex].filterMode = FilterMode.Point;
-        m_ConnectionTextures[connIndex].alphaIsTransparency = true;
         m_ConnectionTextures[connIndex].SetPixel(0, 0, DefaultBGColor);
         m_ConnectionTextures[connIndex].Apply();
         m_ConnectionImages[connIndex].texture = m_ConnectionTextures[connIndex];
@@ -208,10 +207,9 @@ public class MapManager : MonoBehaviour
         {
             if (m_RoomTextures[i] == null)
             {
-                m_RoomTextures[i] = new(TEXTURE_PIXELS.x, TEXTURE_PIXELS.y)
+                m_RoomTextures[i] = new(TEXTURE_PIXELS.x, TEXTURE_PIXELS.y, TextureFormat.RGBA32, false)
                 {
-                    filterMode = FilterMode.Point,
-                    alphaIsTransparency = true
+                    filterMode = FilterMode.Point
                 };
             }
 
