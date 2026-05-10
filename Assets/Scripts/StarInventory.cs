@@ -10,30 +10,50 @@ public class StarInventory : MonoBehaviour
     public UnityEvent OnStarCollected;
     public UnityEvent OnAllStarsCollected;
 
+    public void CollectTopStar()
+    {
+        topCollected = true;
+        OnStarCollected?.Invoke();
+    }
+
+    public void CollectRightStar()
+    {
+        rightCollected = true;
+        OnStarCollected?.Invoke();
+    }
+
+    public void CollectLeftStar()
+    {
+        leftCollected = true;
+        OnStarCollected?.Invoke();
+    }
+
+    public void CheckAllStars()
+    {
+        if (topCollected && leftCollected && rightCollected)
+        {
+            OnAllStarsCollected?.Invoke();
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("TopStar"))
         {
             Destroy(other.gameObject);
-            topCollected = true;
-            OnStarCollected?.Invoke();
+            CollectTopStar();
         } 
         else if (other.CompareTag("LeftStar"))
         {
             Destroy(other.gameObject);
-            leftCollected = true;
-            OnStarCollected?.Invoke();
+            CollectLeftStar();
         }
         else if (other.CompareTag("RightStar"))
         {
             Destroy(other.gameObject);
-            rightCollected = true;
-            OnStarCollected?.Invoke();
+            CollectRightStar();
         }
 
-        if (topCollected && leftCollected && rightCollected)
-        {
-            OnAllStarsCollected?.Invoke();
-        }
+        CheckAllStars();
     }
 }

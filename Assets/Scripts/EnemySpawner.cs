@@ -14,7 +14,7 @@ public class EnemySpawner : MonoBehaviour
 
     public int enemysNum = 4;
 
-    private int currentEnemiesCount = 0;
+    private List<GameObject> currentEnemies;
 
     public UnityEvent OnEnemiesDefeated;
 
@@ -32,20 +32,33 @@ public class EnemySpawner : MonoBehaviour
     {
         if (!spawnEnemies || spawned) return false;
 
+        currentEnemies = new();
+
         for (int i = 0; i < enemysNum; ++i)
         {
             GameObject enemy = Instantiate(enemyVariants[GetEnemyVariantIdx()], transform, true);
             enemy.transform.position = GetRandomSpawnPosition() + spawnArea.transform.position;
-            enemy.GetComponent<HealthBar>().OnDeath.AddListener(() => { --currentEnemiesCount; });
+            enemy.GetComponent<HealthBar>().OnDeath.AddListener(() => {
+                currentEnemies.Remove(enemy);
+            });
+
+            currentEnemies.Add(enemy);
         }
-        currentEnemiesCount = enemysNum;
         spawned = true;
         return true;
     }
 
+    public void KillAll()
+    {
+        for (int i = 0; i < currentEnemies.Count; ++i)
+        {
+            currentEnemies[i].GetComponent<HealthBar>().Die();
+        }
+    }
+
     void Update()
     {
-        if (currentEnemiesCount == 0 && spawnEnemies && spawned)
+        if (currentEnemies.Count == 0 && spawnEnemies && spawned)
         {
             spawnEnemies = false;
             OnEnemiesDefeated.Invoke();

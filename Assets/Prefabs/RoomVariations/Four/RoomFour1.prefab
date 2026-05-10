@@ -14645,14 +14645,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner
       objectReference: {fileID: 0}
-    - target: {fileID: 8918848613644568127, guid: b1be2c3a4af0d5d4aa668f1447f57eb5, type: 3}
-      propertyPath: enemysNum
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8918848613644568127, guid: b1be2c3a4af0d5d4aa668f1447f57eb5, type: 3}
-      propertyPath: enemyVariants.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9206705023746559000, guid: b1be2c3a4af0d5d4aa668f1447f57eb5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.6

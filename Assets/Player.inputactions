@@ -856,6 +856,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "GOD",
+            "id": "6182bc22-1f95-4e1b-a0c4-fac892886b7b",
+            "actions": [
+                {
+                    "name": "KILL_ALL (K)",
+                    "type": "Button",
+                    "id": "28284427-9140-483c-8cd6-22fc6bfcb9b6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "STAR_TAKER (8)",
+                    "type": "Button",
+                    "id": "7353d311-e779-40f2-a94e-c5e6079bbd3d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7843eaf9-5783-4dc6-bc7a-8ce3156dc4c2",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "KILL_ALL (K)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1f9dd11d-199e-4c4e-8472-35ffd54d9f95",
+                    "path": "<Keyboard>/8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "STAR_TAKER (8)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
