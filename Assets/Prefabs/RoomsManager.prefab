@@ -98,11 +98,14 @@ MonoBehaviour:
   EndRoom: {fileID: 404520766656297105, guid: 5898c5cd1e1bf884883b9c5f01cf2a85, type: 3}
   OneWayRoom:
   - {fileID: 404520766656297105, guid: 887b51c15fd4e3d4e9326f3771eb86b9, type: 3}
+  - {fileID: 404520766656297105, guid: 6ac945b2470a39846998af8efe40c997, type: 3}
   TwoWayRoomMirror:
   - {fileID: 1412378763285875009, guid: cc49743be5a540449b1da7bbd082ea30, type: 3}
   TwoWayRoomL:
   - {fileID: 1412378763285875009, guid: 5c965f57c2f25ad4d96592b391eae25a, type: 3}
   ThreeWayRoom:
   - {fileID: 4892131930336482943, guid: 5420ee553fe6cf441a9e08007a4cdc64, type: 3}
+  - {fileID: 3914021912481869530, guid: a9c98ff01a2669c4fb75a59e728ae934, type: 3}
   FourWayRoom:
-  - {fileID: 4892131930336482943, guid: 3c3403a30f256f94b920b440327c6771, type: 3}
+  - {fileID: 4892131930336482943, guid: 17426147ad4f27c47a14715e9aa2734f, type: 3}
+  - {fileID: 4892131930336482943, guid: d00e2eca71b11634ba901a13274212ab, type: 3}
