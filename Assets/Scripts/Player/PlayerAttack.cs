@@ -32,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 Vector3 AttackPosition = this.transform.localPosition + AttackDirection;
                 Transform go = Instantiate<Transform>(AttackObj, AttackPosition, this.gameObject.transform.localRotation, this.gameObject.transform);
-                go.GetComponent<MeleeAttack>().timeToLandAttack = 1;
+                go.GetComponent<MeleeAttack>().timeToLandAttack = 0.5f;
                 go.GetComponent<MeleeAttack>().AttackRadius = attackRange;
                 this.transform.GetComponentInChildren<PlayerBody>().OnAttackEnd.AddListener(() =>
                 {

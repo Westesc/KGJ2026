@@ -1393,6 +1393,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5775609957570936027, guid: 2eb71e648331026499de9f29b8019283, type: 3}
+      propertyPath: attackLeftAnim.timeForSprite
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775609957570936027, guid: 2eb71e648331026499de9f29b8019283, type: 3}
+      propertyPath: attackLeftAnim.sprites.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775609957570936027, guid: 2eb71e648331026499de9f29b8019283, type: 3}
+      propertyPath: 'attackLeftAnim.sprites.Array.data[16]'
+      value: 
+      objectReference: {fileID: -8581017441995073328, guid: 80249310804eb7342a520a4b07172771, type: 3}
     - target: {fileID: 8420753939524168571, guid: 2eb71e648331026499de9f29b8019283, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

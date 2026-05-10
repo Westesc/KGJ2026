@@ -391,7 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   AttackDirection: {x: 1, y: 1, z: 0}
   AttackObj: {fileID: 3866896898257680999, guid: 21f0c3944a7657d4ba1ac65eec7d5d25, type: 3}
-  restAttcTime: 1.5
+  restAttcTime: 0.25
   LastAttcTime: 0
   attackRange: 1
   attackDistance: 2
