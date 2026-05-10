@@ -393,7 +393,7 @@ MonoBehaviour:
   AttackObj: {fileID: 3866896898257680999, guid: 21f0c3944a7657d4ba1ac65eec7d5d25, type: 3}
   restAttcTime: 0.25
   LastAttcTime: 0
-  attackRange: 1
+  attackRange: 2
   attackDistance: 2
   cursorIdle: {fileID: 2800000, guid: 8ca6225b2a0989b45b6b4dc230213ca7, type: 3}
   cursorAttack: {fileID: 2800000, guid: df29a727f0edbdb4bac10a5abb5f322b, type: 3}
