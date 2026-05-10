@@ -51,19 +51,19 @@ public class EnemyMovements : MonoBehaviour
     {
         MovementDirection = Vector2.zero;
         PlayerPosition = GameObject.FindWithTag("Player").transform.position;
-        Vector3 direction = PlayerPosition - this.gameObject.transform.transform.localPosition;
+        Vector3 direction = PlayerPosition - this.gameObject.transform.transform.position;
         direction.y = 0;
         if (Vector3.Distance(PlayerPosition, this.gameObject.transform.position) > MeleeDistance && enemyType == EnemyType.MeleeDealer)
         {
             MovementDirection.x = direction.normalized.x * Speed * Time.deltaTime;
             MovementDirection.y = direction.normalized.z * Speed * Time.deltaTime;
-            this.gameObject.transform.transform.localPosition += direction.normalized * Speed * Time.deltaTime;
+            this.gameObject.transform.transform.position += direction.normalized * Speed * Time.deltaTime;
         }
         else if (enemyType == EnemyType.RangeDealer && Vector3.Distance(PlayerPosition, this.gameObject.transform.position) < RangerDistance)
         {
             MovementDirection.x = direction.normalized.x * Speed * Time.deltaTime * (-1);
             MovementDirection.y = direction.normalized.z * Speed * Time.deltaTime * (-1);
-            this.gameObject.transform.transform.localPosition -= direction.normalized * Speed * Time.deltaTime;
+            this.gameObject.transform.transform.position -= direction.normalized * Speed * Time.deltaTime;
         }
     }
     
