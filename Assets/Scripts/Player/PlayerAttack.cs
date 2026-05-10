@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,27 +11,35 @@ public class PlayerAttack : MonoBehaviour
     public float attackRange;
     public float attackDistance;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Texture2D cursorIdle;
+    public Texture2D cursorAttack;
 
-    // Update is called once per frame
     void Update()
     {
         LastAttcTime += Time.deltaTime;
     }
     public void OnAttack(InputAction.CallbackContext ctx)
     {
-        if (LastAttcTime > restAttcTime && ctx.canceled)
+        if (LastAttcTime > restAttcTime)
         {
-            Vector3 AttackPosition = this.transform.localPosition + AttackDirection;
-            Transform go = Instantiate<Transform>(AttackObj, AttackPosition, this.gameObject.transform.localRotation, this.gameObject.transform);
-            go.GetComponent<MeleeAttack>().timeToLandAttack = 1;
-            go.GetComponent<MeleeAttack>().AttackRadius = attackRange;
-            this.transform.GetComponentInChildren<PlayerBody>().isAttacking = true;
-            LastAttcTime = 0;
+            if (ctx.started)
+            {
+                Cursor.SetCursor(cursorAttack, Vector2.zero, CursorMode.Auto);
+            }
+            else if (ctx.canceled)
+            {
+                Vector3 AttackPosition = this.transform.localPosition + AttackDirection;
+                Transform go = Instantiate<Transform>(AttackObj, AttackPosition, this.gameObject.transform.localRotation, this.gameObject.transform);
+                go.GetComponent<MeleeAttack>().timeToLandAttack = 1;
+                go.GetComponent<MeleeAttack>().AttackRadius = attackRange;
+                this.transform.GetComponentInChildren<PlayerBody>().OnAttackEnd.AddListener(() =>
+                {
+                    Cursor.SetCursor(cursorIdle, Vector2.zero, CursorMode.Auto);
+                    this.transform.GetComponentInChildren<PlayerBody>().OnAttackEnd.RemoveAllListeners();
+                });
+                this.transform.GetComponentInChildren<PlayerBody>().isAttacking = true;
+                LastAttcTime = 0;
+            }
         }
     }
 

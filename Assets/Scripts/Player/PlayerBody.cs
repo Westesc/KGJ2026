@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using DG.Tweening;
+using UnityEngine.Events;
 
 public enum PlayerMoveState
 {
@@ -30,6 +31,8 @@ public class PlayerBody : MonoBehaviour
     public Animation attackLeftAnim;
     public bool isAttacking = false;
     public bool isMoving = true;
+
+    public UnityEvent OnAttackEnd;
 
     private Sequence currentAnimSequence = null;
 
@@ -76,11 +79,11 @@ public class PlayerBody : MonoBehaviour
                     PlayAnimation(moveDownAnim);
                     break;
                 case PlayerMoveState.AttackLeft:
-                    PlayAnimation(attackLeftAnim, false, () => { isAttacking = false; isMoving = true; });
+                    PlayAnimation(attackLeftAnim, false, () => { isAttacking = false; isMoving = true; OnAttackEnd?.Invoke(); });
                     break;
                 case PlayerMoveState.AttackRight:
                     spriteRenderer.flipX = true;
-                    PlayAnimation(attackLeftAnim, false, () => { isAttacking = false; isMoving = true; });
+                    PlayAnimation(attackLeftAnim, false, () => { isAttacking = false; isMoving = true; OnAttackEnd?.Invoke(); });
                     break;
             }
             currentState = value;

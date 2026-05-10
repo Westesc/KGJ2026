@@ -673,12 +673,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3866896898257680999, guid: 21f0c3944a7657d4ba1ac65eec7d5d25, type: 3}
     - target: {fileID: 3426358363687090073, guid: 2eb71e648331026499de9f29b8019283, type: 3}
+      propertyPath: cursorIdle
+      value: 
+      objectReference: {fileID: 2800000, guid: 8ca6225b2a0989b45b6b4dc230213ca7, type: 3}
+    - target: {fileID: 3426358363687090073, guid: 2eb71e648331026499de9f29b8019283, type: 3}
       propertyPath: attackRange
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3426358363687090073, guid: 2eb71e648331026499de9f29b8019283, type: 3}
+      propertyPath: cursorAttack
+      value: 
+      objectReference: {fileID: 2800000, guid: df29a727f0edbdb4bac10a5abb5f322b, type: 3}
+    - target: {fileID: 3426358363687090073, guid: 2eb71e648331026499de9f29b8019283, type: 3}
       propertyPath: restAttcTime
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3426358363687090073, guid: 2eb71e648331026499de9f29b8019283, type: 3}
       propertyPath: attackDistance
@@ -12985,7 +12993,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000076294, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 135.9186}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1229247947
