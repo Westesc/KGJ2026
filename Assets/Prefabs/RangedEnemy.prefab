@@ -398,6 +398,7 @@ MonoBehaviour:
   MovementDirection: {x: 0, y: 0}
   TimeOfStupid: 0
   MaxTimeStupid: 4
+  DeathParticleSystem: {fileID: 3869516348077596710, guid: 853a19614c9b9a44795d6b670914c97c, type: 3}
 --- !u!114 &1637172260462881027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,6 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0cd3bcc88e8a54384e18abd367efda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthBar
+  immortal: 0
   health: 3
   maxHealth: 0
   OnDeath:
