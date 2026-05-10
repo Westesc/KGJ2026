@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4155829362758611056
+--- !u!1 &10496310457585564
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7604261099306529565}
-  - component: {fileID: 1859108733323041842}
-  - component: {fileID: 1536229775592176055}
-  - component: {fileID: -7599262467770781618}
-  - component: {fileID: -4286011626332468680}
+  - component: {fileID: 7539061902283204286}
+  - component: {fileID: 7753196598463359994}
+  - component: {fileID: 8774053922224665614}
   m_Layer: 0
-  m_Name: MeleeEnemy
-  m_TagString: Enemy
+  m_Name: Body
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7604261099306529565
+--- !u!4 &7539061902283204286
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4155829362758611056}
+  m_GameObject: {fileID: 10496310457585564}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1859108733323041842
+  m_Father: {fileID: 7604261099306529565}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!212 &7753196598463359994
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4155829362758611056}
+  m_GameObject: {fileID: 10496310457585564}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -84,16 +82,85 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 4821486207198945839, guid: 4998ae65a5f556d4bbb678155f56e068, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &8774053922224665614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10496310457585564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05f3dacbb48079c459be530a31ed51cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBody
+  enemyMovement: {fileID: 1536229775592176055}
+  spriteRenderer: {fileID: 7753196598463359994}
+  idlePose: {fileID: -6058438862037340686, guid: 210f9d385a47ab94d997b2a9cb9dee78, type: 3}
+  moveAnim:
+    sprites:
+    - {fileID: 4821486207198945839, guid: 4998ae65a5f556d4bbb678155f56e068, type: 3}
+    - {fileID: 7326099678423028631, guid: 68e2a854e0c11be419a9fe23c241493e, type: 3}
+    - {fileID: -5193304800074102180, guid: e848b16d72a130946ba2358e1b21e27a, type: 3}
+    - {fileID: -4420361669602785922, guid: 657ebf18a2e176b45addbb7dbcfd1dd1, type: 3}
+    timeForSprite: 0.1
+  attackAnim:
+    sprites:
+    - {fileID: -6058438862037340686, guid: 210f9d385a47ab94d997b2a9cb9dee78, type: 3}
+    - {fileID: 9039459669576713141, guid: e3b4df6a126b6db4e8f69814b3b10145, type: 3}
+    - {fileID: 5228735615764212635, guid: b97a129a2161c43418d80e7e4f460709, type: 3}
+    - {fileID: 47342878575492731, guid: 7de7cc3530c24e44aa71584c5b4dad0c, type: 3}
+    - {fileID: 5228735615764212635, guid: b97a129a2161c43418d80e7e4f460709, type: 3}
+    - {fileID: 9039459669576713141, guid: e3b4df6a126b6db4e8f69814b3b10145, type: 3}
+    - {fileID: -6058438862037340686, guid: 210f9d385a47ab94d997b2a9cb9dee78, type: 3}
+    timeForSprite: 0.1
+  isAttacking: 0
+  isMoving: 1
+--- !u!1 &4155829362758611056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7604261099306529565}
+  - component: {fileID: 1536229775592176055}
+  - component: {fileID: -7599262467770781618}
+  - component: {fileID: -4286011626332468680}
+  m_Layer: 0
+  m_Name: MeleeEnemy
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7604261099306529565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4155829362758611056}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7539061902283204286}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1536229775592176055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,13 +175,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovements
   enemyType: 0
   PlayerPosition: {x: 0, y: 0, z: 0}
-  RangerDistance: 10
+  RangerDistance: 5
   MeleeDistance: 1
-  Speed: 10
+  Speed: 5
   MeleeAttackDistance: 2
   TimeToAttack: 2
   AttackPrefab: {fileID: 3866896898257680999, guid: 21f0c3944a7657d4ba1ac65eec7d5d25, type: 3}
   IsMove: 1
+  MovementDirection: {x: 0, y: 0}
 --- !u!114 &-7599262467770781618
 MonoBehaviour:
   m_ObjectHideFlags: 0

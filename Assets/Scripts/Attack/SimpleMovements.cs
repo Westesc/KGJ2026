@@ -25,6 +25,7 @@ public class SimpleMovements : MonoBehaviour
         {
             collision.gameObject.GetComponent<HealthBar>().health--;
         }
+        if(collision.transform.tag != "Enemy")
         Destroy(this.gameObject);
     }
 }

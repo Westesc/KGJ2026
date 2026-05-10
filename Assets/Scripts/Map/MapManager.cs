@@ -11,7 +11,7 @@ public class MapManager : MonoBehaviour
     private static readonly Vector2Int TEXTURE_PIXELS = new(9, 9);
     private static readonly int ALL_TEXTURE_PIXELS = TEXTURE_PIXELS.x * TEXTURE_PIXELS.y;
     private static readonly Color32 DEFAULT_ROOM_COLOR_VALUE = new(41, 41, 41, 0);
-    private static readonly Color32 DEFAULT_CONNECTION_COLOR_VALUE = Color.gray2;
+    private static readonly Color32 DEFAULT_BG_COLOR_VALUE = Color.gray2;
     private static readonly Color32[] DEFAULT_ROOM_TEXTURE_COLOR =
     {
         DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE, DEFAULT_ROOM_COLOR_VALUE,
@@ -27,7 +27,7 @@ public class MapManager : MonoBehaviour
 
     private static readonly Color32[] DEFAULT_CONNECTION_TEXTURE_COLOR =
     {
-        DEFAULT_CONNECTION_COLOR_VALUE
+        DEFAULT_BG_COLOR_VALUE
     };
 
     // DRAW
@@ -44,6 +44,8 @@ public class MapManager : MonoBehaviour
     // ROOMS
     private List<GameObject> m_Rooms;
     private Dictionary<int, int> m_RoomIndexToObjectIndex;
+    private List<bool> m_RoomsVisible;
+    private List<bool> m_RoomsVisited;
 
     [SerializeField] private GameObject[] OneWayRoom;
 
@@ -77,15 +79,15 @@ public class MapManager : MonoBehaviour
                 (data.Down && (z == 75 || z == 76 || z == 77)) ||
                 (data.Left && (z == 27 || z == 36 || z == 45)))
             {
-                m_RoomTextures[index].SetPixel(x, y, Color.gray2);
+                m_RoomTextures[index].SetPixel(x, y, DEFAULT_BG_COLOR_VALUE);
             }
             else if (!data.Empty && (x - 1 < 0 || x + 1 == TEXTURE_PIXELS.x || y - 1 < 0 || y + 1 == TEXTURE_PIXELS.y))
             {
-                m_RoomTextures[index].SetPixel(x, y, Color.cadetBlue);
+                m_RoomTextures[index].SetPixel(x, y, Color.blue);
             }
             else
             {
-                m_RoomTextures[index].SetPixel(x, y, Color.gray2);
+                m_RoomTextures[index].SetPixel(x, y, DEFAULT_BG_COLOR_VALUE);
             }
         }
 
@@ -302,6 +304,16 @@ public class MapManager : MonoBehaviour
         }
     }
 
+    private void SetVisibile(int index)
+    {
+
+    }
+
+    private void SetVisited(int index)
+    {
+
+    }
+
     private void UpdateActive(int index)
     {
         m_RoomImages[activeIndex].color = Color.white;
@@ -329,6 +341,8 @@ public class MapManager : MonoBehaviour
             m_Rooms.RemoveAt(0);
         }
         m_Rooms.Clear();
+        m_RoomsVisible.Clear();
+        m_RoomsVisited.Clear();
 
         for (int i = 0; i < map.Length; ++i)
         {
