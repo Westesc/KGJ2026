@@ -1,3 +1,4 @@
+using SaintsField.Playa;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,12 +9,15 @@ public class HealthBar : MonoBehaviour
     public int health;
     private int LastHealth;
     private float timeColor;
+    private bool dead = false;
+    private int maxHealth;
 
     public UnityEvent OnDeath;
 
     private void Start()
     {
         LastHealth = health;
+        maxHealth = health;
     }
 
     // Update is called once per frame
@@ -33,10 +37,24 @@ public class HealthBar : MonoBehaviour
             this.transform.GetComponentInChildren<SpriteRenderer>().color = Color.red;
 
         }
-        if (health == 0)
+        if (health == 0 && !dead)
         {
-            OnDeath.Invoke();
+            dead = true;
+            OnDeath?.Invoke();
         }
+    }
+
+    public void Resurect()
+    {
+        health = maxHealth;
+        LastHealth = health;
+        dead = false;
+    }
+
+    [Button]
+    public void Die()
+    {
+        health = 0;
     }
 
     public void TakeDamage(int damage = 1)
