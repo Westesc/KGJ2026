@@ -257,7 +257,7 @@ public class MapManager : MonoBehaviour
 
     private IEnumerator ChangeScene()
     {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(1.25f);
 
         SceneManager.LoadScene(LastScene);
     }
