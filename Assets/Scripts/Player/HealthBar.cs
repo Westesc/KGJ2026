@@ -11,7 +11,6 @@ public class HealthBar : MonoBehaviour
     private int LastHealth;
     private float timeColor;
     private bool dead = false;
-    private int maxHealth;
 
     public UnityEvent OnDeath;
 

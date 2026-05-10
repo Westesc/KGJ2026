@@ -169,6 +169,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e2da7df0-2ae6-4089-9ee5-759e80ed5ab0
     m_ActionName: 'Player/Dash[/Keyboard/space,/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 01d8692c-9b21-47cd-8fc9-07995f66510e
+    m_ActionName: 'Player/NextScene[/Keyboard/anyKey,/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -239,7 +243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0cd3bcc88e8a54384e18abd367efda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthBar
+  immortal: 0
   health: 5
+  maxHealth: 0
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -257,7 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   AttackDirection: {x: 1, y: 1, z: 0}
   AttackObj: {fileID: 3866896898257680999, guid: 21f0c3944a7657d4ba1ac65eec7d5d25, type: 3}
-  restAttcTime: 0.5
+  restAttcTime: 1.5
   LastAttcTime: 0
   attackRange: 2
   attackDistance: 2
@@ -562,5 +568,8 @@ MonoBehaviour:
   isMoving: 1
   isDashing: 0
   OnAttackEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDashEnd:
     m_PersistentCalls:
       m_Calls: []
