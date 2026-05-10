@@ -239,11 +239,35 @@ MonoBehaviour:
     m_ActionId: 5b78afb0-f92f-427c-977f-76d9098cd7b8
     m_ActionName: 'Player/KILL_ALL (K)[/Keyboard/k]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1201536840569625000}
+        m_TargetAssemblyTypeName: StarTakerGOD, Assembly-CSharp
+        m_MethodName: OnStarTaker
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: c90662c1-fd1c-4b94-b5b7-1847b258858c
     m_ActionName: 'Player/STAR_TAKER (8)[/Keyboard/8]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1993289031616677179}
+        m_TargetAssemblyTypeName: EscapeGOD, Assembly-CSharp
+        m_MethodName: OnEscapeLikeAFool
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 9fc463ae-c437-4fbe-832f-820617ee9b1f
     m_ActionName: 'Player/ESCAPE_LIKE_A_FOOL (ESC)[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
@@ -338,7 +362,7 @@ MonoBehaviour:
   AttackObj: {fileID: 3866896898257680999, guid: 21f0c3944a7657d4ba1ac65eec7d5d25, type: 3}
   restAttcTime: 1.5
   LastAttcTime: 0
-  attackRange: 2
+  attackRange: 1
   attackDistance: 2
   cursorIdle: {fileID: 2800000, guid: 8ca6225b2a0989b45b6b4dc230213ca7, type: 3}
   cursorAttack: {fileID: 2800000, guid: df29a727f0edbdb4bac10a5abb5f322b, type: 3}

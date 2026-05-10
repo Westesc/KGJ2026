@@ -1500,6 +1500,10 @@ PrefabInstance:
       value: 'Player/ESCAPE_LIKE_A_FOOL (ESC)[/Keyboard/escape]'
       objectReference: {fileID: 0}
     - target: {fileID: 3868244742630984071, guid: 2eb71e648331026499de9f29b8019283, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3868244742630984071, guid: 2eb71e648331026499de9f29b8019283, type: 3}
       propertyPath: m_ActionEvents.Array.data[17].m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1523,6 +1527,10 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[17].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 239944955}
+    - target: {fileID: 3868244742630984071, guid: 2eb71e648331026499de9f29b8019283, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3868244742630984071, guid: 2eb71e648331026499de9f29b8019283, type: 3}
       propertyPath: m_ActionEvents.Array.data[17].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
