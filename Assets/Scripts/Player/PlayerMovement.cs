@@ -25,6 +25,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        playerInfo.playerBody.OnDashEnd.AddListener(() => { GetComponent<HealthBar>().immortal = false; Dash = false; });
+    }
+
     void Update()
     {
         if (!playerInfo.playerBody.isMoving)
@@ -37,11 +42,6 @@ public class PlayerMovement : MonoBehaviour
         if (Dash)
         {
             speed = dashSpeed;
-            
-            if (dashInput != Vector3.zero && !playerInfo.playerBody.isDashing)
-            {
-                Dash = false;
-            }
 
             if (dashInput == Vector3.zero)
             {
@@ -69,8 +69,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnDash(InputAction.CallbackContext ctx)
     {
-        if (!ctx.performed || Dash) return;
+        if (!ctx.performed || Dash || !playerInfo.playerBody.isMoving) return;
         Dash = true;
         dashInput = Vector3.zero;
+        GetComponent<HealthBar>().immortal = true;
     }
 }

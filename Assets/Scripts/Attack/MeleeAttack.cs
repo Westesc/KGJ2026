@@ -36,7 +36,7 @@ public class MeleeAttack : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
             if(collision.gameObject.GetComponent<HealthBar>() != null && collision.gameObject.tag != this.gameObject.transform.parent.tag)
-                collision.gameObject.GetComponent<HealthBar>().health--;
+                collision.gameObject.GetComponent<HealthBar>().TakeDamage();
         Destroy(this.gameObject);
     }
 }

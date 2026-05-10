@@ -3,6 +3,8 @@ using UnityEngine.Events;
 
 public class HealthBar : MonoBehaviour
 {
+    public bool immortal = false;
+
     public int health;
     private int LastHealth;
     private float timeColor;
@@ -35,5 +37,11 @@ public class HealthBar : MonoBehaviour
         {
             OnDeath.Invoke();
         }
+    }
+
+    public void TakeDamage(int damage = 1)
+    {
+        if (immortal) return;
+        health -= damage;
     }
 }

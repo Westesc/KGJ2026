@@ -42,6 +42,7 @@ public class PlayerBody : MonoBehaviour
     public bool isDashing = false;
 
     public UnityEvent OnAttackEnd;
+    public UnityEvent OnDashEnd;
 
     private Sequence currentAnimSequence = null;
 
@@ -156,17 +157,17 @@ public class PlayerBody : MonoBehaviour
         switch (currentDirection)
         {
             case PlayerDirection.Left:
-                PlayAnimation(dashLeftAnim, false, () => { isDashing = false; });
+                PlayAnimation(dashLeftAnim, false, () => { isDashing = false; OnDashEnd?.Invoke(); });
                 break;
             case PlayerDirection.Right:
                 spriteRenderer.flipX = true;
-                PlayAnimation(dashLeftAnim, false, () => { isDashing = false; });
+                PlayAnimation(dashLeftAnim, false, () => { isDashing = false; OnDashEnd?.Invoke(); });
                 break;
             case PlayerDirection.Up:
-                PlayAnimation(dashUpAnim, false, () => { isDashing = false; });
+                PlayAnimation(dashUpAnim, false, () => { isDashing = false; OnDashEnd?.Invoke(); });
                 break;
             case PlayerDirection.Down:
-                PlayAnimation(dashDownAnim, false, () => { isDashing = false; });
+                PlayAnimation(dashDownAnim, false, () => { isDashing = false; OnDashEnd?.Invoke(); });
                 break;
         }
     }
