@@ -238,7 +238,11 @@ public class MapManager : MonoBehaviour
         ++m_StarsCollected;
         StarCollectedText.SetActive(true);
         StarCollectedText.GetComponent<TextMeshProUGUI>().text = $"You've collected {m_StarsCollected} out of 3. Keep being awesome.";
-        StartCoroutine(nameof(StarCollectedWait));
+
+        if (m_StarsCollected < 3)
+        {
+            StartCoroutine(nameof(StarCollectedWait));
+        }
     }
 
     private IEnumerator StarCollectedWait()
@@ -255,7 +259,7 @@ public class MapManager : MonoBehaviour
 
     private IEnumerator ChangeScene()
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.6f);
 
         SceneManager.LoadScene(LastScene);
     }
@@ -460,9 +464,9 @@ public class MapManager : MonoBehaviour
         var stars = m_Rooms[endObj].GetComponentsInChildren<StarAnim>();
         for (int i = 0; i < stars.Length; ++i)
         {
-            if (!stars[i].gameObject.CompareTag(tag))
+            if (!stars[i].gameObject.transform.parent.gameObject.CompareTag(tag))
             {
-                DestroyImmediate(stars[i].gameObject);
+                DestroyImmediate(stars[i].gameObject.transform.parent.gameObject);
             }
         }
     }
