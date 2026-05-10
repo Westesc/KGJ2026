@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(AudioSource))]
 public class PlayerAttack : MonoBehaviour
 {
     public Vector3 AttackDirection = Vector2.one;
@@ -13,6 +14,7 @@ public class PlayerAttack : MonoBehaviour
 
     public Texture2D cursorIdle;
     public Texture2D cursorAttack;
+    public AudioClip attackSound;
 
     void Update()
     {
@@ -39,6 +41,9 @@ public class PlayerAttack : MonoBehaviour
                 });
                 this.transform.GetComponentInChildren<PlayerBody>().isAttacking = true;
                 LastAttcTime = 0;
+                AudioSource source = GetComponent<AudioSource>();
+                source.clip = attackSound;
+                source.Play();
             }
         }
     }
