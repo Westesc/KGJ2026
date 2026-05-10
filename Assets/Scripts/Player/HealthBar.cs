@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class HealthBar : MonoBehaviour
 {
     public int health;
+    public int maxHealth;
     private int LastHealth;
     private float timeColor;
 
@@ -12,6 +13,7 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         LastHealth = health;
+        maxHealth = health;
     }
 
     // Update is called once per frame
