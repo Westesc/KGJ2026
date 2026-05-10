@@ -116,7 +116,7 @@ public class RoomsManager : MonoBehaviour
                     playerInfo.playerTransform.position = enterRoom.topDoors.transform.position;
                 });
                 seq.Append(playerInfo.playerTransform.DOMoveZ(
-                    enterRoom.topDoors.transform.position.z - (enterRoom.topDoors.GetCurrentTrigger().size.z), transitionTime / 2f));
+                    enterRoom.topDoors.transform.position.z - (enterRoom.topDoors.GetCurrentTrigger().size.z + 1), transitionTime / 2f));
                 seq.AppendCallback(() => { enterRoom.topDoors.enabled = true; });
                 break;
             case DoorType.Left:
