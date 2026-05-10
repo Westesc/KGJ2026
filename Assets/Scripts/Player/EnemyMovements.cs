@@ -27,6 +27,8 @@ public class EnemyMovements : MonoBehaviour
     private void Start()
     {
         PlayerPosition = new Vector3(0, 0, 0);
+
+        GetComponent<HealthBar>().OnDeath.AddListener(() => { Destroy(gameObject); });
     }
 
     // Update is called once per frame

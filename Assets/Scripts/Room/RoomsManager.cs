@@ -31,7 +31,7 @@ public class RoomsManager : MonoBehaviour
 
     private Sequence currentSequence = null;
 
-    public UnityEvent<int> OnRoomChanged;
+    public UnityEvent<int> OnRoomExited;
 
     void Awake()
     {
@@ -93,7 +93,7 @@ public class RoomsManager : MonoBehaviour
         seq.AppendCallback(() => {
             exitRoom.gameObject.SetActive(false);
             enterRoom.gameObject.SetActive(true);
-            OnRoomChanged.Invoke(enterRoom.index);
+            OnRoomExited.Invoke(enterRoom.index);
         });
 
         // ENTER
@@ -145,7 +145,7 @@ public class RoomsManager : MonoBehaviour
         {
             playerInfo.playerMovement.enabled = true;
             playerInfo.playerBody.enabled = true;
-        }).OnComplete(() => { currentSequence = null; }).Play();
+        }).OnComplete(() => { currentSequence = null; enterRoom.SpawnEnemies(); }).Play();
     }
 
     public void ExitRoom(RoomInfo room, DoorType type)

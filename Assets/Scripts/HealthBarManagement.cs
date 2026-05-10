@@ -12,6 +12,24 @@ public class HealthManagement : MonoBehaviour
     {
         MaxHealth = GameObject.FindWithTag("Player").GetComponent<HealthBar>().health;
         Health = MaxHealth;
+
+        for (int i = 0; i < MaxHealth; i++)
+        {
+            GameObject go = new GameObject("Heart" + i);
+            go.transform.SetParent(this.gameObject.transform, false);
+            Image im = go.AddComponent<Image>();
+            im.sprite = i < Health ? FullHeart : EmptyHeart;
+
+            if (i != 0)
+            {
+                go.transform.localPosition = this.gameObject.transform.GetChild(i - 1).transform.localPosition;
+                go.transform.localPosition += new Vector3(this.gameObject.transform.GetChild(i - 1).GetComponent<RectTransform>().rect.width * 1.2f, 0, 0);
+            }
+            else
+            {
+                go.transform.localPosition = new Vector3(0, 0, 0);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -20,26 +38,9 @@ public class HealthManagement : MonoBehaviour
         if (Health != GameObject.FindWithTag("Player").GetComponent<HealthBar>().health || MaxHealth != this.gameObject.transform.childCount)
         {
             Health = GameObject.FindWithTag("Player").GetComponent<HealthBar>().health;
-            for (int i = 0; i < this.gameObject.transform.childCount; i++)
-            {
-                DestroyImmediate(this.transform.GetChild(i).gameObject);
-            }
             for (int i = 0; i < MaxHealth; i++)
             {
-                GameObject go = new GameObject("Heart" + i);
-                go.transform.SetParent(this.gameObject.transform, false);
-                Image im = go.AddComponent<Image>();
-                im.sprite = i < Health ? FullHeart : EmptyHeart;
-
-                if (i != 0)
-                {
-                    go.transform.localPosition = this.gameObject.transform.GetChild(i - 1).transform.localPosition;
-                    go.transform.localPosition += new Vector3(this.gameObject.transform.GetChild(i - 1).GetComponent<RectTransform>().rect.width * 1.2f,0, 0);
-                }
-                else
-                {
-                    go.transform.localPosition = new Vector3(0,0,0);
-                }
+                transform.GetChild(i).GetComponent<Image>().sprite = i < Health ? FullHeart : EmptyHeart;
             }
         }
     }

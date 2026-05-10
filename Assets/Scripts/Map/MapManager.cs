@@ -546,6 +546,6 @@ public class MapManager : MonoBehaviour
 
     private void Start()
     {
-        RoomsManager.Instance.OnRoomChanged.AddListener(UpdateActive);
+        RoomsManager.Instance.OnRoomExited.AddListener(UpdateActive);
     }
 }
