@@ -468,6 +468,10 @@ public class MapManager : MonoBehaviour
             {
                 DestroyImmediate(stars[i].gameObject.transform.parent.gameObject);
             }
+            else
+            {
+                stars[i].gameObject.transform.parent.transform.Rotate(new Vector3(0f, rot * -90f, 0f));
+            }
         }
     }
 
@@ -607,8 +611,8 @@ public class MapManager : MonoBehaviour
 
         m_Rooms[m_RoomIndexToObjectIndex[startEnd.x]].SetActive(true);
         DrawStart(startEnd.x);
-        UpdateActive(startEnd.x);
         UpdateEnd(startEnd.y);
+        UpdateActive(startEnd.x);
     }
 
     private void Awake()
