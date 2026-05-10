@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7539061902283204286}
   - component: {fileID: 7753196598463359994}
   - component: {fileID: 8774053922224665614}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 8740041841041937973}
   - component: {fileID: 8935503443244307709}
   - component: {fileID: 2365471294608676621}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 458201449472411628}
   - component: {fileID: 3642593775543268338}
   - component: {fileID: 870099875561103731}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: -7599262467770781618}
   - component: {fileID: -4286011626332468680}
   - component: {fileID: 6043992140766524879}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MeleeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 5634186766336232120}
   - component: {fileID: 587743008716028352}
   - component: {fileID: 5656326294672958966}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -547,7 +547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3973196734450718996}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -585,7 +585,7 @@ GameObject:
   - component: {fileID: 887006201620633867}
   - component: {fileID: 30858602402888416}
   - component: {fileID: 3818912950078452813}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}

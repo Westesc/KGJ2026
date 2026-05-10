@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4902354422075266202}
   - component: {fileID: 1201536840569625000}
   - component: {fileID: 1993289031616677179}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GOD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 2006713255749814785}
   - component: {fileID: 4082538035984514559}
   - component: {fileID: 2124207116508737659}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -236,28 +236,16 @@ MonoBehaviour:
     m_ActionName: 'Player/NextScene[/Keyboard/anyKey,/Mouse/leftButton]'
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 28284427-9140-483c-8cd6-22fc6bfcb9b6
-    m_ActionName: 'GOD/KILL_ALL (K)[/Keyboard/k]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: StarTakerGOD, Assembly-CSharp
-        m_MethodName: OnStarTaker
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 7353d311-e779-40f2-a94e-c5e6079bbd3d
-    m_ActionName: 'GOD/STAR_RAIN (8)[/Keyboard/8]'
+    m_ActionId: 5b78afb0-f92f-427c-977f-76d9098cd7b8
+    m_ActionName: 'Player/KILL_ALL (K)[/Keyboard/k]'
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 1e8e227b-9006-43b8-8a7b-dd00335c464c
-    m_ActionName: 'GOD/ESCAPE_LIKE_A_FOOL (ESC)[/Keyboard/escape]'
+    m_ActionId: c90662c1-fd1c-4b94-b5b7-1847b258858c
+    m_ActionName: 'Player/STAR_TAKER (8)[/Keyboard/8]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9fc463ae-c437-4fbe-832f-820617ee9b1f
+    m_ActionName: 'Player/ESCAPE_LIKE_A_FOOL (ESC)[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -511,7 +499,7 @@ GameObject:
   - component: {fileID: 5016525919318254780}
   - component: {fileID: 4933311027609804360}
   - component: {fileID: 5775609957570936027}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

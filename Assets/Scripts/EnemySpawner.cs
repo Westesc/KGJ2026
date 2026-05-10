@@ -58,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if (currentEnemies.Count == 0 && spawnEnemies && spawned)
+        if (currentEnemies != null && currentEnemies.Count == 0 && spawnEnemies && spawned)
         {
             spawnEnemies = false;
             OnEnemiesDefeated.Invoke();
