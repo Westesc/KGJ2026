@@ -12,18 +12,21 @@ public class StarInventory : MonoBehaviour
 
     public void CollectTopStar()
     {
+        if (topCollected) return;
         topCollected = true;
         OnStarCollected?.Invoke();
     }
 
     public void CollectRightStar()
     {
+        if (rightCollected) return;
         rightCollected = true;
         OnStarCollected?.Invoke();
     }
 
     public void CollectLeftStar()
     {
+        if (leftCollected) return;
         leftCollected = true;
         OnStarCollected?.Invoke();
     }

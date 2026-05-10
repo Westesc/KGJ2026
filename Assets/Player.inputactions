@@ -50,6 +50,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "KILL_ALL (K)",
+                    "type": "Button",
+                    "id": "5b78afb0-f92f-427c-977f-76d9098cd7b8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "STAR_TAKER (8)",
+                    "type": "Button",
+                    "id": "c90662c1-fd1c-4b94-b5b7-1847b258858c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ESCAPE_LIKE_A_FOOL (ESC)",
+                    "type": "Button",
+                    "id": "9fc463ae-c437-4fbe-832f-820617ee9b1f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -336,6 +363,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "NextScene",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c544bc61-ccca-4553-8006-9327bd38095f",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "KILL_ALL (K)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4e9dc5ed-2c8a-4d09-b4cd-11e9187484fa",
+                    "path": "<Keyboard>/8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "STAR_TAKER (8)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fe44c925-a236-4121-8143-fca35607314e",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ESCAPE_LIKE_A_FOOL (ESC)",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -852,74 +912,6 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "GOD",
-            "id": "6182bc22-1f95-4e1b-a0c4-fac892886b7b",
-            "actions": [
-                {
-                    "name": "KILL_ALL (K)",
-                    "type": "Button",
-                    "id": "28284427-9140-483c-8cd6-22fc6bfcb9b6",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "STAR_TAKER (8)",
-                    "type": "Button",
-                    "id": "7353d311-e779-40f2-a94e-c5e6079bbd3d",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "ESCAPE_LIKE_A_FOOL (ESC)",
-                    "type": "Button",
-                    "id": "1e8e227b-9006-43b8-8a7b-dd00335c464c",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "7843eaf9-5783-4dc6-bc7a-8ce3156dc4c2",
-                    "path": "<Keyboard>/k",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "KILL_ALL (K)",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1f9dd11d-199e-4c4e-8472-35ffd54d9f95",
-                    "path": "<Keyboard>/8",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "STAR_TAKER (8)",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e3eb1116-d193-40e6-b6ae-3be28004b969",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "ESCAPE_LIKE_A_FOOL (ESC)",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
