@@ -257,6 +257,8 @@ MonoBehaviour:
   LastAttcTime: 0
   attackRange: 1
   attackDistance: 2
+  cursorIdle: {fileID: 2800000, guid: 8ca6225b2a0989b45b6b4dc230213ca7, type: 3}
+  cursorAttack: {fileID: 2800000, guid: df29a727f0edbdb4bac10a5abb5f322b, type: 3}
 --- !u!54 &2006713255749814785
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -457,3 +459,6 @@ MonoBehaviour:
   isAttacking: 0
   isMoving: 1
   isDashing: 0
+  OnAttackEnd:
+    m_PersistentCalls:
+      m_Calls: []
