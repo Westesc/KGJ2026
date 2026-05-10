@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 1536229775592176055}
   - component: {fileID: -7599262467770781618}
   - component: {fileID: -4286011626332468680}
-  - component: {fileID: 2748861326536590606}
+  - component: {fileID: 6043992140766524879}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -408,7 +408,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &2748861326536590606
+--- !u!54 &6043992140766524879
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

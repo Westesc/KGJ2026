@@ -8130,6 +8130,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8725280560283823104}
     m_Modifications:
+    - target: {fileID: 5735653567809606790, guid: b1be2c3a4af0d5d4aa668f1447f57eb5, type: 3}
+      propertyPath: m_Size.z
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 7903720922965059952, guid: b1be2c3a4af0d5d4aa668f1447f57eb5, type: 3}
       propertyPath: m_Name
       value: Spawner

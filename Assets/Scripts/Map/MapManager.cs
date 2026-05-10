@@ -1,5 +1,9 @@
+using SaintsField;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(MapGenerator))]
@@ -75,6 +79,14 @@ public class MapManager : MonoBehaviour
     // ACTIVE
     private int m_ActiveIndex = 0;
     private int m_EndIndex = 0;
+
+    // STARS
+    private int m_StarsCollected = 0;
+    [SerializeField] private GameObject StarCollectedText;
+
+    // SCENE
+    [Scene]
+    [SerializeField] private string LastScene;
 
     private void DrawEnd(int index)
     {
@@ -221,6 +233,37 @@ public class MapManager : MonoBehaviour
         RoomsManager.Instance.roomConections.Clear();
     }
 
+    private void StarCollected()
+    {
+        ++m_StarsCollected;
+        StarCollectedText.SetActive(true);
+        StarCollectedText.GetComponent<TextMeshProUGUI>().text = $"You've collected {m_StarsCollected} out of 3. Keep being awesome.";
+
+        if (m_StarsCollected < 3)
+        {
+            StartCoroutine(nameof(StarCollectedWait));
+        }
+    }
+
+    private IEnumerator StarCollectedWait()
+    {
+        yield return new WaitForSeconds(0.7f);
+
+        m_Generator.Generate();
+    }
+
+    private void AllStarsCollected()
+    {
+        StartCoroutine(nameof(ChangeScene));
+    }
+
+    private IEnumerator ChangeScene()
+    {
+        yield return new WaitForSeconds(0.6f);
+
+        SceneManager.LoadScene(LastScene);
+    }
+
     private void Init()
     {
         m_RoomTextures = new Texture2D[MapHelpers.ALL_ROOM_NUM];
@@ -248,6 +291,10 @@ public class MapManager : MonoBehaviour
         m_ConnectionImages = new();
         m_ConnectionTextures = new();
         m_RoomToConnection = new();
+
+        StarInventory inv = GameObject.FindGameObjectWithTag("Player").GetComponent<StarInventory>();
+        inv.OnStarCollected.AddListener(StarCollected);
+        inv.OnAllStarsCollected.AddListener(AllStarsCollected);
     }
 
     private void SpawnRoom(RoomData data, int index)
@@ -395,6 +442,37 @@ public class MapManager : MonoBehaviour
         m_Rooms[endObj].SetActive(false);
         m_Rooms[endObj].GetComponent<RoomInfo>().Rotate(rot);
         m_Rooms[endObj].GetComponent<RoomInfo>().index = index;
+
+        StarInventory starInfo = GameObject.FindGameObjectWithTag("Player").GetComponent<StarInventory>();
+        string tag = "";
+        if (!starInfo.rightCollected)
+        {
+            tag = "RightStar";
+            m_StarsCollected = 0;
+        }
+        else if (!starInfo.topCollected)
+        {
+            tag = "TopStar";
+            m_StarsCollected = 1;
+        }
+        else if (!starInfo.leftCollected)
+        {
+            tag = "LeftStar";
+            m_StarsCollected = 2;
+        }
+
+        var stars = m_Rooms[endObj].GetComponentsInChildren<StarAnim>();
+        for (int i = 0; i < stars.Length; ++i)
+        {
+            if (!stars[i].gameObject.transform.parent.gameObject.CompareTag(tag))
+            {
+                DestroyImmediate(stars[i].gameObject.transform.parent.gameObject);
+            }
+            else
+            {
+                stars[i].gameObject.transform.parent.transform.Rotate(new Vector3(0f, rot * -90f, 0f));
+            }
+        }
     }
 
     private List<int> GetAllConnectionsForRoom(int index)
@@ -505,6 +583,7 @@ public class MapManager : MonoBehaviour
 
     private void OnGenerated()
     {
+        StarCollectedText.SetActive(false);
         ClearTextures();
         ClearConnections();
         var map = m_Generator.GetMap();
@@ -532,8 +611,8 @@ public class MapManager : MonoBehaviour
 
         m_Rooms[m_RoomIndexToObjectIndex[startEnd.x]].SetActive(true);
         DrawStart(startEnd.x);
-        UpdateActive(startEnd.x);
         UpdateEnd(startEnd.y);
+        UpdateActive(startEnd.x);
     }
 
     private void Awake()
@@ -542,6 +621,8 @@ public class MapManager : MonoBehaviour
 
         m_Generator = GetComponent<MapGenerator>();
         m_Generator.OnGenerated.AddListener(OnGenerated);
+
+        StarCollectedText.SetActive(false);
     }
 
     private void Start()
