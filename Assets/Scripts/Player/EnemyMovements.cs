@@ -21,6 +21,8 @@ public class EnemyMovements : MonoBehaviour
     public Transform AttackPrefab;
     public bool IsMove = true;
     public Vector2 MovementDirection;
+    public float TimeOfStupid;
+    public float MaxTimeStupid;
 
     private void Start()
     {
@@ -33,14 +35,21 @@ public class EnemyMovements : MonoBehaviour
         if (IsMove)
             EnemyMove();
         EnemyAttack();
+        TimeOfStupid += Time.deltaTime;
+        if (TimeOfStupid > MaxTimeStupid && enemyType == EnemyType.RangeDealer)
+        {
+            TimeOfStupid = 0.0f;
+            IsMove = !IsMove;
+        }
 
     }
 
     void EnemyMove()
     {
-        MovementDirection = Vector3.zero;
+        MovementDirection = Vector2.zero;
         PlayerPosition = GameObject.FindWithTag("Player").transform.position;
         Vector3 direction = PlayerPosition - this.gameObject.transform.transform.localPosition;
+        direction.y = 0;
         if (Vector3.Distance(PlayerPosition, this.gameObject.transform.position) > MeleeDistance && enemyType == EnemyType.MeleeDealer)
         {
             MovementDirection.x = direction.normalized.x * Speed * Time.deltaTime;
@@ -65,6 +74,7 @@ public class EnemyMovements : MonoBehaviour
             {
                 this.transform.GetComponentInChildren<EnemyBody>().isAttacking = true;
                 var go = Instantiate(AttackPrefab, PlayerPosition, this.gameObject.transform.rotation,this.gameObject.transform);
+                go.GetComponent<MeleeAttack>().AttackRadius = 1;
                 
             }
             else if (enemyType == EnemyType.RangeDealer)

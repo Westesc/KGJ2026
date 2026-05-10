@@ -7,7 +7,7 @@ public class HealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health == 0)
+        if (health == 0 && this.transform.tag != "Player")
             Destroy(gameObject);
 
     }
