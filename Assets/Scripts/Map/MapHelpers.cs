@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class MapHelpers : MonoBehaviour
 {
@@ -70,5 +71,45 @@ public class MapHelpers : MonoBehaviour
     public static float Distance2(int a, int b)
     {
         return a > b ? a * a - b * b : b * b - a * a;
+    }
+
+    public static void ClearColor(ref Texture2D tex, Color color)
+    {
+        for (int i = 0; i < tex.width; ++i)
+        {
+            for (int j = 0; j < tex.height; ++j)
+            {
+                tex.SetPixel(i, j, color);
+            }
+        }
+        tex.Apply();
+    }
+
+    public static List<int> GetNonEmptyNeighbours(int index, RoomData[] map)
+    {
+        List<int> ret = new();
+        Vector2Int pos = GetRoomPositionFromMapIndex(index);
+
+        if (pos.x > 0 && !map[index - 1].Empty)
+        {
+            ret.Add(index - 1);
+        }
+
+        if (pos.x < MAP_SIZE.x - 1 && !map[index + 1].Empty)
+        {
+            ret.Add(index + 1);
+        }
+
+        if (pos.y > 0 && !map[index - MAP_SIZE.x].Empty)
+        {
+            ret.Add(index - MAP_SIZE.x);
+        }
+
+        if (pos.y < MAP_SIZE.y - 1 && !map[index + MAP_SIZE.x].Empty)
+        {
+            ret.Add(index + MAP_SIZE.x);
+        }
+
+        return ret;
     }
 }

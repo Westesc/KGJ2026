@@ -5,6 +5,7 @@ public enum DoorType { Left = 0, Top = 1, Right = 2, Bottom = 3 }
 public class RoomInfo : MonoBehaviour
 {
     public int index;
+    public uint rotation = 0;
     public RoomDoor topDoors;
     public RoomDoor bottomDoors;
     public RoomDoor leftDoors;
@@ -13,6 +14,7 @@ public class RoomInfo : MonoBehaviour
     public void Rotate(uint cycles)
     {
         cycles %= 4;
+        rotation += cycles;
         for (uint i = 0; i < cycles; ++i)
         {
             RotateOne();
