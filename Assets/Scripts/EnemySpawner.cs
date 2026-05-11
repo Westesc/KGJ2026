@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using SaintsField.Playa;
 using UnityEngine.Events;
 
 public class EnemySpawner : MonoBehaviour
@@ -18,6 +18,11 @@ public class EnemySpawner : MonoBehaviour
 
     public UnityEvent OnEnemiesDefeated;
 
+    private void Start()
+    {
+        currentEnemies.Clear();
+    }
+
     int GetEnemyVariantIdx()
     {
         return Random.Range(0, enemyVariants.Count);
@@ -28,16 +33,19 @@ public class EnemySpawner : MonoBehaviour
         return new Vector3(Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x), 0.0f, Random.Range(spawnArea.bounds.min.z, spawnArea.bounds.max.z));
     }
 
+    [Button]
     public bool Spawn()
     {
         if (!spawnEnemies || spawned) return false;
+
+        Debug.Log(spawnArea.bounds.min + " " + spawnArea.bounds.max);
 
         currentEnemies = new();
 
         for (int i = 0; i < enemysNum; ++i)
         {
             GameObject enemy = Instantiate(enemyVariants[GetEnemyVariantIdx()], transform, true);
-            enemy.transform.position = GetRandomSpawnPosition() + spawnArea.transform.position;
+            enemy.transform.position = GetRandomSpawnPosition();
             enemy.GetComponent<HealthBar>().OnDeath.AddListener(() => {
                 currentEnemies.Remove(enemy);
             });
