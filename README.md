@@ -16,7 +16,9 @@ Link: https://muppetsg2.itch.io/dog-of-war
 
 ## 🎥 Gameplay
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KrlpQl53lzg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p align="center">
+  <img src=".git_images/gameplay.gif" alt="Dog of War Gameplay" width="560">
+</p>
 
 ## 📖 About
 
@@ -36,8 +38,8 @@ The project was built during **Komiks Game Jam 2k26**, following the theme:
 ## 📸 Screenshots
 
 <p align="center">
-  <img src=".git_images/image1.png" width="45%">
-  <img src=".git_images/image2.png" width="45%">
+  <img src=".git_images/image1.png" alt="Dog of War Screenshot 1" width="45%">
+  <img src=".git_images/image2.png" alt="Dog of War Screenshot 2" width="45%">
 </p>
 
 ## 👥 Team
