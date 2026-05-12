@@ -4,51 +4,46 @@
   <img src=".git_images/banner.png" alt="Dog of War Banner" width="100%">
 </p>
 
-## Short Description
-A dog cursed to endless suffering seeks hope in a wishing star to free himself from his torment.
-
+## What is it?
+**Dog of War** is a game developed on Unity Engine for Komiks Game Jam 2k26 competition.\
 Created in 48h for **Komiks Game Jam 2k26**\
-Theme: *"Per Aspera Ad Astra"*
+Theme: *"Per Aspera Ad Astra"* ("Through hardships/thorns to the stars")
 
-## 🎮 Play the Game (On Itch.io)
+## Overview
+
+**Dog of War** is a short atmospheric rougelike game. You play as a dog trapped in endless suffering, wandering through a hostile world in search of a legendary wishing star — the only thing capable of ending his torment.
+
+## How to play?
 
 Link: https://muppetsg2.itch.io/dog-of-war
 
-## 🎥 Gameplay
+## Gameplay
 
 <p align="center">
   <img src=".git_images/gameplay.gif" alt="Dog of War Gameplay" width="560">
 </p>
 
-## 📖 About
-
-**Dog of War** is a short atmospheric rougelike game created during a 48-hour game jam.
-
-You play as a dog trapped in endless suffering, wandering through a hostile world in search of a legendary wishing star — the only thing capable of ending his torment.
-
-The project was built during **Komiks Game Jam 2k26**, following the theme:
-
-> *Per Aspera Ad Astra*  
-> ("Through hardships to the stars")
-
-## 🛠️ Tech Stack
+## Tech Stack
 
 - Engine: Unity 6000.4.5f1
 
-## 📸 Screenshots
+## Screenshots
 
 <p align="center">
   <img src=".git_images/image1.png" alt="Dog of War Screenshot 1" width="45%">
   <img src=".git_images/image2.png" alt="Dog of War Screenshot 2" width="45%">
 </p>
 
-## 👥 Team
+## Credits
 
-- [Muppetsg2](https://github.com/Muppetsg2), [MAIPA01](https://github.com/MAIPA01), [Westesc](https://github.com/Westesc) — Programming
-- [Darnok7](https://github.com/Darnok7) — Art
-- Music from [Pixabay](https://pixabay.com/)
+| Name | Link | Role |
+|------|--------|--------|
+| Marceli Antosik | https://github.com/Muppetsg2 | Map Generation Programming & Level Design |
+| Patryk Antosik | https://github.com/MAIPA01 |  |
+| Mikołaj Kisiel | https://github.com/Westesc | Enemies Programming |
+| Konrad Karwowski | https://github.com/Darnok7 | Art Lead |
 
-## 📜 License
+## License
 
 ### Code
 
@@ -62,6 +57,6 @@ All visual assets, including graphics, sprites, textures, and illustrations, are
 
 These assets may not be reused, redistributed, modified, or used commercially without explicit permission from the author.
 
-## ❤️ Special Thanks
+## Special Thanks ❤️
 
 Thanks to everyone participating in **Komiks Game Jam 2k26** and everyone who played the game!
