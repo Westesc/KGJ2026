@@ -39,7 +39,7 @@ Link: https://muppetsg2.itch.io/dog-of-war
 | Name | Link | Role |
 |------|--------|--------|
 | Marceli Antosik | https://github.com/Muppetsg2 | Map Generation Programming & Level Design |
-| Patryk Antosik | https://github.com/MAIPA01 |  |
+| Patryk Antosik | https://github.com/MAIPA01 | Player & Level Behaviour Programming |
 | Mikołaj Kisiel | https://github.com/Westesc | Enemies Programming |
 | Konrad Karwowski | https://github.com/Darnok7 | Art Lead |
 
