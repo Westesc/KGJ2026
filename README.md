@@ -1,7 +1,7 @@
 <h1 align="center">Dog of War</h1>
 
 <p align="center">
-  <img src=".git_images/banner.png" alt="Dog of War Banner" width="100%">
+  <img src=".git_images/banner.png" alt="Dog of War Banner" width="500">
 </p>
 
 ## What is it?
