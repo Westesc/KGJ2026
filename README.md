@@ -16,10 +16,7 @@ Link: https://muppetsg2.itch.io/dog-of-war
 
 ## 🎥 Gameplay
 
-<p>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/KrlpQl53lzg?si=V8SL4kxR1X-VBHie" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-  </iframe>
-</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KrlpQl53lzg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## 📖 About
 
